@@ -8,9 +8,8 @@ class CreateResumes < ActiveRecord::Migration[5.1]
       t.string  :last_name_kana  ,null: false
       t.integer :contact_method  ,null: false ,default: 0
       t.string  :phone_number
-      t.integer :user_id         ,null:false
+      t.references :user, index: true ,null:false
       t.timestamps
     end
-    add_index :resumes, [:user_id]
   end
 end

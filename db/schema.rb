@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20171119013154) do
     t.string "last_name_kana", null: false
     t.integer "contact_method", default: 0, null: false
     t.string "phone_number"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_resumes_on_user_id"
