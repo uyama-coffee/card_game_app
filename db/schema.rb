@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119010511) do
+ActiveRecord::Schema.define(version: 20171119013154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20171119010511) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_card_games_on_title", unique: true
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer "status", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_contacts_on_project_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -70,5 +80,7 @@ ActiveRecord::Schema.define(version: 20171119010511) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contacts", "projects"
+  add_foreign_key "contacts", "users"
   add_foreign_key "projects", "shops"
 end
