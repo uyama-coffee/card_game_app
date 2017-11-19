@@ -1,0 +1,2 @@
+class CardGameExperience < ApplicationRecord
+end
