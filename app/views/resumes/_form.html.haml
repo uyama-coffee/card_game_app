@@ -1,0 +1,10 @@
+= form_for @resume do |f|
+  - if @resume.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@resume.errors.count, "error")} prohibited this resume from being saved:"
+      %ul
+        - @resume.errors.full_messages.each do |message|
+          %li= message
+
+  .actions
+    = f.submit 'Save'

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resources :resumes
   resources :card_game_experiences
   resources :contacts
   resources :projects

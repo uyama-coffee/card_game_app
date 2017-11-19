@@ -5,6 +5,7 @@ class CreateCardGameExperiences < ActiveRecord::Migration[5.1]
       t.integer :experience_year, null: false
       t.integer :experience_mounth, null:false
       t.integer :resume_id, null: false
+      t.references :resume ,index: true, null: false
 
       t.timestamps
     end
