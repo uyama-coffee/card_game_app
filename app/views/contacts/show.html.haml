@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Status:
+  = @contact.status
+%p
+  %b User:
+  = @contact.user
+%p
+  %b Project:
+  = @contact.project
+
+= link_to 'Edit', edit_contact_path(@contact)
+\|
+= link_to 'Back', contacts_path
