@@ -15,6 +15,18 @@ ActiveRecord::Schema.define(version: 20171119013154) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "card_game_experiences", force: :cascade do |t|
+    t.integer "experience_year", null: false
+    t.integer "experience_mounth", null: false
+    t.bigint "resume_id", null: false
+    t.bigint "card_game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_game_id", "resume_id"], name: "index_card_game_experiences_on_card_game_id_and_resume_id", unique: true
+    t.index ["card_game_id"], name: "index_card_game_experiences_on_card_game_id"
+    t.index ["resume_id"], name: "index_card_game_experiences_on_resume_id"
+  end
+
   create_table "card_games", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
