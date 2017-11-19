@@ -1,0 +1,10 @@
+= form_for @card_game_experience do |f|
+  - if @card_game_experience.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@card_game_experience.errors.count, "error")} prohibited this card_game_experience from being saved:"
+      %ul
+        - @card_game_experience.errors.full_messages.each do |message|
+          %li= message
+
+  .actions
+    = f.submit 'Save'

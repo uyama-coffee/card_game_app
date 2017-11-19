@@ -1,0 +1,19 @@
+%h1 Listing card_game_experiences
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @card_game_experiences.each do |card_game_experience|
+      %tr
+        %td= link_to 'Show', card_game_experience
+        %td= link_to 'Edit', edit_card_game_experience_path(card_game_experience)
+        %td= link_to 'Destroy', card_game_experience, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Card game experience', new_card_game_experience_path

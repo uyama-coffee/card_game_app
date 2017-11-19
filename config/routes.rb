@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :resumes
+  resources :card_game_experiences
+  resources :contacts
+  resources :projects
+  devise_for :users, path: 'users'
+  devise_for :shops, path: 'shops'
 end
