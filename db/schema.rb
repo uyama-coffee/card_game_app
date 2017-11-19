@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20171119013154) do
   enable_extension "plpgsql"
 
   create_table "card_game_experiences", force: :cascade do |t|
-    t.bigint "card_game_id", null: false
     t.integer "experience_year", null: false
     t.integer "experience_mounth", null: false
     t.bigint "resume_id", null: false
+    t.bigint "card_game_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["card_game_id", "resume_id"], name: "index_card_game_experiences_on_card_game_id_and_resume_id", unique: true

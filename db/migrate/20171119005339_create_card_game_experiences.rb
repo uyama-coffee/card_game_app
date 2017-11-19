@@ -1,7 +1,6 @@
 class CreateCardGameExperiences < ActiveRecord::Migration[5.1]
   def change
     create_table :card_game_experiences do |t|
-      t.integer :card_game_id, null: false
       t.integer :experience_year, null: false
       t.integer :experience_mounth, null:false
       t.references :resume ,index: true, null: false
