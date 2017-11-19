@@ -10,26 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20171119013154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "resumes", force: :cascade do |t|
-    t.string "profile_image", null: false
-    t.string "first_name", null: false
-    t.string "first_name_kana", null: false
-    t.string "last_name", null: false
-    t.string "last_name_kana", null: false
-    t.integer "contact_method", default: 0, null: false
-    t.string "phone_number"
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-=======
   create_table "card_games", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
@@ -55,6 +40,20 @@ ActiveRecord::Schema.define(version: 20171119013154) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shop_id"], name: "index_projects_on_shop_id"
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string "profile_image", null: false
+    t.string "first_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name", null: false
+    t.string "last_name_kana", null: false
+    t.integer "contact_method", default: 0, null: false
+    t.string "phone_number"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_resumes_on_user_id"
   end
 
   create_table "shops", force: :cascade do |t|

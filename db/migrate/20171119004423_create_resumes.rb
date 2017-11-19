@@ -11,5 +11,6 @@ class CreateResumes < ActiveRecord::Migration[5.1]
       t.integer :user_id         ,null:false
       t.timestamps
     end
+    add_index :resumes, [:user_id]
   end
 end
