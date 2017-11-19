@@ -1,0 +1,21 @@
+%h1 Listing mypages
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @mypages.each do |mypage|
+      %tr
+        %td= link_to 'Show', mypage
+        %td= link_to 'Edit', edit_mypage_path(mypage)
+        %td= link_to 'Destroy', mypage, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'マイ履歴書', resumes_path
+= link_to 'アカウント設定', edit_user_registration_path
+= link_to 'ログアウト', destroy_user_session_path
