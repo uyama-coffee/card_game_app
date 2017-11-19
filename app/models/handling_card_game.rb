@@ -1,0 +1,2 @@
+class HandlingCardGame < ApplicationRecord
+end
