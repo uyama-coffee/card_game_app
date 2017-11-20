@@ -1,6 +1,5 @@
 ---
 ja:
-  #全ページ共通
   sitetitle: "サイト名"
   login: "ログイン"
   signin: "新規登録"
@@ -9,9 +8,11 @@ ja:
   password: "パスワード"
   #リンク関連
   links:
-    to_shops_index: "採用ショップの方はこちら"
+    to_shop_index: "採用ショップの方はこちら"
     to_signup: "新規お申込み"
   #検索フォーム関連
+  links:
+    to_shop_index: "採用ショップの方はこちら"
   search:
     region: "地域"
     game: "対応ゲーム"
@@ -23,6 +24,11 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
   date:
     abbr_day_names:
     - 日
@@ -219,3 +225,13 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
+  users:
+    sessions:
+      new:
+        title: ログイン
+    registrations:
+      new:
+        title: 新規登録
+    confirmations:
+      new:
+        resend_confirmation_instructions: "もう一度送る"
