@@ -1,5 +1,16 @@
 ---
 ja:
+  sitetitle: "サイト名"
+  login: "ログイン"
+  signin: "新規登録"
+  mypage: "マイページ"
+  links:
+    to_shop_index: "採用ショップの方はこちら"
+  search:
+    region: "地域"
+    game: "対応ゲーム"
+    button: "検索する"
+
   activerecord:
     errors:
       messages:
