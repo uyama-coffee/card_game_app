@@ -1,1 +1,26 @@
-//bootstrap4 overwrite
+.site{
+  &_header{}
+  &_body{
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+.topPage{
+  &_btn{
+    &-adopt{
+      margin:1rem 0;
+    }
+  }
+}
+.searchForm{
+  &-top{
+  }
+  &_slectBox{
+    padding:0.5rem;
+    >label{
+      margin-bottom:0.1rem;
+    }
+  &_btn{
+    }
+  }
+}

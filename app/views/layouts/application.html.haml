@@ -2,15 +2,23 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
     %title MyPreset
+
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-    %nav.navbar.navbar-expand-md.navbar-light.bg-light.justify-content-between
-      %a.navbar-brand{:href => "#"} さいとめい
-      %nav.navbar.navbar-light.bg-light
-        %form
-          %button.btn.btn-outline-success{:type => "button"} ろぐいん
-          %button.btn.btn-outline-success{:type => "button"} しんきとうろく
+    .site_header
+      %nav.navbar.navbar-expand-md.navbar-light.bg-light.justify-content-between
+        %a.navbar-brand{:href => "#"} サイト名
+        %nav.navbar-light.bg-light
+          -if true
+            %form
+              %button.btn.btn-primary{:type => "button"} ログイン
+              %button.btn.btn-primary{:type => "button"} 新規登録
+          -else
+            %i.fa.fa-user{"aria-hidden" => "true"}
+
   %body
-    = yield
+    .site_body
+      = yield
