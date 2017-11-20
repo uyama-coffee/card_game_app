@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+
   namespace :shop do
     get 'top/index'
   end
 
   root 'top#index'
+
+  resources :mypage, only: [:index]
+
 
   resources :resumes
   resources :card_game_experiences
