@@ -15,6 +15,18 @@ ActiveRecord::Schema.define(version: 20171119013154) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "card_game_experiences", force: :cascade do |t|
+    t.integer "experience_year", null: false
+    t.integer "experience_mounth", null: false
+    t.bigint "resume_id", null: false
+    t.bigint "card_game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_game_id", "resume_id"], name: "index_card_game_experiences_on_card_game_id_and_resume_id", unique: true
+    t.index ["card_game_id"], name: "index_card_game_experiences_on_card_game_id"
+    t.index ["resume_id"], name: "index_card_game_experiences_on_resume_id"
+  end
+
   create_table "card_games", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
@@ -30,6 +42,15 @@ ActiveRecord::Schema.define(version: 20171119013154) do
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_contacts_on_project_id"
     t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
+  create_table "handling_card_games", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "card_game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_game_id"], name: "index_handling_card_games_on_card_game_id"
+    t.index ["project_id"], name: "index_handling_card_games_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -96,5 +117,7 @@ ActiveRecord::Schema.define(version: 20171119013154) do
 
   add_foreign_key "contacts", "projects"
   add_foreign_key "contacts", "users"
+  add_foreign_key "handling_card_games", "card_games"
+  add_foreign_key "handling_card_games", "projects"
   add_foreign_key "projects", "shops"
 end
