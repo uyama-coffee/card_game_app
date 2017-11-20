@@ -10,12 +10,15 @@
     = javascript_include_tag 'application'
     .site_header
       %nav.navbar.navbar-expand-md.navbar-light.bg-light.justify-content-between
-        %a.navbar-brand{:href => "#"} サイト名
+        %a.navbar-brand{:href => "#"}
+          = t('sitetitle')
         %nav.navbar-light.bg-light
           -if true
             %form
-              %button.btn.btn-primary{:type => "button"} ログイン
-              %button.btn.btn-primary{:type => "button"} 新規登録
+              %button.btn.btn-primary{:type => "button"}
+                = t('login')
+              %button.btn.btn-primary{:type => "button"}
+                = t('signin') 
           -else
             %i.fa.fa-user{"aria-hidden" => "true"}
 
