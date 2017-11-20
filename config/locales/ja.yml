@@ -12,6 +12,7 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認
+        current_password: 現在のパスワード
   date:
     abbr_day_names:
     - 日
@@ -215,6 +216,8 @@ ja:
     registrations:
       new:
         title: 新規登録
+      edit:
+        title: アカウント設定
     confirmations:
       new:
-        resend_confirmation_instructions: "もう一度送る"
+        resend_confirmation_instructions: もう一度送る
