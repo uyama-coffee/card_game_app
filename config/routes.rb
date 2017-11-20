@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'top#index'
+
   resources :resumes
   resources :card_game_experiences
   resources :contacts
