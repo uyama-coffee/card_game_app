@@ -1,0 +1,46 @@
+.d-flex.flex-row-reverse.topPage_btn-adopt
+  = link_to t('links.to_shop_index'),shop_top_index_path,class: "btn btn-outline-primary"
+
+.d-flex.align-items-end.justify-content-center
+  .searchForm_slectBox
+    %label
+      =t('search.region')
+    %select.form-control
+      %option  選択してください
+      %option  東京
+      %option  神奈川
+      %option  千葉
+      %option  埼玉
+  .searchForm_slectBox
+    %label
+      =t('search.game')
+    %select.form-control
+      %option  選択してください
+      %option  mtg
+      %option  遊戯王
+      %option  デュエルマスターズ
+      %option  ヴァンガード
+  .searchForm_btn
+    %button.btn.btn-light.searchForm_btn{:type => "button"}
+      %i.fa.fa-search{"aria-hidden" => "true"}
+      =t('search.button')
+
+#p 新着募集
+
+.recruitment
+  .recruitment_frame
+    image
+  .recruitment_frame
+    image
+  .recruitment_frame
+    image
+  .recruitment_frame
+    image
+  .recruitment_frame
+    image
+  .recruitment_frame
+    image
+  .recruitment_frame
+    image
+  .recruitment_frame
+    image
