@@ -1,9 +1,18 @@
 ---
 ja:
+  #全ページ共通
   sitetitle: "サイト名"
   login: "ログイン"
   signin: "新規登録"
-  toShopsIndex: "採用ショップの方はこちら"
+  mypage: "マイページ"
+  #リンク関連
+  links:
+    toShopsIndex: "採用ショップの方はこちら"
+  #検索フォーム関連
+  search:
+    region: "地域"
+    game: "対応ゲーム"
+    button: "検索する"
 
   activerecord:
     errors:

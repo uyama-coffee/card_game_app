@@ -53,11 +53,6 @@ ActiveRecord::Schema.define(version: 20171119020049) do
     t.index ["project_id"], name: "index_handling_card_games_on_project_id"
   end
 
-  create_table "indices", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "projects", force: :cascade do |t|
     t.string "image"
     t.string "title", null: false
@@ -97,12 +92,6 @@ ActiveRecord::Schema.define(version: 20171119020049) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_shops_on_email", unique: true
     t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true
-  end
-
-  create_table "tops", force: :cascade do |t|
-    t.string "index"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

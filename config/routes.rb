@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :shop do
+    get 'top/index'
+  end
+
   root 'top#index'
 
   resources :resumes

@@ -1,10 +1,10 @@
 .d-flex.flex-row-reverse.topPage_btn-adopt
-  = link_to root_path,class: "btn btn-outline-primary"  do
-    = t('toShopsIndex')
+  = link_to t('links.toShopsIndex'),shop_top_index_path,class: "btn btn-outline-primary"
 
 .d-flex.align-items-end.justify-content-center
   .searchForm_slectBox
-    %label 地域
+    %label
+      =t('search.region')
     %select.form-control
       %option  選択してください
       %option  東京
@@ -12,7 +12,8 @@
       %option  千葉
       %option  埼玉
   .searchForm_slectBox
-    %label 対応げーむ
+    %label
+      =t('search.game')
     %select.form-control
       %option  選択してください
       %option  mtg
@@ -22,7 +23,7 @@
   .searchForm_btn
     %button.btn.btn-light.searchForm_btn{:type => "button"}
       %i.fa.fa-search{"aria-hidden" => "true"}
-      検索する
+      =t('search.button')
 
 #p 新着募集
 
