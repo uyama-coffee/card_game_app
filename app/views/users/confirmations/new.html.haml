@@ -10,4 +10,4 @@
         = f.email_field :email, autofocus: true, class:"form-control", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
       .actions
         %br/
-        = f.submit "#{t '.Resend confirmation instructions'}", class: "form-control"
+        = f.submit "#{t '.resend_confirmation_instructions'}", class: "form-control"

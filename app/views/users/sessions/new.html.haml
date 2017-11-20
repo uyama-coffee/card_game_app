@@ -1,6 +1,6 @@
 %div.container
   %div.col-md-6.col-sm-6
-    %h2= t '.Log in'
+    %h2= t '.title'
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
         = f.label :email
@@ -12,4 +12,4 @@
         = f.password_field :password, autocomplete: "off", class:"form-control"
       .actions
         %br/
-        = f.submit "#{t '.Log in'}", class:"form-control"
+        = f.submit "#{t '.title'}", class:"form-control"
