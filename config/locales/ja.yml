@@ -27,6 +27,9 @@ ja:
         title: "募集一覧"
       new:
         title: "新規募集"
+        form_title: "タイトル"
+        form_content: "詳細"
+        form_games: "取扱ゲーム"
       edit:
         title: "募集編集"
 
