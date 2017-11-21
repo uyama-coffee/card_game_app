@@ -11,10 +11,7 @@
   .field
     = f.input :last_name_kana
 
-  %input#radio-id-mail.custom-radio{ name: 'custom-radio', type: 'radio', checked: 'checked' }
-  %label{ for: 'radio-id-mail' } メールアドレス
-  %input#radio-id-phone_number.custom-radio{ name: 'custom-radio', type: 'radio' }
-  %label{ for: 'radio-id-phone_number' } 電話番号
+  = f.input :contact_method, as: :radio_buttons
 
   .field
     = f.input :phone_number
@@ -25,7 +22,6 @@
     = ex_form.input :experience_year
     = ex_form.input :experience_mounth
 
-    
 
   .actions
     = f.submit

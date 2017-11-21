@@ -15,6 +15,7 @@ class ResumesController < ApplicationController
   # GET /resumes/new
   def new
     @resume = Resume.new
+    @resume.card_game_experiences.build
   end
 
   # GET /resumes/1/edit
@@ -25,15 +26,11 @@ class ResumesController < ApplicationController
   # POST /resumes.json
   def create
     @resume = Resume.new(resume_params)
-
-    respond_to do |format|
-      if @resume.save
-        format.html { redirect_to @resume, notice: 'Resume was successfully created.' }
-        format.json { render :show, status: :created, location: @resume }
-      else
-        format.html { render :new }
-        format.json { render json: @resume.errors, status: :unprocessable_entity }
-      end
+    raise
+    if @resume.save
+      redirect_to resumes_path
+    else
+      render :new
     end
   end
 
@@ -69,6 +66,11 @@ class ResumesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resume_params
-      params.fetch(:resume, {})
+      params.require(:resume).permit(
+        :profile_image, :first_name, :first_name_kana, :last_name, :last_name_kana,
+        :contact_method, :phone_number, :user_id, :phone_number,
+        card_game_experiences_attributes: [:card_game_id, :experience_year, :experience_mounth]
+      )
     end
+
 end
