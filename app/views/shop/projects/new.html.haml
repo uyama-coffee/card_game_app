@@ -1,0 +1,21 @@
+%h2
+  = t('.title')
+= form_for @shop_project do |f|
+  - if @shop_project.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@shop_project.errors.count, "error")} prohibited this shop_project from being saved:"
+      %ul
+        - @shop_project.errors.full_messages.each do |message|
+          %li= message
+  .projectForm
+    .projectForm_imageUpload
+      .preview
+      -if true
+        #thumbnail
+          = set_image(f.image,"imageSize","Name")
+    .projectForm_uploadBtn
+      = f.label :image, class: "btn btn-primary " do
+        %i.fa.fa-camera{"aria-hidden" => "true"}
+          新しい写真を登録
+        = f.file_field :image,style: "display:none;"
+        = f.hidden_field :image_cache

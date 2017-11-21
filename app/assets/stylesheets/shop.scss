@@ -1,0 +1,13 @@
+
+.projectForm{
+  width:30rem;
+  background: red;
+  &_imageUpload{
+    max-width:90%;
+    height:auto;
+    text-align: center;
+  }
+  &_uploadBtn{
+
+  }
+}

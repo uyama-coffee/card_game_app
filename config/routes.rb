@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :shop do
     get 'top/index'
+    resources :projects
   end
 
   if Rails.env.development?

@@ -22,6 +22,14 @@ ja:
       index:
         employment_signin_title: "採用ショップの方"
         employment_login_title: "ログインはこちら"
+    projects:
+      index:
+        title: "募集一覧"
+      new:
+        title: "新規募集"
+      edit:
+        title: "募集編集"
+
   activerecord:
     errors:
       messages:
