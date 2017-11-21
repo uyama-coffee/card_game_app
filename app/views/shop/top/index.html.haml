@@ -1,11 +1,13 @@
 
 .loginForm
-  %h2 採用ショップの方
+  %h2
+    =t('.employment_signin_title')
   .loginForm_btn.loginForm_btn-addShop
     = link_to new_shop_registration_path,class: "btn btn-outline-primary" do
       .text
         = t('links.to_signup')
-  %h2 ログインはこちら
+  %h2
+    =t('.employment_login_title')
   .form-group
     %label{:for => "emailAddress"}
       = t('email')
