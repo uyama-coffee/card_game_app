@@ -1,2 +1,21 @@
-%h1 Shop::Top#index
-%p Find me in app/views/shop/top/index.html.haml
+
+.loginForm
+  %h2
+    =t('.employment_signin_title')
+  .loginForm_btn.loginForm_btn-addShop
+    = link_to new_shop_registration_path,class: "btn btn-outline-primary" do
+      .text
+        = t('links.to_signup')
+  %h2
+    =t('.employment_login_title')
+  .form-group
+    %label{:for => "emailAddress"}
+      = t('email')
+    %input#emailAddress.form-control{"aria-describedby" => "emailHelp", :placeholder => "Enter email", :type => "email"}/
+  .form-group
+    %label{:for => "exampleInputPassword1"}
+      = t('password')
+    %input#exampleInputPassword1.form-control{:placeholder => "Password", :type => "password"}/
+  .loginForm_btn
+    %button.btn.btn-primary{:type => "submit"}
+      =t('login')
