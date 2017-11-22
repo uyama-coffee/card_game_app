@@ -224,6 +224,4 @@ ja:
   shops:
     top:
       index:
-        title : 採用ショップの方
-        title2: ログインはこちら
-        log_in: ログイン
+        title : 採用管理トップ

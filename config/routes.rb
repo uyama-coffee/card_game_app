@@ -7,13 +7,8 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
   devise_for :shops, path: 'shops'
-  devise_scope :shop do
-    authenticated :shop do
-      get 'shops/contacts', to: 'shops/contacts#index', as: :shop_contacts
-    end
-    unauthenticated :shop do
-      get 'shops/top', to: 'shops/top#index', as: :shop_top
-    end
+  devise_scope :shops do
+    get 'shops/top', to: 'shops/top#index', as: :shops_top
   end
 
   if Rails.env.development?

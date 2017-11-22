@@ -1,5 +1,4 @@
-class Shops::TopController < Devise::SessionsController
+class Shops::TopController < ApplicationController
   def index
-    @shop = Shop.new
   end
 end

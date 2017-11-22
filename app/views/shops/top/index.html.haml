@@ -1,16 +1,12 @@
 %div.container
   %div.col-md-6.col-sm-6
     %h2= t '.title'
-    = link_to "新規お申込み", class: "btn btn-lg btn-block"
-    %h2= t '.title2'
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .field
-        = f.label :email
-        %br/
-        = f.email_field :email, autofocus: true, class: "form-control"
-      .field
-        = f.label :password
-        %br/
-        = f.password_field :password, autocomplete: "off", class: "form-control"
-      .actions
-        = f.submit "#{t '.log_in'}", class: "form-control"
+    = link_to "募集一覧", '', class: "form-control btn-control"
+    %br/
+    = link_to "応募者一覧", '', class: "form-control btn-control"
+    %br/
+    = link_to "ショップ情報設定", '', class: "form-control btn-control"
+    %br/
+    = link_to "アカウント設定", edit_shop_registration_path, class: "form-control btn-control"
+    %br/
+    = link_to "ログアウト",  destroy_shop_session_path, class: "form-control btn-control"
