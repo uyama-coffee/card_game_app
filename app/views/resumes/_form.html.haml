@@ -18,7 +18,7 @@
 
   = f.simple_fields_for :card_game_experiences do |ex_form|
     .field
-    = ex_form.input :card_game_id, collection: CardGame.all.pluck(:title)
+    = ex_form.collection_select :card_game_id, CardGame.all, :id, :title
     = ex_form.input :experience_year
     = ex_form.input :experience_mounth
 

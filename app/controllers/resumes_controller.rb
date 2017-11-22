@@ -28,7 +28,7 @@ class ResumesController < ApplicationController
   def create
     @resume = current_user.build_resume(resume_params)
     if @resume.save
-      redirect_to resumes_path
+      redirect_to edit_resume_path(@resume)
     else
       render :new
     end
@@ -38,8 +38,11 @@ class ResumesController < ApplicationController
   # PATCH/PUT /resumes/1.json
   def update
     @resume = Resume.find(params[:id])
-    @resume.update(resume_params)
-    redirect_to resumes_path
+    if @resume.update(resume_params)
+      redirect_to edit_resume_path(@resume), notice: 'Resume was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   # DELETE /resumes/1
