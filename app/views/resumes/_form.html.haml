@@ -10,14 +10,14 @@
     = f.input :last_name
   .field
     = f.input :last_name_kana
-
-  = f.input :contact_method, as: :radio_buttons
+  .field
+    = f.input :contact_method, collection: ['email', 'phone'], as: :radio_buttons, item_wrapper_class: "inline"
 
   .field
     = f.input :phone_number
 
-  = f.simple_fields_for :card_game_experiences, @resume.card_game_experiences.build do |ex_form|
-
+  = f.simple_fields_for :card_game_experiences do |ex_form|
+    .field
     = ex_form.input :card_game_id, collection: CardGame.all.pluck(:title)
     = ex_form.input :experience_year
     = ex_form.input :experience_mounth

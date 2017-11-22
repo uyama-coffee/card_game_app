@@ -4,7 +4,5 @@ class Resume < ApplicationRecord
   accepts_nested_attributes_for :card_game_experiences
 
   extend Enumerize
-  enumerize :contact_method, in: [:email, :phone]
-  
-
+  enumerize :contact_method, in: { email: 0, phone: 1 }
 end

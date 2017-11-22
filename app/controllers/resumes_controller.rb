@@ -20,13 +20,13 @@ class ResumesController < ApplicationController
 
   # GET /resumes/1/edit
   def edit
+    @resume = Resume.find(params[:id])
   end
 
   # POST /resumes
   # POST /resumes.json
   def create
-    @resume = Resume.new(resume_params)
-    raise
+    @resume = current_user.build_resume(resume_params)
     if @resume.save
       redirect_to resumes_path
     else
@@ -37,15 +37,9 @@ class ResumesController < ApplicationController
   # PATCH/PUT /resumes/1
   # PATCH/PUT /resumes/1.json
   def update
-    respond_to do |format|
-      if @resume.update(resume_params)
-        format.html { redirect_to @resume, notice: 'Resume was successfully updated.' }
-        format.json { render :show, status: :ok, location: @resume }
-      else
-        format.html { render :edit }
-        format.json { render json: @resume.errors, status: :unprocessable_entity }
-      end
-    end
+    @resume = Resume.find(params[:id])
+    @resume.update(resume_params)
+    redirect_to resumes_path
   end
 
   # DELETE /resumes/1
@@ -69,7 +63,7 @@ class ResumesController < ApplicationController
       params.require(:resume).permit(
         :profile_image, :first_name, :first_name_kana, :last_name, :last_name_kana,
         :contact_method, :phone_number, :user_id, :phone_number,
-        card_game_experiences_attributes: [:card_game_id, :experience_year, :experience_mounth]
+        card_game_experiences_attributes: [:id,:card_game_id, :experience_year, :experience_mounth]
       )
     end
 
