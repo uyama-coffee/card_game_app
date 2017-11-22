@@ -1,0 +1,53 @@
+= form_for @project do |f|
+  - if @project.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@shop_project.errors.count, "error")} prohibited this shop_project from being saved:"
+      %ul
+        - @shop_project.errors.full_messages.each do |message|
+          %li= message
+  .projectForm
+    .projectForm_imageUpload
+      .preview
+      -if true
+        #thumbnail
+          = set_image(@project.image,"imageSize","Name")
+    .projectForm_uploadBtn
+      = f.label :image, class: "btn btn-primary " do
+        %i.fa.fa-camera{"aria-hidden" => "true"}
+          新しい写真を登録
+        = f.file_field :image,style: "display:none;"
+        = f.hidden_field :image_cache
+    .projectForm_inputForm
+      .form-group
+        %label{:for => "title"}
+          = t('.form_title')
+        = f.text_field :title, class: 'form-control projectForm_inputForm-text',id:'title'
+      .form-group
+        %label{:for => "content"}
+          = t('.form_content')
+        = f.text_area :content, class: 'form-control projectForm_inputForm-textarea',id:'content', rows: "5"
+    .projectForm_selectGames
+      /ここはhandling_card_gamesテーブルをfor文で回す形式?
+      /label forとcheckboxにゲームIDを渡す
+      %p
+        = t('.form_games')
+      %label{:for => "gameID1"}
+        = f.check_box :title, class: 'aaa',id:"gameID1"
+        カードゲーム名
+      %label{:for => "gameID2"}
+        = f.check_box :title, class: 'aaa',id:"gameID2"
+        カードゲーム名
+      %label{:for => "gameID3"}
+        = f.check_box :title, class: 'aaa',id:"gameID3"
+        カードゲーム名
+      %label{:for => "gameID4"}
+        = f.check_box :title, class: 'aaa',id:"gameID4"
+        カードゲーム名
+      %label{:for => "gameID5"}
+        = f.check_box :title, class: 'aaa',id:"gameID5"
+        カードゲーム名
+      %label{:for => "gameID6"}
+        = f.check_box :title, class: 'aaa',id:"gameID6"
+        カードゲーム名
+    .projectForm_buttons
+      = f.submit class: 'btn btn-primary'

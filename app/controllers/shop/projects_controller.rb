@@ -4,7 +4,7 @@ class Shop::ProjectsController < ApplicationController
   # GET /shop/projects
   # GET /shop/projects.json
   def index
-    @shop_projects = Shop::Project.all
+    @projects = Project.all
   end
 
   # GET /shop/projects/1
@@ -14,7 +14,7 @@ class Shop::ProjectsController < ApplicationController
 
   # GET /shop/projects/new
   def new
-    @shop_project = Shop::Project.new
+    @project = Project.new
   end
 
   # GET /shop/projects/1/edit
@@ -24,15 +24,12 @@ class Shop::ProjectsController < ApplicationController
   # POST /shop/projects
   # POST /shop/projects.json
   def create
-    @shop_project = Shop::Project.new(shop_project_params)
-
+    @project = Project.new(shop_project_params)
     respond_to do |format|
-      if @shop_project.save
-        format.html { redirect_to @shop_project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @shop_project }
+      if @project.save
+        format.html { redirect_to @project, notice: 'Project was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @shop_project.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +38,12 @@ class Shop::ProjectsController < ApplicationController
   # PATCH/PUT /shop/projects/1.json
   def update
     respond_to do |format|
-      if @shop_project.update(shop_project_params)
-        format.html { redirect_to @shop_project, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @shop_project }
+      if @project.update(shop_project_params)
+        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
-        format.json { render json: @shop_project.errors, status: :unprocessable_entity }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,7 +51,7 @@ class Shop::ProjectsController < ApplicationController
   # DELETE /shop/projects/1
   # DELETE /shop/projects/1.json
   def destroy
-    @shop_project.destroy
+    @project.destroy
     respond_to do |format|
       format.html { redirect_to shop_projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
@@ -64,11 +61,11 @@ class Shop::ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shop_project
-      @shop_project = Shop::Project.find(params[:id])
+      @project = Project.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shop_project_params
-      params.fetch(:shop_project, {})
+      params.require(:project).permit(:title,:content,:shop_id,:image,:image_cache, :remove_image)
     end
 end
