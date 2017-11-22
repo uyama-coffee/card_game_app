@@ -1,5 +1,27 @@
 ---
 ja:
+  #全画面共通
+  sitetitle: "サイト名"
+  login: "ログイン"
+  signin: "新規登録"
+  mypage: "マイページ"
+  email: "メールアドレス"
+  password: "パスワード"
+  #リンク関連
+  links:
+    to_shop_index: "採用ショップの方はこちら"
+    to_signup: "新規お申込み"
+  #検索フォーム関連
+  search:
+    region: "地域"
+    game: "対応ゲーム"
+    button: "検索する"
+  #Shop関連
+  shop:
+    top:
+      index:
+        employment_signin_title: "採用ショップの方"
+        employment_login_title: "ログインはこちら"
   activerecord:
     errors:
       messages:
@@ -218,6 +240,8 @@ ja:
         title: 新規登録
       edit:
         title: アカウント設定
+        leave_blank_if_you_don't_want_to_change_it: 変更しない場合は空白のまま
+        we_need_your_current_password_to_confirm_your_changes: 変更する場合は現在のパスワードを入力
     confirmations:
       new:
         resend_confirmation_instructions: もう一度送る
