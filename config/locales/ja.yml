@@ -221,3 +221,9 @@ ja:
     confirmations:
       new:
         resend_confirmation_instructions: もう一度送る
+  shops:
+    top:
+      index:
+        title : 採用ショップの方
+        title2: ログインはこちら
+        log_in: ログイン

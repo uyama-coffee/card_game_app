@@ -1,0 +1,16 @@
+%div.container
+  %div.col-md-6.col-sm-6
+    %h2= t '.title'
+    = link_to "新規お申込み", class: "btn btn-lg btn-block"
+    %h2= t '.title2'
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, class: "form-control"
+      .field
+        = f.label :password
+        %br/
+        = f.password_field :password, autocomplete: "off", class: "form-control"
+      .actions
+        = f.submit "#{t '.log_in'}", class: "form-control"
