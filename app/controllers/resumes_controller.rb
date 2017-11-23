@@ -1,5 +1,6 @@
 class ResumesController < ApplicationController
-  before_action :set_resume, only: [:show, :edit, :update, :destroy]
+  before_action :set_resume, only: [:edit, :update, :destroy]
+  before_action :set_new, only: [:new]
 
   # GET /resumes
   # GET /resumes.json
@@ -59,6 +60,12 @@ class ResumesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_resume
       @resume = Resume.find(params[:id])
+    end
+
+    def set_new
+      if Resume.exists?
+        redirect_to resumes_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

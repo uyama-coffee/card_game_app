@@ -6,4 +6,8 @@ class User < ApplicationRecord
          :confirmable
 
   has_one :resume, dependent: :destroy
+
+  def resume
+    @resume = Resume.find(params[:id])
+  end
 end
