@@ -1,19 +1,7 @@
-= form_for @contact do |f|
-  - if @contact.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@contact.errors.count, "error")} prohibited this contact from being saved:"
-      %ul
-        - @contact.errors.full_messages.each do |message|
-          %li= message
-
-  .field
-    = f.label :status
-    = f.number_field :status
-  .field
-    = f.label :user
-    = f.text_field :user
-  .field
-    = f.label :project
-    = f.text_field :project
-  .actions
-    = f.submit 'Save'
+- if  User.find(1).already_contacted?(project)
+  = button_to project_contact_path(project,project.contacts),class:" btn btn-danger" ,method: :delete do
+    %i.fa.fa-ban{"aria-hidden" => "true"}
+    応募を取り消す
+- else
+  = form_for [project,contact] do |f|
+    = f.submit class: 'btn btn-primary'

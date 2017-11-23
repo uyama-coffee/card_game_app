@@ -1,17 +1,27 @@
 %p#notice= notice
+.recruitmentDetail
+  .recruitmentDetail_title
+    = @project.title
+  .recruitmentDetail_shopName
+    ショップ名
+  .recruitmentDetail_image
+    ショップ画像
+  .recruitmentDetail_content
+    = @project.content
+  .recruitmentDetail_entryBtn
+    = render partial: '/contacts/form' , locals: {project: @project, contact: @contact}
+  .recruitmentDetail_shopInfo
+    .shopInfo_name
+      ショップ名
+    .shopInfo_address
+      ショップ住所
+    .shopInfo_phone
+      ショップ電話番号
+    .shopInfo_map
+      地図
 
-%p
-  %b Image:
-  = @project.image
-%p
-  %b Title:
-  = @project.title
-%p
-  %b Content:
-  = @project.content
-%p
-  %b Shop:
-  = @project.shop
+
+
 
 = link_to 'Edit', edit_project_path(@project)
 \|
