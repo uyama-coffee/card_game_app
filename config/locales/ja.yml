@@ -249,3 +249,6 @@ ja:
     top:
       index:
         title : 採用管理トップ
+    contacts:
+      index:
+        title: 応募一覧

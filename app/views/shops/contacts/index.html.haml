@@ -1,0 +1,15 @@
+%div.container
+  %h2= t '.title'
+  - @contacts.count.times do |i|
+    森田啓太
+    %br/
+    ポケモン
+    = @resume.first_name + @resume.last_name
+    - @card_games_experience.count.times do |j|
+      = @card_games_experience.card_games.title
+    %div.position
+      %select.form-control
+        %option  未対応
+        %option  対応中
+        %option  採用済
+        %option  未済用
