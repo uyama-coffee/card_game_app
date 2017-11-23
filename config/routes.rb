@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
   devise_for :shops, path: 'shops'
-  devise_scope :shops do
-    get 'shops/top', to: 'shops/top#index', as: :shops_top
+  namespace :shops do
+    get 'top/index'
   end
   resources :mypage, only: [:index]
   resources :resumes
