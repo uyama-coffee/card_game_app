@@ -32,7 +32,10 @@ end
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
-
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -55,3 +58,4 @@ gem "carrierwave"
 gem "font-awesome-rails"
 gem 'faker'
 gem 'carrierwave'
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'

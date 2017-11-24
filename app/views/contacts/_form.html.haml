@@ -2,6 +2,16 @@
   = button_to project_contact_path(project,project.contacts),class:" btn btn-danger" ,method: :delete do
     %i.fa.fa-ban{"aria-hidden" => "true"}
     応募を取り消す
+  %button.btn.btn-info.disabled
+    %i.fa.fa-check{"aria-hidden" => "true"}
+    応募済み
 - else
   = form_for [project,contact] do |f|
-    = f.submit class: 'btn btn-primary'
+    = f.submit class: 'btn btn-primary' ,data:  { confirm: '応募しました。<br>ショップから連絡が行きますので、お待ち下さい',
+                                                       "commit" => "確認しました",
+                                                       }, title: "ご応募ありがとうございます"
+:javascript
+  dataConfirmModal.setDefaults({
+    commitClass: 'btn-primary',
+    cancel: ''
+  });

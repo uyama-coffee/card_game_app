@@ -24,7 +24,6 @@ class ContactsController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    binding.pry
     @contact = Contact.new(
       project_id: params[:project_id],
       #user_id: current_user.id
@@ -33,6 +32,7 @@ class ContactsController < ApplicationController
       status:0
     )
     @contact.save
+    redirect_to root_path
   end
 
   # PATCH/PUT /contacts/1
