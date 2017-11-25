@@ -1,12 +1,12 @@
 %div.container
   %div.col-md-6.col-sm-6
     %h2= t '.title'
-    = link_to "募集一覧", '', class: "form-control btn-control"
+    = link_to "#{t '.wanted_list'}", '', class: "form-control btn-control"
     %br/
-    = link_to "応募者一覧", '', class: "form-control btn-control"
+    = link_to "#{t '.applicants_list'}", '', class: "form-control btn-control"
     %br/
-    = link_to "ショップ情報設定", '', class: "form-control btn-control"
+    = link_to "#{t '.shop_information_setting'}", '', class: "form-control btn-control"
     %br/
-    = link_to "アカウント設定", edit_shop_registration_path, class: "form-control btn-control"
+    = link_to "#{t '.account_setting'}", edit_shop_registration_path, class: "form-control btn-control"
     %br/
-    = link_to "ログアウト",  destroy_shop_session_path, method: :delete, class: "form-control btn-control"
+    = link_to "#{t '.logout'}",  destroy_shop_session_path, method: :delete, class: "form-control btn-control"

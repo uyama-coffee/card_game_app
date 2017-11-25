@@ -248,4 +248,9 @@ ja:
   shops:
     top:
       index:
-        title : 採用管理トップ
+        title: 採用管理トップ
+        wanted_list: 募集一覧
+        applicants_list: 応募者一覧
+        shop_information_setting: ショップ情報設定
+        account_setting: アカウント設定
+        logout: ログアウト
