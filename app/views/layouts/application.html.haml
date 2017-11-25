@@ -8,6 +8,10 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+    %script{:src => "//maps.google.com/maps/api/js?v=3.23&key=AIzaSyDS1jAYuwHzIEijBMpXSHK6PSkf8sWCxrc"}
+    %script{:src => "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
+    %script{:src => "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js",:type => "text/javascript"}
+
     .site_header
       %nav.navbar.navbar-expand-md.navbar-light.bg-light.justify-content-between
         %a.navbar-brand{:href => "#"}

@@ -7,9 +7,14 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  # GET /projects/1
-  # GET /projects/1.json
   def show
+    #MAP表示機能　必要な値を渡す。
+    @hash = Gmaps4rails.build_markers(@project.shop_info) do |place, marker|
+      marker.lat place.latitude
+      marker.lng place.longitude
+      marker.infowindow place.name
+    end
+    #応募機能 インスタンス作成
     @contact = Contact.new()
   end
 

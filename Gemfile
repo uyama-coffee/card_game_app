@@ -59,3 +59,7 @@ gem "font-awesome-rails"
 gem 'faker'
 gem 'carrierwave'
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
+
+#GoogleMap関連
+gem 'gmaps4rails'
+gem "geocoder"

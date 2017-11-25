@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171125102314) do
+=======
+ActiveRecord::Schema.define(version: 20171125145255) do
+>>>>>>> #35 Placeモデルの追加とMAP表示機能の実装
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +55,23 @@ ActiveRecord::Schema.define(version: 20171125102314) do
     t.datetime "updated_at", null: false
     t.index ["card_game_id"], name: "index_handling_card_games_on_card_game_id"
     t.index ["project_id"], name: "index_handling_card_games_on_project_id"
+  end
+
+  create_table "indices", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_places_on_shop_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -94,6 +115,12 @@ ActiveRecord::Schema.define(version: 20171125102314) do
     t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true
   end
 
+  create_table "tops", force: :cascade do |t|
+    t.string "index"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -119,5 +146,6 @@ ActiveRecord::Schema.define(version: 20171125102314) do
   add_foreign_key "contacts", "users"
   add_foreign_key "handling_card_games", "card_games"
   add_foreign_key "handling_card_games", "projects"
+  add_foreign_key "places", "shops"
   add_foreign_key "projects", "shops"
 end

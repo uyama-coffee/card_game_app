@@ -107,8 +107,10 @@ GEM
     ffi (1.9.18)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
+    geocoder (1.4.4)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -301,6 +303,8 @@ DEPENDENCIES
   enumerize
   faker
   font-awesome-rails
+  geocoder
+  gmaps4rails
   haml-rails (~> 1.0)
   jbuilder (~> 2.5)
   jquery-rails

@@ -3,7 +3,7 @@
   .recruitmentDetail_title
     = @project.title
   .recruitmentDetail_shopName
-    ショップ名
+    = @project.shop_info.name
   .recruitmentDetail_image
     ショップ画像
   .recruitmentDetail_content
@@ -12,13 +12,13 @@
     = render partial: '/contacts/form' , locals: {project: @project, contact: @contact}
   .recruitmentDetail_shopInfo
     .shopInfo_name
-      ショップ名
+      = @project.shop_info.name
     .shopInfo_address
-      ショップ住所
+      = @project.shop_info.address
     .shopInfo_phone
       ショップ電話番号
-    .shopInfo_map
-      地図
+    #map.shopInfo_map
+
 
 
 
@@ -26,3 +26,12 @@
 = link_to 'Edit', edit_project_path(@project)
 \|
 = link_to 'Back', projects_path
+
+:javascript
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(#{raw @hash.to_json});
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(16);
+  });
