@@ -5,9 +5,16 @@ a.btn-control{
   }
 }
 
-.position{
-  display: inline-block;
-  width: 20%;
-  margin-left: 100px;
-  margin-bottom: 20px;
+.wrapper{
+  display:table;
+}
+
+.wrapper div{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.status{
+  margin-left: 40px;
+  width: 30%;
 }

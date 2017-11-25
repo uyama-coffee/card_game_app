@@ -23,7 +23,6 @@ end
                  )
 end
 
-1.times do |n|
   Resume.create!(
     profile_image: "",
     first_name: Faker::Name.first_name,
@@ -34,4 +33,16 @@ end
     phone_number: Faker::PhoneNumber,
     user_id: 2
   )
+
+5.times do |n|
+CardGame.create!(
+  title:"あいうえお#{n}"
+)
 end
+
+CardGameExperience.create!(
+  card_game_id: 1,
+  experience_year:3,
+  experience_month:4,
+  resume_id:6
+)
