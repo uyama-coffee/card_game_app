@@ -1,17 +1,24 @@
+/　Userをcurrentuserに修正すること
 - if  User.find(1).already_contacted?(project)
+  /  取り消す機能がいま存在しないため、不要になるまでは入れておく
   = button_to project_contact_path(project,project.contacts),class:" btn btn-danger" ,method: :delete do
     %i.fa.fa-ban{"aria-hidden" => "true"}
     応募を取り消す
+  /　実際は下記のボタンを残すこと
   %button.btn.btn-info.disabled
     %i.fa.fa-check{"aria-hidden" => "true"}
-    応募済み
+    = t('.applied')
 - else
   = form_for [project,contact] do |f|
-    = f.submit class: 'btn btn-primary' ,data:  { confirm: '応募しました。<br>ショップから連絡が行きますので、お待ち下さい',
-                                                       "commit" => "確認しました",
-                                                       }, title: "ご応募ありがとうございます"
-:javascript
-  dataConfirmModal.setDefaults({
-    commitClass: 'btn-primary',
-    cancel: ''
-  });
+    = f.submit class: 'btn btn-primary','data-toggle': "modal", 'data-target': "#apply"
+
+#apply.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content.contactModal
+      .modal-header
+        %h5#exampleModalLabel.modal-title
+          = t('.modal_title')
+      .modal-body
+        = t('.modal_content')
+      .modal-footer
+        = link_to t('.confirmed'),root_path,class: "button btn btn-primary"

@@ -32,7 +32,6 @@ class ContactsController < ApplicationController
       status:0
     )
     @contact.save
-    redirect_to root_path
   end
 
   # PATCH/PUT /contacts/1

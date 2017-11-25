@@ -9,8 +9,11 @@ class User < ApplicationRecord
   def resume?
     self.resume || false
   end
+  #user.contact_projectsで応募している案件を引っ張る
+  has_many :contact_projects, through: :contacts, source: :project
   #応募してるかどうか判定するメソッド
   def already_contacted?(project)
-    self.contacts.exists?(project_id: project.id)
+    contacts.exists?(project_id: project.id)
   end
+
 end

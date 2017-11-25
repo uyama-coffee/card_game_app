@@ -33,6 +33,16 @@ ja:
         form_title: タイトル
         form_content: 詳細
         form_games: 取扱ゲーム
+  #Contacts関連
+  contacts:
+    form:
+      applied: 応募済み
+      modal_title: ご応募ありがとうございます。
+      modal_content: |
+        応募しました。
+        ショップから連絡が行きますので、しばらくお待ち下さい。
+      confirmed: 確認しました        
+
   activerecord:
     errors:
       messages:
@@ -188,6 +198,8 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+      contact:
+            create: 応募する
   number:
     currency:
       format:

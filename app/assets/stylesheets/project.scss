@@ -29,3 +29,14 @@
     min-height: 10rem;
   }
 }
+.contactModal{
+  .modal-body{
+    text-align: left;
+    white-space: pre-wrap;
+  }
+  .modal-footer{
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
