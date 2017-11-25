@@ -23,7 +23,7 @@ end
                  )
 end
 
-2.times do |n|
+1.times do |n|
   Resume.create!(
     profile_image: "",
     first_name: Faker::Name.first_name,
@@ -32,6 +32,6 @@ end
     last_name_kana: "",
     contact_method: 1,
     phone_number: Faker::PhoneNumber,
-    user_id: 1
+    user_id: 2
   )
 end
