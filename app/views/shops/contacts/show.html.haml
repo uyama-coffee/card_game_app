@@ -1,0 +1,29 @@
+%div.container
+  %h2= t '.title'
+  %div.field
+    = t '.name'
+    = ':' + @resume.first_name + @resume.last_name
+    %br/
+  %div.field
+    = t '.phonetic'
+    = ':' + @resume.first_name_kana + @resume.last_name_kana
+    %br/
+  %div.field
+    = t '.phone_number'
+    = ':' + @resume.phone_number
+    %br/
+  %div.field
+    = t '.card_game_experience'
+    %br/
+    - @resume.card_game_experiences.each do |cge|
+      %div.space
+        = t '.card_game_name'
+        = ':' + cge.card_game.title
+        %br/
+        = t '.card_game_experiences'
+        = ':' + cge.experience_year.to_s + '年' + cge.experience_month.to_s + '月'
+        %br/
+  - if @resume.contact_method == 1
+    = link_to "#{t '.contact_mail'}", '', class: "btn btn-info"
+  - else
+    = link_to "#{t '.contact_phone'}", '', class: "btn btn-info"
