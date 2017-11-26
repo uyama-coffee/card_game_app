@@ -1,6 +1,6 @@
 class ResumesController < ApplicationController
   before_action :set_resume, only: [:edit, :update, :destroy]
-  before_action :set_new, only: [:new]
+  before_action :set_new, only: [:new, :create]
 
   # GET /resumes
   # GET /resumes.json
@@ -63,9 +63,7 @@ class ResumesController < ApplicationController
     end
 
     def set_new
-      if Resume.exists?
-        redirect_to resumes_url
-      end
+      redirect_to edit_resume_path(current_user.resume) if Resume.exists?(user_id: current_user.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

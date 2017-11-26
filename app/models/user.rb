@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_one :resume, dependent: :destroy
 
-  def resume
-    @resume = Resume.find(params[:id])
+  def resume?
+    self.resume || false
   end
 end
