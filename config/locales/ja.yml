@@ -1,27 +1,48 @@
 ---
 ja:
   #全画面共通
-  sitetitle: "サイト名"
-  login: "ログイン"
-  signin: "新規登録"
-  mypage: "マイページ"
-  email: "メールアドレス"
-  password: "パスワード"
+  sitetitle: サイト名
+  login: ログイン
+  signin: 新規登録
+  mypage: マイページ
+  email: メールアドレス
+  password: パスワード
   #リンク関連
   links:
-    to_shop_index: "採用ショップの方はこちら"
-    to_signup: "新規お申込み"
+    to_shop_index: 採用ショップの方はこちら
+    to_signup: 新規お申込み
   #検索フォーム関連
   search:
-    region: "地域"
-    game: "対応ゲーム"
-    button: "検索する"
+    region: 地域
+    game: 対応ゲーム
+    button: 検索する
+    select_default: 選択してください
   #Shop関連
   shop:
     top:
       index:
-        employment_signin_title: "採用ショップの方"
-        employment_login_title: "ログインはこちら"
+        employment_signin_title: 採用ショップの方
+        employment_login_title: ログインはこちら
+    projects:
+      index:
+        title: 募集一覧
+      new:
+        title: 新規募集
+      edit:
+        title: 募集編集
+      form:
+        form_title: タイトル
+        form_content: 詳細
+        form_games: 取扱ゲーム
+  #Contacts関連
+  contacts:
+    form:
+      applied: 応募済み
+      modal_title: ご応募ありがとうございます。
+      modal_content: |
+        応募しました。
+        ショップから連絡が行きますので、しばらくお待ち下さい。
+      confirmed: 確認しました
   activerecord:
     errors:
       messages:
@@ -29,12 +50,16 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+
     attributes:
       user:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認
         current_password: 現在のパスワード
+      project:
+        title: タイトル
+        content: 詳細
   date:
     abbr_day_names:
     - 日
@@ -173,6 +198,8 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+      contact:
+            create: 応募する
   number:
     currency:
       format:
