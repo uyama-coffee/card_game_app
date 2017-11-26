@@ -1,5 +1,5 @@
 class Shops::ContactsController < ApplicationController
   def index
-    @contacts = Contact.where(project_id: current_shop.projects.pluck(:id))
+    @contacts= current_shop.contacts
   end
 end
