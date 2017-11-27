@@ -4,3 +4,17 @@ a.btn-control{
     text-decoration: none;
   }
 }
+
+.wrapper{
+  display:table;
+}
+
+.wrapper div{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.status{
+  margin-left: 40px;
+  width: 30%;
+}

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :shops, path: 'shops'
   namespace :shops do
     get 'top/index'
+    get 'contacts/index'
   end
   resources :mypage, only: [:index]
   resources :resumes

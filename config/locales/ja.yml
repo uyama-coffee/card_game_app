@@ -263,6 +263,10 @@ ja:
   shops:
     top:
       index:
+        title : 採用管理トップ
+    contacts:
+      index:
+        title: 応募一覧
         title: 採用管理トップ
         wanted_list: 募集一覧
         applicants_list: 応募者一覧
