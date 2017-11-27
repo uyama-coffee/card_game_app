@@ -26,6 +26,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-rails'
 end
 
 group :development do
@@ -49,8 +50,8 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-#アイコンの追加
+gem 'simple_form'
+gem "carrierwave"
 gem "font-awesome-rails"
 # アップロード用
 gem 'carrierwave'
