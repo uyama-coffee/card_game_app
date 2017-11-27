@@ -1,0 +1,31 @@
+
+.projectForm{
+  width:30rem;
+  padding: 1rem;
+  margin:auto;
+  background: #f8f9fa;
+  &_imageUpload{
+    max-width:90%;
+    height:auto;
+    text-align: center;
+    margin:auto;
+  }
+  &_uploadBtn{
+    text-align: center;
+  }
+  &_inputForm{
+    &-text{}
+    &-textarea{}
+  }
+  &_selectGames{
+    >p{margin-bottom:0.5rem;}
+  }
+  &_buttons{
+    margin-top:1rem;
+    text-align: center;
+    .btn{
+      width:90%;
+    }
+  }
+
+}

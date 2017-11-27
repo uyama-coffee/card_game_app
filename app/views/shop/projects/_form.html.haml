@@ -1,0 +1,33 @@
+= form_for @shop_project, url:shop_projects_path do |f|
+  - if @shop_project.errors.any?
+    #error_explanation
+      %ul
+        - @shop_project.errors.full_messages.each do |message|
+          %li= message
+  .projectForm
+    .projectForm_imageUpload
+      .preview
+        = set_image(@shop_project.image)
+    .projectForm_uploadBtn
+      = f.label :image, class: "btn btn-primary " do
+        %i.fa.fa-camera{"aria-hidden" => "true"}
+          新しい写真を登録
+        = f.file_field :image,style: "display:none;"
+        = f.hidden_field :image_cache
+    .projectForm_inputForm
+      .form-group
+        %label{:for => "title"}
+          = t('.form_title')
+        = f.text_field :title, class: 'form-control projectForm_inputForm-text',id:'title'
+      .form-group
+        %label{:for => "content"}
+          = t('.form_content')
+        = f.text_area :content, class: 'form-control projectForm_inputForm-textarea',id:'content', rows: "5"
+    .projectForm_selectGames
+      /ここはhandling_card_gamesテーブルをfor文で回す形式?
+      /label forとcheckboxにゲームIDを渡す
+      %p
+        = t('.form_games')
+
+    .projectForm_buttons
+      = f.submit class: 'btn btn-primary'
