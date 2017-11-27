@@ -1,5 +1,6 @@
 class ResumesController < ApplicationController
-  before_action :set_resume, only: [:show, :edit, :update, :destroy]
+  before_action :set_resume, only: [:edit, :update, :destroy]
+  before_action :set_new, only: [:new, :create]
 
   # GET /resumes
   # GET /resumes.json
@@ -15,39 +16,33 @@ class ResumesController < ApplicationController
   # GET /resumes/new
   def new
     @resume = Resume.new
+    @resume.card_game_experiences.build
   end
 
   # GET /resumes/1/edit
   def edit
+    @resume = Resume.find(params[:id])
   end
 
   # POST /resumes
   # POST /resumes.json
   def create
-    @resume = Resume.new(resume_params)
-
-    respond_to do |format|
-      if @resume.save
-        format.html { redirect_to @resume, notice: 'Resume was successfully created.' }
-        format.json { render :show, status: :created, location: @resume }
-      else
-        format.html { render :new }
-        format.json { render json: @resume.errors, status: :unprocessable_entity }
-      end
+    @resume = current_user.build_resume(resume_params)
+    if @resume.save
+      redirect_to edit_resume_path(@resume)
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /resumes/1
   # PATCH/PUT /resumes/1.json
   def update
-    respond_to do |format|
-      if @resume.update(resume_params)
-        format.html { redirect_to @resume, notice: 'Resume was successfully updated.' }
-        format.json { render :show, status: :ok, location: @resume }
-      else
-        format.html { render :edit }
-        format.json { render json: @resume.errors, status: :unprocessable_entity }
-      end
+    @resume = Resume.find(params[:id])
+    if @resume.update(resume_params)
+      redirect_to edit_resume_path(@resume), notice: 'Resume was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -67,8 +62,17 @@ class ResumesController < ApplicationController
       @resume = Resume.find(params[:id])
     end
 
+    def set_new
+      redirect_to edit_resume_path(current_user.resume) if Resume.exists?(user_id: current_user.id)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def resume_params
-      params.fetch(:resume, {})
+      params.require(:resume).permit(
+        :profile_image, :first_name, :first_name_kana, :last_name, :last_name_kana,
+        :contact_method, :phone_number, :user_id, :phone_number,
+        card_game_experiences_attributes: [:id,:card_game_id, :experience_year, :experience_mounth]
+      )
     end
+
 end

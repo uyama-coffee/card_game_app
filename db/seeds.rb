@@ -1,3 +1,4 @@
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -46,3 +47,10 @@ CardGameExperience.create!(
   experience_month:4,
   resume_id:6
 )
+
+card_list = %w(mtg 遊戯王 デュエルマスターズ ヴァイスシュヴァルツ ヴァンガード  バディファイト ウィクロス Z/X ポケモン)
+
+card_list.each do |title|
+  CardGame.create(title: title)
+end
+
