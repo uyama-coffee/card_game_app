@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :shops do
     get 'top/index'
     get 'contacts/index'
+    get 'contacts/show'
   end
   resources :mypage, only: [:index]
   resources :resumes
