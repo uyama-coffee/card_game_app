@@ -42,3 +42,6 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+#アップロードされた画像を無視
+/public/uploads/

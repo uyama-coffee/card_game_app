@@ -26,6 +26,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-rails'
 end
 
 group :development do
@@ -42,12 +43,15 @@ group :development do
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry'
+  gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'pry-stack_explorer'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-#アイコンの追加
+gem 'simple_form'
+gem "carrierwave"
 gem "font-awesome-rails"
-
 gem 'faker'
+gem 'carrierwave'
