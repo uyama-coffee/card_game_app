@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20171125102314) do
-=======
 ActiveRecord::Schema.define(version: 20171125145255) do
->>>>>>> #35 Placeモデルの追加とMAP表示機能の実装
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,11 +51,6 @@ ActiveRecord::Schema.define(version: 20171125145255) do
     t.datetime "updated_at", null: false
     t.index ["card_game_id"], name: "index_handling_card_games_on_card_game_id"
     t.index ["project_id"], name: "index_handling_card_games_on_project_id"
-  end
-
-  create_table "indices", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "places", force: :cascade do |t|
@@ -113,12 +104,6 @@ ActiveRecord::Schema.define(version: 20171125145255) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_shops_on_email", unique: true
     t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true
-  end
-
-  create_table "tops", force: :cascade do |t|
-    t.string "index"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
