@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
       marker.infowindow place.name
     end
     #応募機能 インスタンス作成
-    @contact = Contact.new()
+    @contact = Contact.new
   end
 
   # GET /projects/new
