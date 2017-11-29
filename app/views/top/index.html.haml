@@ -3,11 +3,11 @@
   = link_to t('links.to_shop_index'),shop_top_index_path,class: "btn btn-outline-primary"
 
 .d-flex.align-items-end.justify-content-center.searchForm
-  = search_form_for @search do |f|
+  = search_form_for @search,url: root_path do |f|
     .searchForm_slectBox
       %label
         =t('search.region')
-      = f.select :shop_id_eq, Prefecture.all.map{|pr| [pr.name]}, {prompt:t('search.select_default')}, { autofocus: 'true', class: 'form-control'}
+      = f.select :shop_info_address_cont, Prefecture.all.map{|pr| [pr.name]}, {prompt:t('search.select_default')}, { autofocus: 'true', class: 'form-control'}
     .searchForm_slectBox
       %label
         =t('search.game')
