@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119020049) do
+ActiveRecord::Schema.define(version: 20171125102314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "card_game_experiences", force: :cascade do |t|
     t.integer "experience_year", null: false
-    t.integer "experience_mounth", null: false
+    t.integer "experience_month", null: false
     t.bigint "resume_id", null: false
     t.bigint "card_game_id", null: false
     t.datetime "created_at", null: false

@@ -10,17 +10,16 @@
     = javascript_include_tag 'application'
     .site_header
       %nav.navbar.navbar-expand-md.navbar-light.bg-light.justify-content-between
-        %a.navbar-brand{:href => "#"}
-          = t('sitetitle')
+        = link_to t('sitetitle'), root_path, class: "navbar-brand"
         %nav.navbar-light.bg-light
           -if user_signed_in?
-            = link_to root_path,class: "btn btn-outline-primary" do
+            = link_to root_path, class: "btn btn-outline-primary" do
               %i.fa.fa-user{"aria-hidden" => "true"}
               =t('mypage')
           -else
             %form
-              = link_to t('login'),shop_top_index_path,class: "btn btn-outline-primary"
-              %button.btn.btn-primary{:type => "button"}
+              = link_to t('login'), shop_top_index_path, class: "btn btn-outline-primary"
+              %button.btn.btn-primary{type: "button"}
                 = t('signin')
 
   %body

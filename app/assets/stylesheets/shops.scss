@@ -1,0 +1,29 @@
+a.btn-control{
+  text-align: center;
+  &:hover, &:focus{
+    text-decoration: none;
+  }
+}
+
+.wrapper{
+  display:table;
+}
+
+.wrapper div{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.status{
+  margin-left: 40px;
+  width: 30%;
+}
+
+.space{
+  margin-left: 10px;
+}
+
+.field{
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}

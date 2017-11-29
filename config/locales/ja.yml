@@ -272,3 +272,25 @@ ja:
     confirmations:
       new:
         resend_confirmation_instructions: もう一度送る
+  shops:
+    top:
+      index:
+        title : 採用管理トップ
+    contacts:
+      index:
+        title: 応募一覧
+        wanted_list: 募集一覧
+        applicants_list: 応募者一覧
+        shop_information_setting: ショップ情報設定
+        account_setting: アカウント設定
+        logout: ログアウト
+      show:
+        title: 応募者詳細
+        name: 性名
+        phonetic: よみがな
+        phone_number: 電話番号
+        card_game_experience: カードゲーム経験
+        card_game_name: カードゲーム名
+        card_game_experiences: 経験年数
+        contact_mail: メールで連絡する
+        contact_phone: 電話で連絡する
