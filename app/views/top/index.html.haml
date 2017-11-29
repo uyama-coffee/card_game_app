@@ -1,5 +1,4 @@
 
-
 .d-flex.flex-row-reverse.topPage_btn-adopt
   = link_to t('links.to_shop_index'),shop_top_index_path,class: "btn btn-outline-primary"
 
@@ -8,7 +7,7 @@
     .searchForm_slectBox
       %label
         =t('search.region')
-      = f.select :shop_id_eq, Prefectur.all.map{|pr| [pr.name, pr.id]}, {prompt:t('search.select_default')}, { autofocus: 'true', class: 'form-control'}
+      = f.select :shop_id_eq, Prefecture.all.map{|pr| [pr.name]}, {prompt:t('search.select_default')}, { autofocus: 'true', class: 'form-control'}
     .searchForm_slectBox
       %label
         =t('search.game')
