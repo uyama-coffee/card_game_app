@@ -27,11 +27,14 @@
 \|
 = link_to 'Back', projects_path
 
-:javascript
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(#{raw @hash.to_json});
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(16);
-  });
+= javascript_tag do
+  place = #{raw @hash.to_json};
+
+/:javascript
+/  handler = Gmaps.build('Google');
+/  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+/    markers = handler.addMarkers(#{raw @hash.to_json});
+/    handler.bounds.extendWith(markers);
+/    handler.fitMapToBounds();
+/    handler.getMap().setZoom(16);
+/  });
