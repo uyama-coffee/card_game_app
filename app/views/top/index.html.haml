@@ -11,7 +11,7 @@
     .searchForm_slectBox
       %label
         =t('search.game')
-      = f.select :shop_id_eq, CardGame.all.map{|cg| [cg.title, cg.id]}, {prompt:t('search.select_default')}, { autofocus: 'true', class: 'form-control'}
+      = f.select :card_games_id_eq, CardGame.all.map{|cg| [cg.title, cg.id]}, {prompt:t('search.select_default')}, { autofocus: 'true', class: 'form-control'}
     .searchForm_btn
       = button_tag type: 'submit', class: 'btn btn-light searchForm_btn' do
         %i.fa.fa-search{"aria-hidden" => "true"}
