@@ -10,6 +10,7 @@ class Shop::ProjectsController < ApplicationController
 
   def new
     @shop_project = Project.new
+    @shop_project.handling_card_games.build
   end
 
   def edit
@@ -48,13 +49,13 @@ class Shop::ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_shop_project
       @shop_project = Project.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def shop_project_params
-      params.require(:project).permit(:title, :content, :shop_id, :image, :image_cache, :remove_image)
+      params.require(:project)
+            .permit(:title, :content, :shop_id, :image, :image_cache, :remove_image,{ :card_game_ids => [] })
     end
 end

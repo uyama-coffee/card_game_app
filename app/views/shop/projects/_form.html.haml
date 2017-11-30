@@ -24,10 +24,9 @@
           = t('.form_content')
         = f.text_area :content, class: 'form-control projectForm_inputForm-textarea',id:'content', rows: "5"
     .projectForm_selectGames
-      /ここはhandling_card_gamesテーブルをfor文で回す形式?
-      /label forとcheckboxにゲームIDを渡す
       %p
         = t('.form_games')
-
+      = collection_check_boxes(:project, :card_game_ids, CardGame.all, :id, :title) do |b|
+        = b.label{ b.check_box + b.text }
     .projectForm_buttons
       = f.submit class: 'btn btn-primary'

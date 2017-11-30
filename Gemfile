@@ -54,4 +54,3 @@ gem 'simple_form'
 gem "carrierwave"
 gem "font-awesome-rails"
 gem 'faker'
-gem 'carrierwave'
