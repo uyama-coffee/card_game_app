@@ -10,4 +10,16 @@ module ApplicationHelper
    end
    image_tag(img_url, alt: name,class:size)
  end
+ def resource_name
+   :shop
+ end
+ def resource_class
+   devise_mapping.to
+ end
+ def resource
+   @resource ||= Shop.new
+ end
+ def devise_mapping
+   @devise_mapping ||= Devise.mappings[:shop]
+ end
 end
