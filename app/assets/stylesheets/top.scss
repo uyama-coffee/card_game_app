@@ -44,14 +44,12 @@
     vertical-align: middle;
   }
 }
-
 //スマホのみの設定
 @mixin mq-phone {
     @media screen and (max-width: 767px){
         @content;
     }
 }
-
 .loginForm{
   width:30rem;
   @include mq-phone {
@@ -80,5 +78,4 @@
       }
     }
   }
-
 }

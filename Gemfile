@@ -48,9 +48,15 @@ group :development do
   gem 'pry-rails'
   gem 'pry-stack_explorer'
 end
-
+#???
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+#???
 gem 'simple_form'
+#画像アップロード
 gem "carrierwave"
+#アイコン
 gem "font-awesome-rails"
+#ダミーデータ作成
 gem 'faker'
+#動的フォーム
+gem 'nested_form_fields'
