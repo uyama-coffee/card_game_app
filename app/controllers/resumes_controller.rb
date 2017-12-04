@@ -17,6 +17,7 @@ class ResumesController < ApplicationController
   def new
     @resume = Resume.new
     @resume.card_game_experiences.build
+
   end
 
   # GET /resumes/1/edit
@@ -26,8 +27,10 @@ class ResumesController < ApplicationController
 
   # POST /resumes
   # POST /resumes.json
+
   def create
     @resume = current_user.build_resume(resume_params)
+
     if @resume.save
       redirect_to edit_resume_path(@resume)
     else
@@ -74,5 +77,4 @@ class ResumesController < ApplicationController
         card_game_experiences_attributes: [:id,:card_game_id, :experience_year, :experience_mounth]
       )
     end
-
 end

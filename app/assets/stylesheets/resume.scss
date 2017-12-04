@@ -7,7 +7,9 @@
   }
   &_header{}
   &_body{}
-  &_footer{}
+  &_footer{
+    text-align: center;
+  }
   &_pictureUpload{
     max-width:90%;
     height:auto;
@@ -45,10 +47,16 @@
   }
   &_contact{
     margin-bottom: 0.5rem;
+    .input_contact{}
   }
   &_cardgameExp{
     >ul{
       padding-left:0;
+    }
+  }
+  &_cardgameExpTable{
+    .label{
+      vertical-align: bottom;
     }
   }
 }

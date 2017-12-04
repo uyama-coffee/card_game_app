@@ -1,69 +1,61 @@
 = simple_form_for(@resume) do |f|
-  .field
-    = f.input :first_name
-  .field
-    = f.input :first_name_kana
-  .field
-    = f.input :last_name
-  .field
-    = f.input :last_name_kana
-  .field
-    = f.input :contact_method, collection: ['email', 'phone'], as: :radio_buttons
-  .field
-    = f.input :phone_number
-  = f.simple_fields_for :card_game_experiences do |ex_form|
-    .field
-    = ex_form.collection_select :card_game_id, CardGame.all, :id, :title
-    = ex_form.input :experience_year
-  .actions
-    = f.submit
-
-= simple_form_for(@resume) do |f|
   .resume.resume-form
     .resume_header
-      "My履歴書"
+      = t('.title')
     .resume_body
       .resume_pictureUpload
         .preview
           = set_image(@resume.profile_image,'imageSize_resume')
         = f.label :profile_image, class: "btn btn-primary " do
           %i.fa.fa-camera{"aria-hidden" => "true"}
-            "新しい写真を登録"
-          = f.file_field :image,style: "display:none;"
+            = t('btn.add_new_picture')
+          = f.file_field :profile_image,style: "display:none;"
           = f.hidden_field :profile_image_cache
       .resume_name
-        .first_name
-          = f.input :first_name ,label: "性", :input_html => { :class => 'form-control' }
         .last_name
-          = f.input :last_name ,label: "名", :input_html => { :class => 'form-control' }
+          = f.input :last_name ,label: t('last_name'), :input_html => { :class => 'form-control' }
+        .first_name
+          = f.input :first_name ,label: t('first_name'), :input_html => { :class => 'form-control' }
       .resume_nameKana
-        .first_name
-          = f.input :first_name_kana ,label: "セイ", :input_html => { :class => 'form-control' }
         .last_name
-          = f.input :last_name_kana ,label: "メイ", :input_html => { :class => 'form-control' }
+          = f.input :last_name_kana ,label: t('last_name_kana'), :input_html => { :class => 'form-control' }
+        .first_name
+          = f.input :first_name_kana ,label: t('last_name_kana'), :input_html => { :class => 'form-control' }
       .resume_contactsMethod
-        %p 希望の連絡手段
+        %p
+          = t('.contact_method.title')
         = f.input :contact_method,
-          collection: [["Tell", 1],["E-mail", 2]], as: :radio_buttons,
-          item_wrapper_class: "resume_contacts",label: false
+          collection: [[t('.contact_method.tell'), 1],[t('.contact_method.email'), 2]], as: :radio_buttons,
+          item_wrapper_class: "resume_contacts",label: false,:input_html => {:onClick => 'chengeContactMethod()' }
       .resume_contact
-        = f.input :phone_number ,label:false, :input_html => { :class => 'form-control' }
+        %input{:class => 'form-control input_contact' , placeholder: t('.contact_method.input_hint'),:disabled => "disabled"}
+        = f.input :phone_number ,label:false, :input_html => {:style => 'display:none' ,:class => 'form-control input_contact' ,:id =>'type1', placeholder: t('prompt.input_tell')}
+        = f.input :phone_number ,label:false, :input_html => {:style => 'display:none' ,:class => 'form-control input_contact' ,:id =>'type2', placeholder: t('prompt.input_email')}
       .resume_cardgameExp
-        %p ● カードゲーム経験の登録
-        %table.table.table-sm.table-hover
+        %p
+          = t('.card_game_experience.title')
+        %table.table.table-sm.table-hover.resume_cardgameExpTable
           %thead
             %tr{class:'table-info'}
-              %th "カードゲーム名"
-              %th{:colspan => "3"} "経験年数"
+              %th
+                = t('.card_game_experience.card_game')
+              %th{:colspan => "5"}
+                = t('.card_game_experience.years')
           %tbody
             = f.nested_fields_for :card_game_experiences, wrapper_tag: :tr do |q|
               %td
-                = collection_select(:card_game_experiences, :card_game_ids, CardGame.all, :id, :title,{prompt: "選択してください"}, {class: "form-control"}) do |b|
+                = collection_select(:card_game_experiences, :card_game_ids, CardGame.all, :id, :title,{prompt:t('prompt.select')}, {class: "form-control"}) do |b|
                   = b.label{ b.check_box + b.text }
               %td
                 = select :card_game_experiences, :experience_year, options_for_select(1..30), {prompt:'0'}, { class: "form-control" }
+              %td.label
+                = t('datetime.prompts.year')
               %td
                 = select :card_game_experiences, :experience_month, options_for_select(1..11), {prompt:'0'}, { class: "form-control" }
+              %td.label
+                = t('datetime.prompts.month')
               %td
-                = q.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button'
-        = f.add_nested_fields_link :card_game_experiences, 'Add new', class: 'btn btn-primary', role: 'button'
+                = q.remove_nested_fields_link t('btn.delete'), class: 'btn btn-danger removeCareer', role: 'button'
+        = f.add_nested_fields_link :card_game_experiences, t('btn.add_new_career'), class: 'btn btn-primary addCareer', role: 'button',onClick: 'is_AddCareer()'
+    .resume_footer
+      = f.submit :class=>"btn btn-primary"
