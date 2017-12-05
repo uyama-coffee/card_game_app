@@ -1,64 +1,20 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  #ログインしないと応募できないし、当然消せない
+  before_action :authenticate_user!, only: [:create, :destroy]
 
-  # GET /contacts
-  # GET /contacts.json
-  def index
-    @contacts = Contact.all
-  end
-
-  # GET /contacts/1
-  # GET /contacts/1.json
-  def show
-  end
-
-  # GET /contacts/new
-  def new
-    @contact = Contact.new
-  end
-
-  # GET /contacts/1/edit
-  def edit
-  end
-
-  # POST /contacts
-  # POST /contacts.json
   def create
-    @contact = Contact.new(contact_params)
-
-    respond_to do |format|
-      if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
-        format.json { render :show, status: :created, location: @contact }
-      else
-        format.html { render :new }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
-    end
+    @project = Project.find(params[:project_id])
+    @contact = Contact.new(
+      project_id: params[:project_id],
+      user_id: current_user.id,
+      status:0
+    )
+    @contact.save
   end
 
-  # PATCH/PUT /contacts/1
-  # PATCH/PUT /contacts/1.json
-  def update
-    respond_to do |format|
-      if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
-        format.json { render :show, status: :ok, location: @contact }
-      else
-        format.html { render :edit }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /contacts/1
-  # DELETE /contacts/1.json
   def destroy
+    @contact = Contact.find_by(project_id: params[:project_id], user_id:current_user.id)
     @contact.destroy
-    respond_to do |format|
-      format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private

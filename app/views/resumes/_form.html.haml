@@ -1,3 +1,10 @@
+- if @resume.errors.any?
+  %div#error_explanation.alert.alert-danger
+    %h2= @resume.errors.count.to_s + "件のメッセーがあります。"
+    %ul
+    - @resume.errors.full_messages.each do |msg|
+      %li= msg
+
 = simple_form_for(@resume) do |f|
   .resume.resume-form
     .resume_header
