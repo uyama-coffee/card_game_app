@@ -13,6 +13,10 @@
   }
 }
 .searchForm{
+  >form{
+    display: flex;
+    align-items: flex-end;
+  }
   &-top{
   }
   &_slectBox{
@@ -20,10 +24,13 @@
     >label{
       margin-bottom:0.1rem;
     }
+    >select{
+      width:13em;
+    }
   }
   &_btn{
     height: auto;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.3rem;
   }
 }
 .recruitment{

@@ -32,7 +32,10 @@ end
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
-
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -53,4 +56,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'simple_form'
 gem "carrierwave"
 gem "font-awesome-rails"
+
+gem 'ransack'
 gem 'faker'
+gem 'carrierwave'
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
+gem 'gmaps4rails'
+gem "geocoder"

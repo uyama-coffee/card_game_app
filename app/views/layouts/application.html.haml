@@ -8,19 +8,22 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+    %script{:src => "//maps.google.com/maps/api/js?v=3.23&key=#{p ENV['GOOGLE_MAP_API_KEY']}"}
+    %script{:src => "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
+    %script{:src => "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js",:type => "text/javascript"}
+
     .site_header
       %nav.navbar.navbar-expand-md.navbar-light.bg-light.justify-content-between
         = link_to t('sitetitle'), root_path, class: "navbar-brand"
         %nav.navbar-light.bg-light
           -if user_signed_in?
-            = link_to root_path, class: "btn btn-outline-primary" do
+            = link_to mypage_index_path, class: "btn btn-outline-primary" do
               %i.fa.fa-user{"aria-hidden" => "true"}
               =t('mypage')
           -else
             %form
-              = link_to t('login'), shop_top_index_path, class: "btn btn-outline-primary"
-              %button.btn.btn-primary{type: "button"}
-                = t('signin')
+              = link_to t('login'), new_user_session_path, class: "btn btn-outline-primary"
+              = link_to t('signin'), new_user_registration_path, class: "btn btn-primary"
 
   %body
     .site_body
