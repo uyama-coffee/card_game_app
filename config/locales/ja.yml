@@ -8,9 +8,9 @@ ja:
   email: メールアドレス
   password: パスワード
   first_name: 名
-  first_name_kana: 名
+  first_name_kana: 名よみ
   last_name: 性
-  last_name_kana: セイ
+  last_name_kana: 性よみ
   #リンク関連
   links:
     to_shop_index: 採用ショップの方はこちら

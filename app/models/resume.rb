@@ -17,6 +17,15 @@ class Resume < ApplicationRecord
 
   mount_uploader :profile_image, ImageUploader
 
+  #Validation
+  validates :profile_image,   presence: true
+  validates :first_name,      presence: true
+  validates :first_name_kana, presence: true
+  validates :last_name,       presence: true
+  validates :last_name_kana,  presence: true
+  validates :contact_method,  presence: true
+  validates :phone_number,    presence: true
+
   extend Enumerize
   enumerize :contact_method, in: { email: 0, phone: 1 }
 end

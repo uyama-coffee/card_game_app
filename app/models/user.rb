@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :contacts, dependent: :destroy
-  has_one :resume, dependent: :destroy
+  has_many :resumes, dependent: :destroy
 
   def resume?
     self.resume || false
