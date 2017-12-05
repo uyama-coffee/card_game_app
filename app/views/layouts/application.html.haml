@@ -13,14 +13,13 @@
         = link_to t('sitetitle'), root_path, class: "navbar-brand"
         %nav.navbar-light.bg-light
           -if user_signed_in?
-            = link_to root_path, class: "btn btn-outline-primary" do
+            = link_to mypage_index_path, class: "btn btn-outline-primary" do
               %i.fa.fa-user{"aria-hidden" => "true"}
               =t('mypage')
           -else
             %form
-              = link_to t('login'), shop_top_index_path, class: "btn btn-outline-primary"
-              %button.btn.btn-primary{type: "button"}
-                = t('signin')
+              = link_to t('login'), new_user_session_path, class: "btn btn-outline-primary"
+              = link_to t('signin'), new_user_registration_path, class: "btn btn-primary"
 
   %body
     .site_body
