@@ -1,16 +1,29 @@
 ---
 ja:
-  #全画面共通
   sitetitle: サイト名
   login: ログイン
   signin: 新規登録
   mypage: マイページ
   email: メールアドレス
   password: パスワード
+  first_name: 名
+  first_name_kana: 名
+  last_name: 性
+  last_name_kana: セイ
   #リンク関連
   links:
     to_shop_index: 採用ショップの方はこちら
     to_signup: 新規お申込み
+  btn:
+    add_new_picture: 新しい写真を登録
+    add_new_career: + 新しい経歴を追加
+    add_new: 追加
+    delete: 削除
+  #初期表示関連
+  prompt:
+    select: 選択してください
+    input_tell: 電話番号を入力してください
+    input_email: メールアドレスを入力してください
     to_open_map: マップを開く
   #検索フォーム関連
   search:
@@ -35,6 +48,19 @@ ja:
         form_title: タイトル
         form_content: 詳細
         form_games: 取扱ゲーム
+  #Resume関連
+  resumes:
+    form:
+      title: My履歴書
+      contact_method:
+        title: ● 希望の連絡方法
+        tell: 電話
+        email: メール
+        input_hint: 連絡方法を選択してください
+      card_game_experience:
+        title: カードゲーム経験
+        card_game: カードゲーム名
+        years: 経験年数
   #Contacts関連
   contacts:
     form:

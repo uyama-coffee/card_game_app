@@ -56,10 +56,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'simple_form'
 gem "carrierwave"
 gem "font-awesome-rails"
-
+gem 'nested_form_fields'
 gem 'ransack'
 gem 'faker'
-gem 'carrierwave'
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 gem 'gmaps4rails'
 gem "geocoder"

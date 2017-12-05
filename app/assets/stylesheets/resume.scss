@@ -1,0 +1,72 @@
+.resume{
+  margin:auto;
+  background: aliceblue;
+  &-form{
+    width:40rem;
+    padding:0.5rem;
+  }
+  &_header{}
+  &_body{}
+  &_footer{
+    text-align: center;
+  }
+  &_pictureUpload{
+    max-width:90%;
+    height:auto;
+    text-align: center;
+    margin:auto;
+    .preview{margin: 0.5rem;}
+  }
+  &_name,
+  &_nameKana{
+    display: table;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border-collapse: separate;
+    border-spacing: 5px 0;
+    label{
+      margin-top:0.5rem;
+      margin-bottom: 0;
+    }
+    .first_name{
+      display: table-cell;
+    }
+    .last_name{
+      display: table-cell;
+    }
+  }
+  &_contactsMethod{
+    p{margin:0;}
+    label{
+      margin-right: 1rem;
+      margin-left: 0;
+      .radio_buttons{
+        width:1.5rem;
+      }
+    }
+  }
+  &_contact{
+    margin-bottom: 0.5rem;
+    #type1{color:red;}
+    #type2{color:blue;}
+  }
+  &_cardgameExp{
+    >ul{
+      padding-left:0;
+    }
+  }
+  &_cardgameExpTable{
+    .label{
+      vertical-align: bottom;
+    }
+  }
+}
+//アバター等の画像調整サイズ
+img{//Helperに渡すavatar用クラス　すべてimg限定
+  &.imageSize{
+    &_resume{
+      width:200px!important;
+      height:auto;
+    }
+  }
+}

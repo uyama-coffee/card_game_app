@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
+//= require nested_form_fields
 //= require data-confirm-modal
 //= require underscore
 //= require gmaps/google

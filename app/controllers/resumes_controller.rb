@@ -1,33 +1,28 @@
 class ResumesController < ApplicationController
   before_action :set_resume, only: [:edit, :update, :destroy]
-  before_action :set_new, only: [:new, :create]
+  #before_action :set_new, only: [:new, :create]
 
-  # GET /resumes
-  # GET /resumes.json
+
   def index
     @resumes = Resume.all
   end
 
-  # GET /resumes/1
-  # GET /resumes/1.json
   def show
   end
 
-  # GET /resumes/new
   def new
     @resume = Resume.new
     @resume.card_game_experiences.build
+
   end
 
-  # GET /resumes/1/edit
   def edit
     @resume = Resume.find(params[:id])
   end
 
-  # POST /resumes
-  # POST /resumes.json
   def create
     @resume = current_user.build_resume(resume_params)
+    binding.pry
     if @resume.save
       redirect_to edit_resume_path(@resume)
     else
@@ -68,11 +63,8 @@ class ResumesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resume_params
-      params.require(:resume).permit(
-        :profile_image, :first_name, :first_name_kana, :last_name, :last_name_kana,
-        :contact_method, :phone_number, :user_id, :phone_number,
-        card_game_experiences_attributes: [:id,:card_game_id, :experience_year, :experience_month]
-      )
+      params.require(:resume)
+            .permit(:first_name, :first_name_kana, :last_name, :last_name_kana,:contact_method,:phone_number,
+                    :profile_image, :profile_image_cache, :remove_profile_image,{ :card_game_ids => [] })
     end
-
 end
