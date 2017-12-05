@@ -18,6 +18,13 @@
   }
   &_selectGames{
     >p{margin-bottom:0.5rem;}
+    input[type="checkbox"] {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+    label{
+      width:auto;
+    }
   }
   &_buttons{
     margin-top:1rem;
