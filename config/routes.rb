@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   end
   resources :mypage, only: [:index]
   resources :resumes
-  resources :card_game_experiences
   resources :contacts
   resources :projects
   namespace :shop do

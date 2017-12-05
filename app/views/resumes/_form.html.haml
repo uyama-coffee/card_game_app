@@ -30,7 +30,7 @@
       .resume_contact
         %input{:class => 'form-control input_contact' , placeholder: t('.contact_method.input_hint'),:disabled => "disabled"}
         = f.input :phone_number ,label:false, :input_html => {:style => 'display:none' ,:class => 'form-control input_contact' ,:id =>'type1', placeholder: t('prompt.input_tell')}
-        = f.input :phone_number ,label:false, :input_html => {:style => 'display:none' ,:class => 'form-control input_contact' ,:id =>'type2', placeholder: t('prompt.input_email')}
+        %input{:style => 'display:none' ,:class => 'form-control input_contact' ,:id =>'type2', placeholder: t('prompt.input_email')}
       .resume_cardgameExp
         %p
           = t('.card_game_experience.title')
@@ -44,7 +44,7 @@
           %tbody
             = f.nested_fields_for :card_game_experiences, wrapper_tag: :tr do |q|
               %td
-                = collection_select(:card_game_experiences, :card_game_ids, CardGame.all, :id, :title,{prompt:t('prompt.select')}, {class: "form-control"}) do |b|
+                = collection_select(:resumes, :card_game_id, CardGame.all, :id, :title,{prompt:t('prompt.select')}, {class: "form-control"}) do |b|
                   = b.label{ b.check_box + b.text }
               %td
                 = select :card_game_experiences, :experience_year, options_for_select(1..30), {prompt:'0'}, { class: "form-control" }
