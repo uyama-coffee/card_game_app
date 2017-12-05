@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :mypage, only: [:index]
   resources :resumes
   resources :contacts
-  resources :projects
+  resources :projects do
+    resources :contacts , only: [:index, :create, :destroy]
+  end
   namespace :shop do
     get 'top/index'
     resources :projects

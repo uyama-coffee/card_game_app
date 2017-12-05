@@ -1,19 +1,22 @@
-= form_for @contact do |f|
-  - if @contact.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@contact.errors.count, "error")} prohibited this contact from being saved:"
-      %ul
-        - @contact.errors.full_messages.each do |message|
-          %li= message
+- if current_user.already_contacted?(project)
+  /取り消す機能
+  /= button_to project_contact_path(project,project.contacts),class:" btn btn-danger" ,method: :delete do
+  /  %i.fa.fa-ban{"aria-hidden" => "true"}
+  /  応募を取り消す
+  %button.btn.btn-info.disabled
+    %i.fa.fa-check{"aria-hidden" => "true"}
+    = t('.applied')
+- else
+  = form_for [project,contact] do |f|
+    = f.submit class: 'btn btn-primary','data-toggle': "modal", 'data-target': "#apply"
 
-  .field
-    = f.label :status
-    = f.number_field :status
-  .field
-    = f.label :user
-    = f.text_field :user
-  .field
-    = f.label :project
-    = f.text_field :project
-  .actions
-    = f.submit 'Save'
+#apply.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content.contactModal
+      .modal-header
+        %h5#exampleModalLabel.modal-title
+          = t('.modal_title')
+      .modal-body
+        = t('.modal_content')
+      .modal-footer
+        = link_to t('.confirmed'),root_path,class: "button btn btn-primary"
