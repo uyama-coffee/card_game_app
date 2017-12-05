@@ -5,7 +5,7 @@
   .recruitmentDetail_shopName
     = @project.shop_info.name
   .recruitmentDetail_image
-    ショップ画像
+    = set_image(@project.image,"","shop_image")
   .recruitmentDetail_content
     = @project.content
   .recruitmentDetail_entryBtn
@@ -16,7 +16,7 @@
     .shopInfo_address
       = @project.shop_info.address
     .shopInfo_phone
-      ショップ電話番号
+      = @project.shop_info.phone_number
     #map.shopInfo_map
 
 
@@ -27,14 +27,12 @@
 \|
 = link_to 'Back', projects_path
 
-= javascript_tag do
-  place = #{raw @hash.to_json};
 
-/:javascript
-/  handler = Gmaps.build('Google');
-/  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-/    markers = handler.addMarkers(#{raw @hash.to_json});
-/    handler.bounds.extendWith(markers);
-/    handler.fitMapToBounds();
-/    handler.getMap().setZoom(16);
-/  });
+:javascript
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(#{raw @map.to_json});
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(16);
+  });

@@ -7,7 +7,10 @@
     font-size:1.5em;
   }
   &_shopName{}
-  &_image{padding:0.5rem;}
+  &_image{
+    padding:0.5rem;
+    text-align: center;
+  }
   &_content{
     min-height: 10rem;
     background: #FFF;
@@ -39,4 +42,15 @@
     width: 100%;
     text-align: center;
   }
+}
+.placeInfo{
+  &_title{
+    font-size: 1.5em
+  }
+  &_content{
+    margin:0.5rem 0;
+    vertical-align: top;
+    word-wrap: break-word;
+  }
+  &_link{}
 }

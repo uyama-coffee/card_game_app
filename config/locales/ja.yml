@@ -11,6 +11,7 @@ ja:
   links:
     to_shop_index: 採用ショップの方はこちら
     to_signup: 新規お申込み
+    to_open_map: マップを開く
   #検索フォーム関連
   search:
     region: 地域
@@ -41,7 +42,7 @@ ja:
       modal_content: |
         応募しました。
         ショップから連絡が行きますので、しばらくお待ち下さい。
-      confirmed: 確認しました        
+      confirmed: 確認しました
 
   activerecord:
     errors:

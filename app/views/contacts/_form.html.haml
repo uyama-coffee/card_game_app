@@ -1,10 +1,8 @@
-/　Userをcurrentuserに修正すること
-- if  User.find(1).already_contacted?(project)
-  /  取り消す機能がいま存在しないため、不要になるまでは入れておく
-  = button_to project_contact_path(project,project.contacts),class:" btn btn-danger" ,method: :delete do
-    %i.fa.fa-ban{"aria-hidden" => "true"}
-    応募を取り消す
-  /　実際は下記のボタンを残すこと
+- if current_user.already_contacted?(project)
+  /取り消す機能
+  /= button_to project_contact_path(project,project.contacts),class:" btn btn-danger" ,method: :delete do
+  /  %i.fa.fa-ban{"aria-hidden" => "true"}
+  /  応募を取り消す
   %button.btn.btn-info.disabled
     %i.fa.fa-check{"aria-hidden" => "true"}
     = t('.applied')
