@@ -15,4 +15,7 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
+//= require data-confirm-modal
+//= require underscore
+//= require gmaps/google
 //= require_tree .

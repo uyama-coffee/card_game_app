@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/ifad/data-confirm-modal.git
+  revision: b38b891137efb932980a43bf3bebdf13de8e3d11
+  specs:
+    data-confirm-modal (1.6.0)
+      railties (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -100,8 +107,10 @@ GEM
     ffi (1.9.18)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
+    geocoder (1.4.4)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -296,11 +305,14 @@ DEPENDENCIES
   byebug
   carrierwave
   coffee-rails (~> 4.2)
+  data-confirm-modal!
   devise
   dotenv-rails (~> 2.2)
   enumerize
   faker
   font-awesome-rails
+  geocoder
+  gmaps4rails
   haml-rails (~> 1.0)
   jbuilder (~> 2.5)
   jquery-rails

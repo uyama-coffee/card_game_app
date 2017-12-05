@@ -11,6 +11,7 @@ ja:
   links:
     to_shop_index: 採用ショップの方はこちら
     to_signup: 新規お申込み
+    to_open_map: マップを開く
   #検索フォーム関連
   search:
     region: 地域
@@ -50,7 +51,7 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-
+        year_or_month: 経験年、経験月どちらかを入力
     attributes:
       user:
         email: メールアドレス
@@ -60,6 +61,18 @@ ja:
       project:
         title: タイトル
         content: 詳細
+      resume:
+        first_name: 性
+        first_name_kana: 性よみ
+        last_name: 名
+        last_name_kana: 名よみ
+        phone_number: 電話番号
+      resume/card_game_experiences:
+        experience_year: 経験年
+        experience_month: 経験月
+      card_game_experience:
+        experience_year: 経験年
+        experience_month: 経験月
   date:
     abbr_day_names:
     - 日
