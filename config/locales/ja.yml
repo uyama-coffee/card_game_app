@@ -17,6 +17,7 @@ ja:
     region: 地域
     game: 対応ゲーム
     button: 検索する
+    select_default: 選択してください
   #Shop関連
   shop:
     top:
@@ -43,7 +44,6 @@ ja:
         応募しました。
         ショップから連絡が行きますので、しばらくお待ち下さい。
       confirmed: 確認しました
-
   activerecord:
     errors:
       messages:
