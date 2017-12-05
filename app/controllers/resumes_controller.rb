@@ -71,7 +71,7 @@ class ResumesController < ApplicationController
       params.require(:resume).permit(
         :profile_image, :first_name, :first_name_kana, :last_name, :last_name_kana,
         :contact_method, :phone_number, :user_id, :phone_number,
-        card_game_experiences_attributes: [:id,:card_game_id, :experience_year, :experience_mounth]
+        card_game_experiences_attributes: [:id,:card_game_id, :experience_year, :experience_month]
       )
     end
 
