@@ -3,7 +3,7 @@ ja:
   sitetitle: サイト名
   login: ログイン
   signin: 新規登録
-  mypage: マイページ
+  header_mypage: マイページ
   email: メールアドレス
   password: パスワード
   first_name: 名
@@ -333,3 +333,9 @@ ja:
         card_game_experiences: 経験年数
         contact_mail: メールで連絡する
         contact_phone: 電話で連絡する
+  mypage:
+    index:
+      title: マイページ
+      myresume: マイ履歴書
+      account_setting: アカウント設定
+      logout: ログアウト

@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 20171129110058) do
     t.bigint "shop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "phone_number"
     t.index ["shop_id"], name: "index_places_on_shop_id"
   end
 
@@ -70,13 +69,6 @@ ActiveRecord::Schema.define(version: 20171129110058) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "prefecturs", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["shop_id"], name: "index_places_on_shop_id"
   end
 
   create_table "projects", force: :cascade do |t|

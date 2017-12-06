@@ -19,7 +19,7 @@
           -if user_signed_in?
             = link_to mypage_index_path, class: "btn btn-outline-primary" do
               %i.fa.fa-user{"aria-hidden" => "true"}
-              =t('mypage')
+              =t('header_mypage')
           -else
             %form
               = link_to t('login'), new_user_session_path, class: "btn btn-outline-primary"
