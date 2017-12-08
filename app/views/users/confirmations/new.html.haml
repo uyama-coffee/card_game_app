@@ -1,7 +1,13 @@
 %div.container
   %div.col-md-6.col-sm-6
+  - if resource.errors.any?
+    %div#error_explanation.alert.alert-danger
+      %h2= resource.errors.count.to_s + "件のメッセーがあります。"
+      %ul
+      - resource.errors.full_messages.each do |msg|
+        %li= msg
+    /= devise_error_messages!
     = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-      = devise_error_messages!
       = flash[:notice]
       .field
         %br/
