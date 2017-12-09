@@ -20,7 +20,7 @@ class ResumesController < ApplicationController
   end
 
   def create
-    @resume = current_user.resumes.build(resume_params)
+    @resume = current_user.build_resume(resume_params)
     if @resume.save
       redirect_to edit_resume_path(@resume)
     else
@@ -30,6 +30,7 @@ class ResumesController < ApplicationController
 
   def update
     @resume = Resume.find(params[:id])
+    #binding.pry
     if @resume.update(resume_params)
       redirect_to edit_resume_path(@resume), notice: 'Resume was successfully updated.'
     else
@@ -51,13 +52,13 @@ class ResumesController < ApplicationController
     end
 
     def set_new
-      redirect_to edit_resume_path(current_user.resume) if Resume.exists?(user_id: current_user.id)
+      redirect_to edit_resume_path(current_user.resumes.id) if Resume.exists?(user_id: current_user.id)
     end
 
     def resume_params
       params.require(:resume).permit(
         :profile_image, :first_name, :first_name_kana, :last_name, :last_name_kana,
         :contact_method, :phone_number, :user_id, :phone_number,
-        card_game_experiences_attributes: [:id,:card_game_id, :experience_year, :experience_month])
+        card_game_experiences_attributes: [:id,:card_game_id, :experience_year, :experience_month, :_destroy])
     end
 end

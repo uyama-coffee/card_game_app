@@ -1,6 +1,6 @@
 class Resume < ApplicationRecord
   belongs_to :user
-  ####belongs_to :contact
+
   #ResumeはUsersを介して複数のContactを持つ
   has_many :contacts, through: :users
 
