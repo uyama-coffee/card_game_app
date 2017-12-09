@@ -60,3 +60,5 @@ gem "font-awesome-rails"
 gem 'faker'
 #動的フォーム
 gem 'nested_form_fields'
+#Enumerize
+gem 'enumerize'

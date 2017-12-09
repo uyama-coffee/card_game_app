@@ -30,17 +30,17 @@
         .first_name
           = t('first_name_kana')
           = f.text_field :first_name_kana, class: 'form-control'
-      = simple_form_for(@resume) do |f|
-        .resume_contactsMethod
-          %p
-            = t('.contact_method.title')
-          = f.input :contact_method,
-              collection: [[t('.contact_method.tell'), 1],[t('.contact_method.email'), 2]], as: :radio_buttons,
-              item_wrapper_class: "resume_contacts",label: false,error: false,:input_html => {:onClick => 'chengeContactMethod()' }
-        .resume_contact
-          %input{:class => 'form-control input_contact' , placeholder: t('.contact_method.input_hint'),:disabled => "disabled"}
-          = f.input :phone_number ,label:false, :input_html => {:style => 'display:none' ,:class => 'form-control input_contact' ,:id =>'type1', placeholder: t('prompt.input_tell')}
-          %input{:style => 'display:none' ,:class => 'form-control input_contact' ,:id =>'type2', placeholder: t('prompt.input_email')}
+      .resume_contactsMethod
+        %p
+          = t('.contact_method.title')
+        %label
+          = f.radio_button :contact_method, :email,:onclick => 'chengeContactMethod();'
+          = t('.contact_method.email')
+        %label
+          = f.radio_button :contact_method, :phone,:onclick => 'chengeContactMethod();'
+          = t('.contact_method.tell')
+      .resume_contact
+        = f.text_field :phone_number, :style => 'display:none' ,:class => 'form-control input_contact' ,:id =>'phone', placeholder: t('prompt.input_tell')
       .resume_cardgameExp
         %p
           = t('.card_game_experience.title')
@@ -49,21 +49,17 @@
             %tr{class:'table-info'}
               %th
                 = t('.card_game_experience.card_game')
-              %th{:colspan => "5"}
+              %th{:colspan => "3"}
                 = t('.card_game_experience.years')
           %tbody
             = f.nested_fields_for :card_game_experiences, wrapper_tag: :tr do |q|
               %td
                 = q.collection_select(:card_game_id, CardGame.all, :id, :title,{prompt:t('prompt.select')}, {class: "form-control"}) do |b|
-                  = b.label{ b.check_box + b.text }
+                  = b.label{ b.text }
               %td
-                = q.select :experience_year, options_for_select(0..30), {prompt:'0'}, { class: "form-control" }
-              %td.label
-                = t('datetime.prompts.year')
+                = q.select :experience_year, options_for_select((0..30).map{|n| ["#{n}年", n]}, selected: @resume.try(:resume_params)), {}, { class: "form-control" }
               %td
-                = q.select :experience_month, options_for_select(1..11), {prompt:'1'}, { class: "form-control" }
-              %td.label
-                = t('datetime.prompts.month')
+                = q.select :experience_month, options_for_select((0..11).map{|n| ["#{n}ヶ月", n]}), {}, { class: "form-control" }
               %td
                 = q.remove_nested_fields_link t('btn.delete'), class: 'btn btn-danger removeCareer', role: 'button'
         = f.add_nested_fields_link :card_game_experiences, t('btn.add_new_career'), class: 'btn btn-primary addCareer', role: 'button',onClick: 'is_AddCareer()'
