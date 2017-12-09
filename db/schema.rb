@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125102314) do
+ActiveRecord::Schema.define(version: 20171129110058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,32 @@ ActiveRecord::Schema.define(version: 20171125102314) do
     t.datetime "updated_at", null: false
     t.index ["card_game_id"], name: "index_handling_card_games_on_card_game_id"
     t.index ["project_id"], name: "index_handling_card_games_on_project_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "phone_number"
+    t.index ["shop_id"], name: "index_places_on_shop_id"
+  end
+
+  create_table "prefectures", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prefecturs", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_places_on_shop_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -119,5 +145,6 @@ ActiveRecord::Schema.define(version: 20171125102314) do
   add_foreign_key "contacts", "users"
   add_foreign_key "handling_card_games", "card_games"
   add_foreign_key "handling_card_games", "projects"
+  add_foreign_key "places", "shops"
   add_foreign_key "projects", "shops"
 end

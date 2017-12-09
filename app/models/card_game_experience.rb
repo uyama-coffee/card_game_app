@@ -4,5 +4,8 @@ class CardGameExperience < ApplicationRecord
 
   #resumeに同じカードゲームは登録できない
   validates_uniqueness_of :resume_id, scope: :card_game_id
+  
+  validates :experience_year, presence:true
+  validates :experience_month, presence:true
 
 end
