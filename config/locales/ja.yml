@@ -55,7 +55,7 @@ ja:
       contact_method:
         title: ● 希望の連絡方法
         tell: 電話
-        email: メール
+        email: 登録メールアドレス
         input_hint: 連絡方法を選択してください
       card_game_experience:
         title: カードゲーム経験
