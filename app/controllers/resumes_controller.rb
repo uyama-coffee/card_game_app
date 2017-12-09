@@ -17,6 +17,7 @@ class ResumesController < ApplicationController
 
   def edit
     @resume = Resume.find(params[:id])
+    #binding.pry
   end
 
   def create
