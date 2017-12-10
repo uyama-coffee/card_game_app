@@ -57,6 +57,8 @@ gem 'simple_form'
 gem "carrierwave"
 gem "font-awesome-rails"
 gem 'nested_form_fields'
+#Enumerize
+gem 'enumerize'
 gem 'ransack'
 gem 'faker'
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'

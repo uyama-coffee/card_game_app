@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   devise_for :users, path: 'users', controllers: {
     registrations: "users/registrations"
   }
-  devise_for :shops, path: 'shops'
+  devise_for :shops, path: 'shops', controllers: {
+  sessions:      'shops/sessions',
+  passwords:     'shops/passwords',
+  registrations: 'shops/registrations'
+  }
   namespace :shops do
     get 'top/index'
     get 'contacts/index'
@@ -19,6 +23,7 @@ Rails.application.routes.draw do
   namespace :shop do
     get 'top/index'
     resources :projects
+    resources :shops, only: [:edit, :update]
   end
 
   if Rails.env.development?

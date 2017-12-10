@@ -5,7 +5,7 @@
     - @resume.errors.full_messages.each do |msg|
       %li= msg
 
-= simple_form_for(@resume) do |f|
+= form_for @resume do |f|
   .resume.resume-form
     .resume_header
       = t('.title')
@@ -20,28 +20,33 @@
           = f.hidden_field :profile_image_cache
       .resume_name
         .last_name
-          = f.input :last_name ,label: t('last_name'), :input_html => { :class => 'form-control' }
+          = t('last_name')
+          = f.text_field :last_name, class: 'form-control'
         .first_name
-          = f.input :first_name ,label: t('first_name'), :input_html => { :class => 'form-control' }
+          = t('first_name')
+          = f.text_field :first_name, class: 'form-control'
       .resume_nameKana
         .last_name
-          = f.input :last_name_kana ,label: t('last_name_kana'), :input_html => { :class => 'form-control' }
+          = t('last_name_kana')
+          = f.text_field :last_name_kana, class: 'form-control'
         .first_name
-          = f.input :first_name_kana ,label: t('last_name_kana'), :input_html => { :class => 'form-control' }
+          = t('first_name_kana')
+          = f.text_field :first_name_kana, class: 'form-control'
       .resume_contactsMethod
         %p
           = t('.contact_method.title')
-        = f.input :contact_method,
-          collection: [[t('.contact_method.tell'), 1],[t('.contact_method.email'), 2]], as: :radio_buttons,
-          item_wrapper_class: "resume_contacts",label: false,:input_html => {:onClick => 'chengeContactMethod()' }
+        %label
+          = f.radio_button :contact_method, :email,:onclick => 'chengeContactMethod();'
+          = t('.contact_method.email')
+        %label
+          = f.radio_button :contact_method, :phone,:onclick => 'chengeContactMethod();'
+          = t('.contact_method.tell')
       .resume_contact
-        %input{:class => 'form-control input_contact' , placeholder: t('.contact_method.input_hint'),:disabled => "disabled"}
-        = f.input :phone_number ,label:false, :input_html => {:style => 'display:none' ,:class => 'form-control input_contact' ,:id =>'type1', placeholder: t('prompt.input_tell')}
-        %input{:style => 'display:none' ,:class => 'form-control input_contact' ,:id =>'type2', placeholder: t('prompt.input_email')}
+        = f.text_field :phone_number, :style => 'display:none' ,:class => 'form-control input_contact' ,:id =>'phone', placeholder: t('prompt.input_tell')
       .resume_cardgameExp
         %p
           = t('.card_game_experience.title')
-        %table.table.table-sm.table-hover.resume_cardgameExpTable
+        %table.table.table-sm.table-hover.cardgameExpForm
           %thead
             %tr{class:'table-info'}
               %th
@@ -51,16 +56,16 @@
           %tbody
             = f.nested_fields_for :card_game_experiences, wrapper_tag: :tr do |q|
               %td
-                = collection_select(:resumes, :card_game_id, CardGame.all, :id, :title,{prompt:t('prompt.select')}, {class: "form-control"}) do |b|
-                  = b.label{ b.check_box + b.text }
-              %td
-                = select :card_game_experiences, :experience_year, options_for_select(1..30), {prompt:'0'}, { class: "form-control" }
-              %td.label
+                = q.collection_select(:card_game_id, CardGame.all, :id, :title,{prompt:t('prompt.select')}, {class: "form-control"}) do |b|
+                  = b.label{ b.text }
+              %td.cardgameExpForm_period
+                = q.number_field :experience_year,min:0,:class => 'form-control'
+              %td.cardgameExpForm_unit
                 = t('datetime.prompts.year')
-              %td
-                = select :card_game_experiences, :experience_month, options_for_select(1..11), {prompt:'0'}, { class: "form-control" }
-              %td.label
-                = t('datetime.prompts.month')
+              %td.cardgameExpForm_period
+                = q.number_field :experience_month,min:0, max: 11,:class => 'form-control'
+              %td.cardgameExpForm_unit
+                = t('datetime.prompts.months')
               %td
                 = q.remove_nested_fields_link t('btn.delete'), class: 'btn btn-danger removeCareer', role: 'button'
         = f.add_nested_fields_link :card_game_experiences, t('btn.add_new_career'), class: 'btn btn-primary addCareer', role: 'button',onClick: 'is_AddCareer()'

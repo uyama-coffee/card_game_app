@@ -1,0 +1,16 @@
+= simple_form_for [:shop, @shop] do |f|
+
+  .field
+    = f.input :shop_name, label: "ショップ名"
+
+  .field
+    = f.input :address, label: "住所"
+
+  .field
+    = f.input :phone_number, label: "電話番号"
+
+  .actions
+    -if current_shop.info == false
+      = f.submit "新規登録"
+    -else
+      = f.submit "保存"
