@@ -3,13 +3,13 @@ ja:
   sitetitle: サイト名
   login: ログイン
   signin: 新規登録
-  mypage: マイページ
+  header_mypage: マイページ
   email: メールアドレス
   password: パスワード
   first_name: 名
-  first_name_kana: 名
+  first_name_kana: 名よみ
   last_name: 性
-  last_name_kana: セイ
+  last_name_kana: 性よみ
   #リンク関連
   links:
     to_shop_index: 採用ショップの方はこちら
@@ -55,7 +55,7 @@ ja:
       contact_method:
         title: ● 希望の連絡方法
         tell: 電話
-        email: メール
+        email: 登録メールアドレス
         input_hint: 連絡方法を選択してください
       card_game_experience:
         title: カードゲーム経験
@@ -198,6 +198,7 @@ ja:
       month: 月
       second: 秒
       year: 年
+      months: ヶ月
   errors:
     format: "%{attribute}%{message}"
     messages:
@@ -333,3 +334,9 @@ ja:
         card_game_experiences: 経験年数
         contact_mail: メールで連絡する
         contact_phone: 電話で連絡する
+  mypage:
+    index:
+      title: マイページ
+      myresume: マイ履歴書
+      account_setting: アカウント設定
+      logout: ログアウト

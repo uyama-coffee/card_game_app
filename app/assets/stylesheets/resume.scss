@@ -47,20 +47,24 @@
   }
   &_contact{
     margin-bottom: 0.5rem;
-    #type1{color:red;}
-    #type2{color:blue;}
   }
   &_cardgameExp{
     >ul{
       padding-left:0;
     }
   }
-  &_cardgameExpTable{
-    .label{
-      vertical-align: bottom;
-    }
-  }
 }
+.cardgameExpForm{
+  &_period{
+    width:5rem;
+  }
+  &_unit{
+    vertical-align: middle !important;
+    width:3em;
+  }
+
+}
+
 //アバター等の画像調整サイズ
 img{//Helperに渡すavatar用クラス　すべてimg限定
   &.imageSize{
