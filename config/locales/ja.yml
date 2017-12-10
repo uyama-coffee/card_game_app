@@ -7,9 +7,9 @@ ja:
   email: メールアドレス
   password: パスワード
   first_name: 名
-  first_name_kana: 名
+  first_name_kana: 名よみ
   last_name: 性
-  last_name_kana: セイ
+  last_name_kana: 性よみ
   #リンク関連
   links:
     to_shop_index: 採用ショップの方はこちら
@@ -55,7 +55,7 @@ ja:
       contact_method:
         title: ● 希望の連絡方法
         tell: 電話
-        email: メール
+        email: 登録メールアドレス
         input_hint: 連絡方法を選択してください
       card_game_experience:
         title: カードゲーム経験
@@ -198,6 +198,7 @@ ja:
       month: 月
       second: 秒
       year: 年
+      months: ヶ月
   errors:
     format: "%{attribute}%{message}"
     messages:
