@@ -1,23 +1,29 @@
 %div.container
   %div.col-md-6.col-sm-6
     %h2= t '.title'
+    - if resource.errors.any?
+      %div#error_explanation.alert.alert-danger
+        %h2= resource.errors.count.to_s + "件のメッセージがあります。"
+        %ul
+        - resource.errors.full_messages.each do |msg|
+          %li= msg
+    /= devise_error_messages!
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = devise_error_messages!
-        .field
-          = f.label :email
-          %br/
-          = f.email_field :email, autofocus: true, class:"form-control"
-        .field
-          = f.label :password
-          - if @minimum_password_length
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, class:"form-control"
+      .field
+        = f.label :password
+        - if @minimum_password_length
           %em
           (#{@minimum_password_length}文字以上)
           %br/
           = f.password_field :password, autocomplete: "off", class: "form-control"
-        .field
-          = f.label :password_confirmation
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
-        .actions
-          %br/
-          = f.submit "#{t '.title'}", class: "form-control"
+      .field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
+      .actions
+        %br/
+        = f.submit "#{t '.title'}", class: "btn btn-outline-primary btn-block btn-lg"
