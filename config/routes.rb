@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'top#index'
 
   devise_for :users, path: 'users', controllers: {
-    registrations: "users/registrations"
+    registrations: "users/registrations",
+    sessions:      'users/sessions',
+
   }
   devise_for :shops, path: 'shops', controllers: {
   sessions:      'shops/sessions',
