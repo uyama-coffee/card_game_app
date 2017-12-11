@@ -316,14 +316,14 @@ ja:
     top:
       index:
         title : 採用管理トップ
-    contacts:
-      index:
-        title: 応募一覧
         wanted_list: 募集一覧
         applicants_list: 応募者一覧
         shop_information_setting: ショップ情報設定
         account_setting: アカウント設定
         logout: ログアウト
+    contacts:
+      index:
+        title: 応募一覧
       show:
         title: 応募者詳細
         name: 性名
