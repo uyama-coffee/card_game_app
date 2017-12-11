@@ -10,7 +10,6 @@ ja:
   first_name_kana: 名よみ
   last_name: 性
   last_name_kana: 性よみ
-  #リンク関連
   links:
     to_shop_index: 採用ショップの方はこちら
     to_signup: 新規お申込み
@@ -19,19 +18,16 @@ ja:
     add_new_career: + 新しい経歴を追加
     add_new: 追加
     delete: 削除
-  #初期表示関連
   prompt:
     select: 選択してください
     input_tell: 電話番号を入力してください
     input_email: メールアドレスを入力してください
     to_open_map: マップを開く
-  #検索フォーム関連
   search:
     region: 地域
     game: 対応ゲーム
     button: 検索する
     select_default: 選択してください
-  #Shop関連
   shop:
     top:
       index:
@@ -48,7 +44,6 @@ ja:
         form_title: タイトル
         form_content: 詳細
         form_games: 取扱ゲーム
-  #Resume関連
   resumes:
     form:
       title: My履歴書
@@ -61,7 +56,6 @@ ja:
         title: カードゲーム経験
         card_game: カードゲーム名
         years: 経験年数
-  #Contacts関連
   contacts:
     form:
       applied: 応募済み
@@ -70,6 +64,13 @@ ja:
         応募しました。
         ショップから連絡が行きますので、しばらくお待ち下さい。
       confirmed: 確認しました
+  enumerize:
+    contact:
+      status:
+        unsupported: 未対応
+        in_progress: 対応中
+        adopted: 採用済み
+        not_adopted: 未採用
   activerecord:
     errors:
       messages:

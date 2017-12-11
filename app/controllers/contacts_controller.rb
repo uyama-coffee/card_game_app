@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-  #ログインしないと応募できないし、当然消せない
   before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
