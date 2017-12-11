@@ -20,8 +20,9 @@ Rails.application.routes.draw do
   end
 
   namespace :shop do
-    get 'top/index'
+    resources :top, only: [:index]
     resources :projects
+    resources :contacts
     resources :shops, only: [:edit, :update]
   end
 
