@@ -99,6 +99,11 @@ ja:
       card_game_experience:
         experience_year: 経験年
         experience_month: 経験月
+      shop:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+        current_password: 現在のパスワード
   date:
     abbr_day_names:
     - 日
@@ -316,14 +321,14 @@ ja:
     top:
       index:
         title : 採用管理トップ
-    contacts:
-      index:
-        title: 応募一覧
         wanted_list: 募集一覧
         applicants_list: 応募者一覧
         shop_information_setting: ショップ情報設定
         account_setting: アカウント設定
         logout: ログアウト
+    contacts:
+      index:
+        title: 応募一覧
       show:
         title: 応募者詳細
         name: 性名
@@ -334,6 +339,11 @@ ja:
         card_game_experiences: 経験年数
         contact_mail: メールで連絡する
         contact_phone: 電話で連絡する
+    registrations:
+      edit:
+        title: アカウント設定
+        leave_blank_if_you_don't_want_to_change_it: 変更しない場合は空白のまま
+        we_need_your_current_password_to_confirm_your_changes: 変更する場合は現在のパスワードを入力
   mypage:
     index:
       title: マイページ
