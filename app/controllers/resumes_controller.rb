@@ -53,7 +53,7 @@ class ResumesController < ApplicationController
     end
 
     def set_new
-      redirect_to edit_resume_path(current_user.resumes.id) if Resume.exists?(user_id: current_user.id)
+      redirect_to edit_resume_path(current_user.resume.id) if Resume.exists?(user_id: current_user.id)
     end
 
     def resume_params

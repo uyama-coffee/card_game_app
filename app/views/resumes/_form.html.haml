@@ -1,6 +1,6 @@
 - if @resume.errors.any?
   %div#error_explanation.alert.alert-danger
-    %h2= @resume.errors.count.to_s + "件のメッセーがあります。"
+    %h2= @resume.errors.count.to_s + "件のメッセージがあります。"
     %ul
     - @resume.errors.full_messages.each do |msg|
       %li= msg
