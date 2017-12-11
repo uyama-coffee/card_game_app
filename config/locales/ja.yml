@@ -11,7 +11,8 @@ ja:
   last_name: 性
   last_name_kana: 性よみ
   links:
-    to_shop_index: 採用ショップの方はこちら
+    to_shop_index: 採用ショップトップ
+    to_shop_login: 採用ショップの方はこちら
     to_signup: 新規お申込み
   btn:
     add_new_picture: 新しい写真を登録
@@ -31,8 +32,12 @@ ja:
   shop:
     top:
       index:
-        employment_signin_title: 採用ショップの方
-        employment_login_title: ログインはこちら
+        title : 採用管理トップ
+        wanted_list: 募集一覧
+        applicants_list: 応募者一覧
+        shop_information_setting: ショップ情報設定
+        account_setting: アカウント設定
+        logout: ログアウト
     projects:
       index:
         title: 募集一覧
@@ -328,14 +333,6 @@ ja:
       new:
         resend_confirmation_instructions: もう一度送る
   shops:
-    top:
-      index:
-        title : 採用管理トップ
-        wanted_list: 募集一覧
-        applicants_list: 応募者一覧
-        shop_information_setting: ショップ情報設定
-        account_setting: アカウント設定
-        logout: ログアウト
     contacts:
       index:
         title: 応募一覧
