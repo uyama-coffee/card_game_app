@@ -7,7 +7,7 @@
     .searchForm_slectBox
       %label
         =t('search.region')
-      = f.select :shop_info_address_cont, Prefecture.all.map{|pr| [pr.name]}, {prompt:t('search.select_default')}, { autofocus: 'true', class: 'form-control'}
+      -# = f.select :shop_info_address_cont, Prefecture.all.map{|pr| [pr.name]}, {prompt:t('search.select_default')}, { autofocus: 'true', class: 'form-control'}
     .searchForm_slectBox
       %label
         =t('search.game')
@@ -21,6 +21,7 @@
 
 .recruitment
   - @projects.each do |pjt|
-    .recruitment_frame
-      = pjt.title
-      = pjt.content
+    = link_to project_path(pjt) do
+      .recruitment_frame
+        = pjt.title
+        = pjt.content
