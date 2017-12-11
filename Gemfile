@@ -55,6 +55,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'simple_form'
 gem "carrierwave"
+gem 'cloudinary'
 gem "font-awesome-rails"
 gem 'nested_form_fields'
 #Enumerize
