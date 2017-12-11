@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!, expect: [:index]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -6,9 +7,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    #地図情報の作成
-    @map = Place.new.build_map(@project.shop_info)
-    #応募機能 インスタンス作成
     @contact = Contact.new
   end
 
