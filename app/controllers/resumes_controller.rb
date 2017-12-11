@@ -24,7 +24,7 @@ class ResumesController < ApplicationController
   def update
     @resume = Resume.find(params[:id])
     if @resume.update(resume_params)
-      redirect_to edit_resume_path(@resume)
+      redirect_to edit_resume_path(@resume), notice: '更新しました'
     else
       render :edit
     end
