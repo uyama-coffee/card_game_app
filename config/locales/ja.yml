@@ -79,6 +79,15 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
         year_or_month: 経験年、経験月どちらかを入力
+    models:
+      user: ユーザー
+      shop: 採用ショップ
+      contact: 応募
+      card_game_experience: カードゲーム経験
+      card_game: カードゲーム
+      handling_card_game: 取り扱いカードゲーム
+      project: 募集
+      resume: 履歴書
     attributes:
       user:
         email: メールアドレス
