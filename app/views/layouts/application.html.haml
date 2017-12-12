@@ -13,11 +13,9 @@
     %script{:src => "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js",:type => "text/javascript"}
 
     - flash.each do |key, value|
-      .alert{class: "alert-#{key}"}
-        = link_to '×', root_path, class: "close", data_dismiss: "alert"
-        %ul
-          %li
-            = value
+      - key = "info" if key == "notice"
+      - key = "danger"  if key == "alert"
+      = content_tag :div, value, class: "alert alert-#{key}"
 
     .site_header
       %nav.navbar.navbar-expand-md.navbar-light.bg-light.justify-content-between
