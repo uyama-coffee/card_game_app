@@ -10,7 +10,7 @@
     = f.input :phone_number, label: "電話番号"
 
   .actions
-    -if current_shop.info == false
+    -if current_shop.shop_information.flag == false
       = f.submit "新規登録"
     -else
       = f.submit "保存"
