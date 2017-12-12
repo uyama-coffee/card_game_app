@@ -19,6 +19,7 @@ ja:
     add_new_career: + 新しい経歴を追加
     add_new: 追加
     delete: 削除
+    edit: 編集
   prompt:
     select: 選択してください
     input_tell: 電話番号を入力してください

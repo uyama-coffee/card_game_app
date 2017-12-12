@@ -5,9 +5,6 @@ class Shop::ProjectsController < ApplicationController
     @shop_projects = Project.all
   end
 
-  def show
-  end
-
   def new
     @shop_project = Project.new
     @shop_project.handling_card_games.build
@@ -20,7 +17,7 @@ class Shop::ProjectsController < ApplicationController
     @shop_project = current_shop.projects.build(shop_project_params)
     respond_to do |format|
       if @shop_project.save
-        format.html { redirect_to @shop_project, notice: 'Project was successfully created.' }
+        format.html { redirect_to shop_projects_path, notice: 'Project was successfully created.' }
       else
         format.html { render :new }
       end
@@ -30,11 +27,9 @@ class Shop::ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @shop_project.update(shop_project_params)
-        format.html { redirect_to @shop_project, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @shop_project }
+        format.html { redirect_to shop_projects_path, notice: 'Project was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @shop_project.errors, status: :unprocessable_entity }
       end
     end
   end

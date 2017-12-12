@@ -3,7 +3,6 @@
   .recruitmentDetail_title
     = @project.title
   .recruitmentDetail_shopName
-
   .recruitmentDetail_image
     = set_image(@project.image,"","shop_image")
   .recruitmentDetail_content
@@ -18,7 +17,6 @@
     .shopInfo_phone
 
     #map.shopInfo_map
-
 :javascript
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
