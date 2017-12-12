@@ -3,14 +3,13 @@ class Shop::ShopsController < ApplicationController
 
   def edit
     @shop = current_shop
+    @shop_information = @shop.build_shop_information
   end
 
   def update
     @shop = current_shop
     if @shop.update(shop_params)
-      @shop.info = true
-      @shop.save
-      redirect_to edit_shop_shop_path(@shop), flash: {check: "check!"}
+      redirect_to edit_shop_shop_path(@shop)
     else
       render :edit
     end
@@ -19,9 +18,8 @@ class Shop::ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(
-      :shop_name, :address, :phone_number
-    )
+    params.require(:shop_informations).permit(
+     :shop_id, :shop_name, :description, :address, :latitude, :longitude, :phone_number)
   end
 
 end

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     get 'top/index'
     resources :projects
     resources :shops, only: [:edit, :update]
+    resources :shop_informations
   end
 
   if Rails.env.development?

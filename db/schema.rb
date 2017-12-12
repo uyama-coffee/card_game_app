@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205084650) do
+ActiveRecord::Schema.define(version: 20171211103000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,19 @@ ActiveRecord::Schema.define(version: 20171205084650) do
     t.index ["user_id"], name: "index_resumes_on_user_id"
   end
 
+  create_table "shop_informations", force: :cascade do |t|
+    t.string "shop_name"
+    t.string "description"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "phone_number"
+    t.bigint "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_shop_informations_on_shop_id"
+  end
+
   create_table "shops", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -143,4 +156,5 @@ ActiveRecord::Schema.define(version: 20171205084650) do
   add_foreign_key "handling_card_games", "projects"
   add_foreign_key "places", "shops"
   add_foreign_key "projects", "shops"
+  add_foreign_key "shop_informations", "shops"
 end
