@@ -1,14 +1,13 @@
 class Shop::ShopInformationsController < ApplicationController
 
   def edit
-    @shop = current_shop
     @shop_information = current_shop.shop_information
   end
 
   def update
     @shop_information = current_shop.shop_information
     if @shop_information.update(shop_information_params)
-      @shop_information.flag = true
+      @flag = false
       @shop_information.save
       redirect_to edit_shop_shop_information_path(@shop_information)
     else

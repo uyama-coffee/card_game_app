@@ -6,6 +6,7 @@ class AddDefaultToShopInformations < ActiveRecord::Migration[5.1]
    change_column_null :shop_informations, :latitude, false, 0
    change_column_null :shop_informations, :longitude, false, 0
    change_column_null :shop_informations, :phone_number, false
+   change_column_null :shop_informations, :shop_id, false
   end
 
   def down
@@ -15,5 +16,6 @@ class AddDefaultToShopInformations < ActiveRecord::Migration[5.1]
     change_column_null :shop_informations, :latitude
     change_column_null :shop_informations, :longitude
     change_column_null :shop_informations, :phone_number
+    change_column_null :shop_informations, :shop_id
   end
 end
