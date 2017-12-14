@@ -1,0 +1,9 @@
+- if object.errors.any?
+  %div#error_explanation.alert.alert-danger
+    %h2
+      = t('errors.template.title',count:object.errors.count)
+    %p
+      = t('errors.template.body')
+    %ul
+    - object.errors.full_messages.each do |msg|
+      %li= msg

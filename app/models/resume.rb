@@ -10,11 +10,15 @@ class Resume < ApplicationRecord
 
   validates :profile_image,   presence: true
   validates :first_name,      presence: true
-  validates :first_name_kana, presence: true
+  validates :first_name_kana, presence: true, kana: true 
   validates :last_name,       presence: true
-  validates :last_name_kana,  presence: true
+  validates :last_name_kana,  presence: true, kana: true
   validates :contact_method,  presence: true
+  validates :phone_number,    presence: true, if: :is_phone?
 
+  def is_phone?
+    contact_method == 1
+  end
 
   extend Enumerize
   enumerize :contact_method, in: { email: 0, phone: 1 }

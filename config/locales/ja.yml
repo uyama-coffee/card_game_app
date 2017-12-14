@@ -6,10 +6,6 @@ ja:
   header_mypage: マイページ
   email: メールアドレス
   password: パスワード
-  first_name: 名
-  first_name_kana: 名よみ
-  last_name: 性
-  last_name_kana: 性よみ
   links:
     to_shop_index: 採用ショップトップ
     to_shop_login: 採用ショップの方はこちら
@@ -29,53 +25,6 @@ ja:
     game: 対応ゲーム
     button: 検索する
     select_default: 選択してください
-  shop:
-    top:
-      index:
-        title : 採用管理トップ
-        wanted_list: 募集一覧
-        applicants_list: 応募者一覧
-        shop_information_setting: ショップ情報設定
-        account_setting: アカウント設定
-        logout: ログアウト
-    projects:
-      index:
-        title: 募集一覧
-      new:
-        title: 新規募集
-      edit:
-        title: 募集編集
-      form:
-        form_title: タイトル
-        form_content: 詳細
-        form_games: 取扱ゲーム
-  resumes:
-    form:
-      title: My履歴書
-      contact_method:
-        title: ● 希望の連絡方法
-        tell: 電話
-        email: 登録メールアドレス
-        input_hint: 連絡方法を選択してください
-      card_game_experience:
-        title: カードゲーム経験
-        card_game: カードゲーム名
-        years: 経験年数
-  contacts:
-    form:
-      applied: 応募済み
-      modal_title: ご応募ありがとうございます。
-      modal_content: |
-        応募しました。
-        ショップから連絡が行きますので、しばらくお待ち下さい。
-      confirmed: 確認しました
-  enumerize:
-    contact:
-      status:
-        unsupported: 未対応
-        in_progress: 対応中
-        adopted: 採用済み
-        not_adopted: 未採用
   activerecord:
     errors:
       messages:
@@ -102,12 +51,13 @@ ja:
       project:
         title: タイトル
         content: 詳細
-      resume:
-        first_name: 性
-        first_name_kana: 性よみ
-        last_name: 名
-        last_name_kana: 名よみ
+      resume: &resume
+        first_name: 名
+        first_name_kana: 名よみ
+        last_name: 性
+        last_name_kana: 性よみ
         phone_number: 電話番号
+        profile_image: 写真
       resume/card_game_experiences:
         experience_year: 経験年
         experience_month: 経験月
@@ -119,6 +69,54 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         current_password: 現在のパスワード
+  shop:
+    top:
+      index:
+        title : 採用管理トップ
+        wanted_list: 募集一覧
+        applicants_list: 応募者一覧
+        shop_information_setting: ショップ情報設定
+        account_setting: アカウント設定
+        logout: ログアウト
+    projects:
+      index:
+        title: 募集一覧
+      new:
+        title: 新規募集
+      edit:
+        title: 募集編集
+      form:
+        form_title: タイトル
+        form_content: 詳細
+        form_games: 取扱ゲーム
+  resumes:
+    form:
+      <<: *resume
+      title: My履歴書
+      contact_method:
+        title: ● 希望の連絡方法
+        tell: 電話
+        email: 登録メールアドレス
+        input_hint: 連絡方法を選択してください
+      card_game_experience:
+        title: カードゲーム経験
+        card_game: カードゲーム名
+        years: 経験年数
+  contacts:
+    form:
+      applied: 応募済み
+      modal_title: ご応募ありがとうございます。
+      modal_content: |
+        応募しました。
+        ショップから連絡が行きますので、しばらくお待ち下さい。
+      confirmed: 確認しました
+  enumerize:
+    contact:
+      status:
+        unsupported: 未対応
+        in_progress: 対応中
+        adopted: 採用済み
+        not_adopted: 未採用
   date:
     abbr_day_names:
     - 日
@@ -246,7 +244,9 @@ ja:
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
       other_than: は%{count}以外の値にしてください
+      not_a_kana: は全角かな/全角カナで入力してください
     template:
+      title: "%{count}件のエラーが発生しました。"
       body: 次の項目を確認してください
       header:
         one: "%{model}にエラーが発生しました"
