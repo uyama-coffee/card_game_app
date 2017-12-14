@@ -6,6 +6,11 @@ class Shop::ProjectsController < ApplicationController
   end
 
   def show
+    #地図情報の作成
+    @map = Place.new.build_map(@project.shop_info)
+    binding.pry
+    #応募機能 インスタンス作成
+    @contact = Contact.new
   end
 
   def new
@@ -20,7 +25,7 @@ class Shop::ProjectsController < ApplicationController
     @shop_project = current_shop.projects.build(shop_project_params)
     respond_to do |format|
       if @shop_project.save
-        format.html { redirect_to @shop_project, notice: 'Project was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Project was successfully created.' }
       else
         format.html { render :new }
       end
