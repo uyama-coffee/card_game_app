@@ -1,12 +1,12 @@
-%div.container
-  %div.col-md-6.col-sm-6
+.container
+  .col-md-6.col-sm-6
     %h2= t '.title'
-    = link_to "#{t '.wanted_list'}", '', class: "form-control btn-control"
+    = link_to t('.wanted_list'), shops_contacts_index_path(@contacts), class: "btn btn-outline-primary btn-block btn-lg"
     %br/
-    = link_to "#{t '.applicants_list'}", '', class: "form-control btn-control"
+    = link_to t('.applicants_list'), '', class: "btn btn-outline-primary btn-block btn-lg"
     %br/
-    = link_to "#{t '.shop_information_setting'}", '', class: "form-control btn-control"
+    = link_to t('.shop_information_setting'), '', class: "btn btn-outline-primary btn-block btn-lg"
     %br/
-    = link_to "#{t '.account_setting'}", edit_shop_registration_path, class: "form-control btn-control"
+    = link_to t('.account_setting'), edit_shop_registration_path, class: "btn btn-outline-primary btn-block btn-lg"
     %br/
-    = link_to "#{t '.logout'}",  destroy_shop_session_path, method: :delete, class: "form-control btn-control"
+    = link_to t('.logout'), destroy_shop_session_path, class: "btn btn-outline-primary btn-block btn-lg"

@@ -83,3 +83,7 @@ production:
   database: my_card_game_app_production
   username: my_card_game_app
   password: <%= ENV['MY_PRESET_DATABASE_PASSWORD'] %>
+
+staging:
+  <<: *default
+  database: my_card_game_app_staging

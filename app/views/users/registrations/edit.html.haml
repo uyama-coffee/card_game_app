@@ -18,14 +18,14 @@
           Currently waiting confirmation for: #{resource.unconfirmed_email}
       .field
         = f.label :password
-        %i (#{t ".leave_blank_if_you_don't_want_to_change_it"})
+        - if @minimum_password_length
+          %em
+          (#{@minimum_password_length}文字以上:
+        %i #{t ".leave_blank_if_you_don't_want_to_change_it"})
         %br/
         = f.password_field :password, autocomplete: "off", class: "form-control"
       .field
         = f.label :password_confirmation
-        - if @minimum_password_length
-          %em
-          (#{@minimum_password_length}文字以上)
         %br/
         = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
       .field
