@@ -245,6 +245,7 @@ ja:
       wrong_length: は%{count}文字で入力してください
       other_than: は%{count}以外の値にしてください
       not_a_kana: は全角かな/全角カナで入力してください
+      no_experience: カードゲーム経験は1ヶ月以上必要です
     template:
       title: "%{count}件のエラーが発生しました。"
       body: 次の項目を確認してください

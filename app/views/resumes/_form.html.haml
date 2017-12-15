@@ -53,7 +53,7 @@
                 = q.collection_select(:card_game_id, CardGame.all, :id, :title,{prompt:t('prompt.select')}, {class: "form-control"}) do |b|
                   = b.label{ b.text }
               %td.cardgameExpForm_period
-                = q.number_field :experience_year,min:0,:class => 'form-control'
+                = q.number_field :experience_year,min:0, max: 99,:class => 'form-control'
               %td.cardgameExpForm_unit
                 = t('datetime.prompts.year')
               %td.cardgameExpForm_period
