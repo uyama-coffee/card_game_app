@@ -64,12 +64,16 @@
   }
 
 }
-
 //アバター等の画像調整サイズ
 img{//Helperに渡すavatar用クラス　すべてimg限定
   &.imageSize{
     &_resume{
       width:200px!important;
+      height:auto;
+    }
+    // shop/projects　の募集イメージ
+    &_shopImage-list{
+      width:150px!important;
       height:auto;
     }
   }

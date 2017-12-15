@@ -7,6 +7,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    #地図情報の作成
+    @map = ShopInformation.new.build_map(@project.shop_info)
+    #応募機能 インスタンス作成
     @contact = Contact.new
   end
 end

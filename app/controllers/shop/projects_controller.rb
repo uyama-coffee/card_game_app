@@ -5,7 +5,12 @@ class Shop::ProjectsController < ApplicationController
     @shop_projects = Project.all
   end
 
+
   def show
+    #地図情報の作成
+    @map = Place.new.build_map(@project.shop_info)
+    #応募機能 インスタンス作成
+    @contact = Contact.new
   end
 
   def new
@@ -20,7 +25,7 @@ class Shop::ProjectsController < ApplicationController
     @shop_project = current_shop.projects.build(shop_project_params)
     respond_to do |format|
       if @shop_project.save
-        format.html { redirect_to @shop_project, notice: 'Project was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Project was successfully created.' }
       else
         format.html { render :new }
       end
@@ -30,11 +35,9 @@ class Shop::ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @shop_project.update(shop_project_params)
-        format.html { redirect_to @shop_project, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @shop_project }
+        format.html { redirect_to shop_projects_path, notice: 'Project was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @shop_project.errors, status: :unprocessable_entity }
       end
     end
   end

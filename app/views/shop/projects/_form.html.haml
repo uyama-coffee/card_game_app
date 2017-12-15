@@ -1,4 +1,4 @@
-= form_for @shop_project, url:shop_projects_path do |f|
+= form_for [:shop, @shop_project]  do |f|
   - if @shop_project.errors.any?
     #error_explanation
       %ul

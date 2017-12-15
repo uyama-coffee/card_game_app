@@ -1,0 +1,18 @@
+.projectList
+  .projectList_title
+    %h2
+      = t('.title')
+  .projectList_btn
+    = link_to t('signin'), new_shop_project_path, class: "btn btn-outline-primary projectList_addNewBtn"
+  -@shop_projects.each do |pjt|
+    .projectList_project
+      .projectList_projectImage
+        = set_image(pjt.image,"imageSize_shopImage-list","shop_image")
+      .projectList_projectContent
+        .projectList_projectTitle
+          = pjt.title
+        .projectList_projectDetail
+          = pjt.content
+      .projectList_editBtn
+        = link_to t('btn.edit'), edit_shop_project_path(pjt.id), class: "btn btn-outline-primary"
+

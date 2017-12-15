@@ -3,7 +3,6 @@
   .recruitmentDetail_title
     = @project.title
   .recruitmentDetail_shopName
-
   .recruitmentDetail_image
     = set_image(@project.image,"","shop_image")
   .recruitmentDetail_content
@@ -12,13 +11,12 @@
     = render partial: '/contacts/form' , locals: {project: @project, contact: @contact}
   .recruitmentDetail_shopInfo
     .shopInfo_name
-
+      = @project.shop_info.shop_name
     .shopInfo_address
-
+      = @project.shop_info.address
     .shopInfo_phone
-
+      = @project.shop_info.phone_number
     #map.shopInfo_map
-
 :javascript
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
