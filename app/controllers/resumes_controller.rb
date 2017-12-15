@@ -14,9 +14,14 @@ class ResumesController < ApplicationController
 
   def create
     @resume = current_user.build_resume(resume_params)
-    if @resume.save
-      redirect_to edit_resume_path(@resume)
+    if CardGameExperience.new.is_duplicate_cardgame(@resume.card_game_experiences)
+      if @resume.save
+        redirect_to edit_resume_path(@resume), notice: '登録しました'
+      else
+        render :new
+      end
     else
+      flash.now[:alert] = 'カードゲーム経験重複エラー'
       render :new
     end
   end

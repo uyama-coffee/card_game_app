@@ -5,6 +5,14 @@ class Shop::ProjectsController < ApplicationController
     @shop_projects = Project.all
   end
 
+
+  def show
+    #地図情報の作成
+    @map = Place.new.build_map(@project.shop_info)
+    #応募機能 インスタンス作成
+    @contact = Contact.new
+  end
+
   def new
     @shop_project = Project.new
     @shop_project.handling_card_games.build
@@ -17,7 +25,7 @@ class Shop::ProjectsController < ApplicationController
     @shop_project = current_shop.projects.build(shop_project_params)
     respond_to do |format|
       if @shop_project.save
-        format.html { redirect_to shop_projects_path, notice: 'Project was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Project was successfully created.' }
       else
         format.html { render :new }
       end

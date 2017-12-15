@@ -1,0 +1,37 @@
+= simple_form_for [:shop, @shop_information] do |f|
+
+  .field
+    = f.input :shop_name, label: "ショップ名"
+
+  .field
+    = f.input :address, label: "住所"
+
+  %body
+  #map
+  :css
+    #map {
+            height: 300px;
+            width: 40%;
+          }
+  :javascript
+    function initMap() {
+      var uluru = {lat: #{@shop_information.latitude}, lng: #{@shop_information.longitude}};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: uluru
+      });
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+  %script{:async => "", :defer => "defer", :src => ENV['GOOGLE_MAP_API_KEY']}
+
+  .field
+    = f.input :phone_number, label: "電話番号"
+
+  .actions
+    -if @flag == true then
+      = f.submit "新規登録"
+    -else
+      = f.submit "保存"
