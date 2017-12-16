@@ -2,7 +2,4 @@ production:
   cloud_name: <%= ENV['PRODUCTION_CLOUD_NAME'] %>
   api_key: <%= ENV['PRODUCTION_API_KEY'] %>
   api_secret: <%= ENV['PRODUCTION_API_SECRET'] %>
-staging:
-  cloud_name: <%= ENV['STAGING_CLOUD_NAME'] %>
-  api_key: <%= ENV['STAGING_API_KEY'] %>
-  api_secret: <%= ENV['STAGING_API_SECRET'] %>
+  CLOUDINARY_URL: <%= ENV['PRODUCTION_CLOUDINARY_URL'] %>
