@@ -2,4 +2,3 @@ production:
   cloud_name: <%= ENV['PRODUCTION_CLOUD_NAME'] %>
   api_key: <%= ENV['PRODUCTION_API_KEY'] %>
   api_secret: <%= ENV['PRODUCTION_API_SECRET'] %>
-  CLOUDINARY_URL: <%= ENV['PRODUCTION_CLOUDINARY_URL'] %>
