@@ -26,12 +26,10 @@
     handler.fitMapToBounds();
     handler.getMap().setZoom(16);
 
-     //add markers to original json
     _.each(mapdata, function(json, index){
       json.marker = markers[index];
     });
-    debugger
-    //add dragend event to markers, triggered when you drop them
+
     _.each(mapdata, function(json){
       google.maps.event.addListener(json.marker.getServiceObject(), "dragend", function(event) {
         var lat = event.latLng.lat();
