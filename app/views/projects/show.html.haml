@@ -18,10 +18,28 @@
       = @project.shop_info.phone_number
     #map.shopInfo_map
 :javascript
+  var mapdata = #{raw @map.to_json};
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(#{raw @map.to_json});
+    markers = handler.addMarkers(mapdata, { draggable: true});
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     handler.getMap().setZoom(16);
+
+     //add markers to original json
+    _.each(mapdata, function(json, index){
+      json.marker = markers[index];
+    });
+    debugger
+    //add dragend event to markers, triggered when you drop them
+    _.each(mapdata, function(json){
+      google.maps.event.addListener(json.marker.getServiceObject(), "dragend", function(event) {
+        var lat = event.latLng.lat();
+        var lng = event.latLng.lng();
+        console.log('mapdata移動先：' + '　lat(緯度): ' + lat + ' lng(軽度): ' + lng)
+      });
+    });   
   });
+
+
+
