@@ -26,7 +26,7 @@
     .projectForm_selectGames
       %p
         = t('.form_games')
-      = collection_check_boxes(:project, :card_game_ids, CardGame.all, :id, :title) do |b|
+      = f.collection_check_boxes(:card_game_ids, CardGame.all, :id, :title) do |b|
         = b.label{ b.check_box + b.text }
     .projectForm_buttons
       = f.submit class: 'btn btn-primary'
