@@ -65,3 +65,5 @@ gem 'faker'
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 gem 'gmaps4rails'
 gem "geocoder"
+
+gem 'rails_12factor', group: :production
