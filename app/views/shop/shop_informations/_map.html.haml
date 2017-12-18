@@ -1,5 +1,8 @@
+= form_for @shop_information,url:shop_shop_information_path do |map|
+  = map.hidden_field :latitude, class: 'form-control',id:'lat'
+  = map.hidden_field :longitude, class: 'form-control',id:'lng'
+  = map.submit t('.updateing_map'),:class=>"btn btn-primary movePoint",id:'update',disabled: true,data: {title:t('.confirm_title'),confirm:t('.confirm_message'),"commit" => t('.confirm_resolve'),"cancel" => t('.confirm_cancel') }
 #map
-aaaa
 :javascript
   var mapdata = #{raw map.to_json};
   handler = Gmaps.build('Google');
@@ -15,9 +18,9 @@ aaaa
 
     _.each(mapdata, function(json){
       google.maps.event.addListener(json.marker.getServiceObject(), "dragend", function(event) {
-        var lat = event.latLng.lat();
-        var lng = event.latLng.lng();
-        alert('mapdata移動先：' + '　lat(緯度): ' + lat + ' lng(軽度): ' + lng)
+        $("#lat")[0].value = event.latLng.lat();
+        $("#lng")[0].value = event.latLng.lng();
+        $("#update").prop('disabled', false);
       });
     });   
   });

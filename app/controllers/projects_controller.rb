@@ -13,5 +13,7 @@ class ProjectsController < ApplicationController
     @map[0][:infowindow]=render_to_string(partial: "shop/shop_informations/infowindow", locals: { place: @project.shop_info })
     #応募機能 インスタンス作成
     @contact = Contact.new
+    #MAP更新
+    @shop_information = current_shop.shop_information
   end
 end
