@@ -60,8 +60,8 @@ ja:
         phone_number: 電話番号
         profile_image: 写真
       resume/card_game_experiences:
-        experience_year: 経験年
-        experience_month: 経験月
+        experience_year: カードゲーム経験年数(年)
+        experience_month: カードゲーム経験年数(月)
       card_game_experience:
         experience_year: 経験年
         experience_month: 経験月
@@ -247,6 +247,7 @@ ja:
       other_than: は%{count}以外の値にしてください
       not_a_kana: は全角かな/全角カナで入力してください
       no_experience: カードゲーム経験は1ヶ月以上必要です
+      no_cardgame: カードゲーム経験は必ず入力してください
     template:
       title: "%{count}件のエラーが発生しました。"
       body: 次の項目を確認してください
