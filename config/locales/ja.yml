@@ -60,6 +60,7 @@ ja:
         phone_number: 電話番号
         profile_image: 写真
       resume/card_game_experiences:
+        card_game: カードゲーム
         experience_year: カードゲーム経験年数(年)
         experience_month: カードゲーム経験年数(月)
       card_game_experience:
