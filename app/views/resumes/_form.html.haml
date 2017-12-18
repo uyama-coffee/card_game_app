@@ -1,9 +1,4 @@
-- if @resume.errors.any?
-  %div#error_explanation.alert.alert-danger
-    %h2= @resume.errors.count.to_s + "件のメッセージがあります。"
-    %ul
-    - @resume.errors.full_messages.each do |msg|
-      %li= msg
+= render 'layouts/errors', object: @resume
 = form_for @resume do |f|
   .resume.resume-form
     .resume_header
@@ -19,17 +14,17 @@
           = f.hidden_field :profile_image_cache
       .resume_name
         .last_name
-          = t('last_name')
+          = t('.last_name')
           = f.text_field :last_name, class: 'form-control'
         .first_name
-          = t('first_name')
+          = t('.first_name')
           = f.text_field :first_name, class: 'form-control'
       .resume_nameKana
         .last_name
-          = t('last_name_kana')
+          = t('.last_name_kana')
           = f.text_field :last_name_kana, class: 'form-control'
         .first_name
-          = t('first_name_kana')
+          = t('.first_name_kana')
           = f.text_field :first_name_kana, class: 'form-control'
       .resume_contactsMethod
         %p
@@ -58,7 +53,7 @@
                 = q.collection_select(:card_game_id, CardGame.all, :id, :title,{prompt:t('prompt.select')}, {class: "form-control"}) do |b|
                   = b.label{ b.text }
               %td.cardgameExpForm_period
-                = q.number_field :experience_year,min:0,:class => 'form-control'
+                = q.number_field :experience_year,min:0, max: 99,:class => 'form-control'
               %td.cardgameExpForm_unit
                 = t('datetime.prompts.year')
               %td.cardgameExpForm_period
