@@ -1,4 +1,4 @@
-class Shops::ContactsController < ApplicationController
+class Shop::ContactsController < ApplicationController
   def index
     @contacts = current_shop.contacts
   end

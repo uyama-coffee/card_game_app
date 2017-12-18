@@ -10,33 +10,35 @@ ja:
   first_name_kana: 名よみ
   last_name: 性
   last_name_kana: 性よみ
-  #リンク関連
   links:
-    to_shop_index: 採用ショップの方はこちら
+    to_shop_index: 採用ショップトップ
+    to_shop_login: 採用ショップの方はこちら
     to_signup: 新規お申込み
   btn:
     add_new_picture: 新しい写真を登録
     add_new_career: + 新しい経歴を追加
     add_new: 追加
     delete: 削除
-  #初期表示関連
+    edit: 編集
   prompt:
     select: 選択してください
     input_tell: 電話番号を入力してください
     input_email: メールアドレスを入力してください
     to_open_map: マップを開く
-  #検索フォーム関連
   search:
     region: 地域
     game: 対応ゲーム
     button: 検索する
     select_default: 選択してください
-  #Shop関連
   shop:
     top:
       index:
-        employment_signin_title: 採用ショップの方
-        employment_login_title: ログインはこちら
+        title : 採用管理トップ
+        wanted_list: 募集一覧
+        applicants_list: 応募者一覧
+        shop_information_setting: ショップ情報設定
+        account_setting: アカウント設定
+        logout: ログアウト
     projects:
       index:
         title: 募集一覧
@@ -48,7 +50,6 @@ ja:
         form_title: タイトル
         form_content: 詳細
         form_games: 取扱ゲーム
-  #Resume関連
   resumes:
     form:
       title: My履歴書
@@ -61,7 +62,6 @@ ja:
         title: カードゲーム経験
         card_game: カードゲーム名
         years: 経験年数
-  #Contacts関連
   contacts:
     form:
       applied: 応募済み
@@ -70,6 +70,13 @@ ja:
         応募しました。
         ショップから連絡が行きますので、しばらくお待ち下さい。
       confirmed: 確認しました
+  enumerize:
+    contact:
+      status:
+        unsupported: 未対応
+        in_progress: 対応中
+        adopted: 採用済み
+        not_adopted: 未採用
   activerecord:
     errors:
       messages:
@@ -78,6 +85,15 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
         year_or_month: 経験年、経験月どちらかを入力
+    models:
+      user: ユーザー
+      shop: 採用ショップ
+      contact: 応募
+      card_game_experience: カードゲーム経験
+      card_game: カードゲーム
+      handling_card_game: 取り扱いカードゲーム
+      project: 募集
+      resume: 履歴書
     attributes:
       user:
         email: メールアドレス
@@ -99,6 +115,11 @@ ja:
       card_game_experience:
         experience_year: 経験年
         experience_month: 経験月
+      shop:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+        current_password: 現在のパスワード
   date:
     abbr_day_names:
     - 日
@@ -313,14 +334,6 @@ ja:
       new:
         resend_confirmation_instructions: もう一度送る
   shops:
-    top:
-      index:
-        title : 採用管理トップ
-        wanted_list: 募集一覧
-        applicants_list: 応募者一覧
-        shop_information_setting: ショップ情報設定
-        account_setting: アカウント設定
-        logout: ログアウト
     contacts:
       index:
         title: 応募一覧
@@ -334,6 +347,11 @@ ja:
         card_game_experiences: 経験年数
         contact_mail: メールで連絡する
         contact_phone: 電話で連絡する
+    registrations:
+      edit:
+        title: アカウント設定
+        leave_blank_if_you_don't_want_to_change_it: 変更しない場合は空白のまま
+        we_need_your_current_password_to_confirm_your_changes: 変更する場合は現在のパスワードを入力
   mypage:
     index:
       title: マイページ

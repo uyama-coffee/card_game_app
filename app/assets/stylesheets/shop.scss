@@ -34,3 +34,42 @@
     }
   }
 }
+.projectList{
+  width:95%;
+  padding: 1rem;
+  margin:0.5rem auto;
+  padding:1rem;
+  &_title{
+    padding: 1rem 0;
+  }
+  &_btn{
+    text-align:center;
+    margin-bottom:1rem;
+  }
+  &_addNewBtn{
+    width:60% ;
+    padding:1rem !important;
+  }
+  &_project{
+  margin-bottom:0.5rem
+  }
+  &_projectImage{
+    width:150px;
+    height: auto;
+    display: inline-block;
+  }
+  &_projectContent{
+    width:calc( 100% - 150px - 160px );
+    display: inline-block;
+    vertical-align: top;
+  }
+  &_editBtn{
+    width:150px;
+    text-align: center;
+    display: inline-block;
+  }
+  &_projectTitle{
+    font-size:1.5em;
+  }
+  &_projectDetail{}
+}

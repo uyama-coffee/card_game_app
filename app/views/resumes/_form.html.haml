@@ -4,7 +4,6 @@
     %ul
     - @resume.errors.full_messages.each do |msg|
       %li= msg
-
 = form_for @resume do |f|
   .resume.resume-form
     .resume_header

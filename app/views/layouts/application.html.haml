@@ -12,6 +12,11 @@
     %script{:src => "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
     %script{:src => "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js",:type => "text/javascript"}
 
+    - flash.each do |key, value|
+      - key = "info" if key == "notice"
+      - key = "danger"  if key == "alert"
+      = content_tag :div, value, class: "alert alert-#{key}"
+
     .site_header
       %nav.navbar.navbar-expand-md.navbar-light.bg-light.justify-content-between
         = link_to t('sitetitle'), root_path, class: "navbar-brand"

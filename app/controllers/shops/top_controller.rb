@@ -3,10 +3,4 @@ class Shops::TopController < ApplicationController
 
   def index
   end
-
-  private
-  #未ログイン時にショップトップ画面（未ログイン）にリダイレクトさせる
-  def authenticate_shop
-    redirect_to shop_top_index_url unless shop_signed_in?
-  end
 end
