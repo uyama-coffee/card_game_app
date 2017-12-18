@@ -1,0 +1,23 @@
+#map
+aaaa
+:javascript
+  var mapdata = #{raw map.to_json};
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(mapdata, { draggable: true});
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(16);
+
+    _.each(mapdata, function(json, index){
+      json.marker = markers[index];
+    });
+
+    _.each(mapdata, function(json){
+      google.maps.event.addListener(json.marker.getServiceObject(), "dragend", function(event) {
+        var lat = event.latLng.lat();
+        var lng = event.latLng.lng();
+        alert('mapdata移動先：' + '　lat(緯度): ' + lat + ' lng(軽度): ' + lng)
+      });
+    });   
+  });

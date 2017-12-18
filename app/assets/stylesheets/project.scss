@@ -20,7 +20,6 @@
     text-align: center;
     padding:0.5rem;
   }
-  &_shopInfo{}
 }
 .shopInfo{
   &_name{}
@@ -29,9 +28,12 @@
   &_map{
     padding:0.2rem;
     background: #FFF;
-    min-height: 20rem;
   }
 }
+#map{
+  min-height: 20rem;
+}
+
 .contactModal{
   .modal-body{
     text-align: left;
