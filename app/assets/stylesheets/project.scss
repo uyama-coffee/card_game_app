@@ -20,7 +20,6 @@
     text-align: center;
     padding:0.5rem;
   }
-  &_shopInfo{}
 }
 .shopInfo{
   &_name{}
@@ -29,9 +28,20 @@
   &_map{
     padding:0.2rem;
     background: #FFF;
-    min-height: 20rem;
   }
 }
+//MAP表示の部分ビュー設定
+#map{
+  min-height: 20rem;
+  margin-top:-35px;
+}
+.movePoint{
+  z-index: 999;
+  position:relative;
+  left: 75%;
+  top:15px;
+}
+
 .contactModal{
   .modal-body{
     text-align: left;
