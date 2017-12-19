@@ -3,6 +3,7 @@
   .recruitmentDetail_title
     = @project.title
   .recruitmentDetail_shopName
+    = @project.shop_info.shop_name
   .recruitmentDetail_image
     = set_image(@project.image,"","shop_image")
   .recruitmentDetail_content
@@ -16,12 +17,8 @@
       = @project.shop_info.address
     .shopInfo_phone
       = @project.shop_info.phone_number
-    #map.shopInfo_map
-:javascript
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(#{raw @map.to_json});
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(16);
-  });
+    .shopInfo_map
+      = render partial: '/shop/shop_informations/map' , locals: {map: @map}
+
+
+
