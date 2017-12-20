@@ -1,13 +1,16 @@
-= simple_form_for [:shop, @shop_information] do |f|
+= form_for [:shop, @shop_information] do |f|
 
-  .field
-    = f.input :shop_name, label: "ショップ名"
+  .shop_name
+    = t('.shop_name')
+    = f.text_field :shop_name, class: 'form-control'
 
-  .field
-    = f.input :address, label: "住所"
+  .address
+    = t('.address')
+    = f.text_field :address, class: 'form-control'
 
-  .field
-    = f.input :description, label: "詳細"
+  .description
+    = t('.description')
+    = f.text_field :description, class: 'form-control'
 
   %body
   #map
@@ -30,11 +33,9 @@
     }
   %script{:async => "", :defer => "defer", :src => ENV['GOOGLE_MAP_API_KEY']}
 
-  .field
-    = f.input :phone_number, label: "電話番号"
+  .phone_number
+    = t('.phone_number')
+    = f.text_field :phone_number, class: 'form-control'
 
   .actions
-    -if @flag == true then
-      = f.submit "新規登録"
-    -else
-      = f.submit "保存"
+    = f.submit f.object.new_record? ? "#{t '.create'}" : "#{t '.submit'}" 

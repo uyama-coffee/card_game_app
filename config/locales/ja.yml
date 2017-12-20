@@ -91,6 +91,18 @@ ja:
         form_title: タイトル
         form_content: 詳細
         form_games: 取扱ゲーム
+    shop_informations:
+      new:
+        title: ショップ情報設定
+      edit:
+        title: ショップ情報変更
+      form:
+        shop_name: ショップ名
+        address: 住所
+        description: 詳細
+        phone_number: 電話番号
+        create: 新規登録
+        submit: 保存
   resumes:
     form:
       <<: *resume
