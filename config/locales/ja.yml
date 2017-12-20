@@ -10,6 +10,7 @@ ja:
     to_shop_index: 採用ショップトップ
     to_shop_login: 採用ショップの方はこちら
     to_signup: 新規お申込み
+    to_top_page: トップページへ戻る
   btn:
     add_new_picture: 新しい写真を登録
     add_new_career: + 新しい経歴を追加
@@ -21,6 +22,7 @@ ja:
     input_tell: 電話番号を入力してください
     input_email: メールアドレスを入力してください
     to_open_map: マップを開く
+    no_search_result: 検索結果は0件です。別の条件をお試しください。
   search:
     region: 地域
     game: 対応ゲーム
