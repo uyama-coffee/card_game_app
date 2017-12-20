@@ -22,12 +22,17 @@
   }
 }
 .shopInfo{
+  width:40rem;
+  padding:1rem;
+  margin:auto;
+  background: #f8f9fa;
   &_name{}
   &_address{}
   &_phone{}
   &_map{
     padding:0.2rem;
     background: #FFF;
+    height: 20.5rem;
   }
 }
 //MAP表示の部分ビュー設定
@@ -37,14 +42,9 @@
 .movePoint{
   z-index: 999;
   position:relative;
-  left: 75%;
-  top:15px;
-  margin-top:-40rem;
+  bottom:19rem;
+  left: 72%;
 }
-.edit_shop_information{
-  height: 0px;
-}
-
 .contactModal{
   .modal-body{
     text-align: left;

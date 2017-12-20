@@ -45,6 +45,7 @@ ja:
       handling_card_game: 取り扱いカードゲーム
       project: 募集
       resume: 履歴書
+      shop_information: ショップ詳細情報
     attributes:
       user:
         email: メールアドレス
@@ -73,6 +74,13 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         current_password: 現在のパスワード
+      shop_information: &shopinfo
+        shop_name: ショップ名
+        description: ショップ情報
+        address: 住所
+        latitude: 緯度
+        longitude: 経度
+        phone_number: 電話番号
   shop:
     top:
       index:
@@ -93,6 +101,15 @@ ja:
         form_title: タイトル
         form_content: 詳細
         form_games: 取扱ゲーム
+    shop_informations:
+      new:
+        title: ショップ情報設定
+      edit:
+        title: ショップ情報変更    
+      form:
+        <<: *shopinfo
+        create: 新規登録
+        submit: 保存        
   resumes:
     form:
       <<: *resume
@@ -116,7 +133,7 @@ ja:
       confirmed: 確認しました
   shared:
     map:
-      updateing_map: 位置情報の修正
+      updateing_map: 位置情報のみ修正
       confirm_title: マップ位置の修正確認
       confirm_message: |
         この位置に修正してもよろしいですか？<br>
