@@ -93,16 +93,6 @@ ja:
         form_title: タイトル
         form_content: 詳細
         form_games: 取扱ゲーム
-    shop_informations:
-      map:
-        updateing_map: 位置情報の修正
-        confirm_title: マップ位置の修正確認
-        confirm_message: |
-          この位置に修正してもよろしいですか？<br>
-          よろしければ「確定する」をクリックしてください。
-          <p class='text-info'>※MAP位置情報を変更しても登録住所は変更されません。</p>
-        confirm_resolve: 確定する
-        confirm_cancel: キャンセル
   resumes:
     form:
       <<: *resume
@@ -124,6 +114,16 @@ ja:
         応募しました。
         ショップから連絡が行きますので、しばらくお待ち下さい。
       confirmed: 確認しました
+  shared:
+    map:
+      updateing_map: 位置情報の修正
+      confirm_title: マップ位置の修正確認
+      confirm_message: |
+        この位置に修正してもよろしいですか？<br>
+        よろしければ「確定する」をクリックしてください。
+        <p class='text-info'>※MAP位置情報を変更しても登録住所は変更されません。</p>
+      confirm_resolve: 確定する
+      confirm_cancel: キャンセル
   enumerize:
     contact:
       status:

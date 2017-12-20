@@ -1,0 +1,28 @@
+#map
+- if mapedit
+  = form_for @shop_information,url:shop_shop_information_path do |map|
+    = map.hidden_field :latitude, class: 'form-control',id:'lat'
+    = map.hidden_field :longitude, class: 'form-control',id:'lng'
+    = map.submit t('.updateing_map'),:class=>"btn btn-primary movePoint",id:'update',disabled: true,data: {title:t('.confirm_title'),confirm:t('.confirm_message'),"commit" => t('.confirm_resolve'),"cancel" => t('.confirm_cancel') }
+
+:javascript
+  var mapdata = #{raw map.to_json};
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(mapdata, { draggable: #{mapedit}});
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(16);
+
+    _.each(mapdata, function(json, index){
+      json.marker = markers[index];
+    });
+
+    _.each(mapdata, function(json){
+      google.maps.event.addListener(json.marker.getServiceObject(), "dragend", function(event) {
+        $("#lat")[0].value = event.latLng.lat();
+        $("#lng")[0].value = event.latLng.lng();
+        $("#update").prop('disabled', false);
+      });
+    });   
+  });
