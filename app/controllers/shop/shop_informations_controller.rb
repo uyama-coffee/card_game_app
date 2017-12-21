@@ -24,7 +24,12 @@ class Shop::ShopInformationsController < ApplicationController
     @shop_information = current_shop.shop_information
     if @shop_information.update(shop_information_params)
       @shop_information.save
-      redirect_to edit_shop_shop_information_path(@shop_information), notice: '更新しました'
+      #paramsに緯度が入っていれば、projects#showでの更新
+      if shop_information_params.include?('latitude')
+        redirect_to project_path(params[:id])
+      else
+        redirect_to edit_shop_shop_information_path(@shop_information)
+      end
     else
       render :edit
     end
