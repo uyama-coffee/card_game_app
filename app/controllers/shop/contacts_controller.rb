@@ -5,6 +5,6 @@ class Shop::ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
-    @resume = @contact.user.resume
+    @resume = @contact.resume
   end
 end

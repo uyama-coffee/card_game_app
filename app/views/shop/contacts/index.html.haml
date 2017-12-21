@@ -4,7 +4,7 @@
     %div.wrapper
       %div.resume
         %br/
-        = link_to contact.resume.first_name + contact.resume.last_name, shops_contacts_show_path(contact)
+        = link_to contact.resume.last_name + contact.resume.first_name, shop_contact_path(contact)
         %br/
         - contact.resume.card_game_experiences.each do |cge|
           = cge.card_game.title
