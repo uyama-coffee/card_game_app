@@ -6,9 +6,7 @@
       %ul
       - resource.errors.full_messages.each do |msg|
         %li= msg
-    /= devise_error_messages!
   = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-    = flash[:notice]
     .field
       %br/
       = f.label :email
