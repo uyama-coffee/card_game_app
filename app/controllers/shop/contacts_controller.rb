@@ -4,8 +4,8 @@ class Shop::ContactsController < ApplicationController
   end
 
   def show
-    contact = Contact.find(params[:id])
-    @resume = Resume.find(contact.resume.id)
+    @contact = Contact.find(params[:id])
+    @resume = @contact.resume
   end
 
   def update
