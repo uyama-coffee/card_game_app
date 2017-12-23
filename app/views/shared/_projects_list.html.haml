@@ -1,0 +1,6 @@
+.recruitment
+  - projects.each do |pjt|
+    = link_to project_path(pjt) do
+      .recruitment_frame
+        = pjt.title
+        = pjt.content

@@ -1,4 +1,3 @@
-
 .d-flex.flex-row-reverse.topPage_btn-adopt
   - if current_shop
     = link_to t('links.to_shop_index'), shop_top_index_path, class: "btn btn-outline-primary"
@@ -7,24 +6,6 @@
 
 .d-flex.align-items-end.justify-content-center.searchForm
   = search_form_for @search, url: root_path do |f|
-    .searchForm_slectBox
-      %label
-        =t('search.region')
-      -# = f.select :shop_info_address_cont, Prefecture.all.map{|pr| [pr.name]}, {prompt:t('search.select_default')}, { autofocus: 'true', class: 'form-control'}
-    .searchForm_slectBox
-      %label
-        =t('search.game')
-      = f.select :card_games_id_eq, CardGame.all.map{|cg| [cg.title, cg.id]}, {prompt:t('search.select_default')}, { autofocus: 'true', class: 'form-control'}
-    .searchForm_btn
-      = button_tag type: 'submit', class: 'btn btn-light searchForm_btn' do
-        %i.fa.fa-search{"aria-hidden" => "true"}
-        =t('search.button')
-
+    = render 'shared/search_form', f: f
 #p 新着募集
-
-.recruitment
-  - @projects.each do |pjt|
-    = link_to project_path(pjt) do
-      .recruitment_frame
-        = pjt.title
-        = pjt.content
+= render 'shared/projects_list', projects: @projects

@@ -1,0 +1,13 @@
+.d-flex.align-items-end.justify-content-center.searchForm
+  = search_form_for @search, url: root_path do |f|
+    = render 'shared/search_form', f: f
+%p 検索結果
+- if @projects.count == 0
+  .alert.alert-warning.alert-dismissible.fade.show{:role => "alert"}
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %%i.fa.fa-times{"aria-hidden" => "true"}
+    = t('prompt.no_search_result')
+    %br
+    = link_to t('links.to_top_page') ,root_path
+- else
+  = render 'shared/projects_list', projects: @projects

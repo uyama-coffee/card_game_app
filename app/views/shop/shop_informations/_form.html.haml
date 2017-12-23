@@ -1,41 +1,27 @@
+= render 'shared/errors', object: @shop_information
 = form_for [:shop, @shop_information] do |f|
-
-  .shop_name
-    = t('.shop_name')
-    = f.text_field :shop_name, class: 'form-control'
-
-  .address
-    = t('.address')
-    = f.text_field :address, class: 'form-control'
-
-  .description
-    = t('.description')
-    = f.text_field :description, class: 'form-control'
-
-  %body
-  #map
-  :css
-    #map {
-            height: 300px;
-            width: 40%;
-          }
-  :javascript
-    function initMap() {
-      var uluru = {lat: #{@shop_information.latitude}, lng: #{@shop_information.longitude}};
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: uluru
-      });
-      var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-      });
-    }
-  %script{:async => "", :defer => "defer", :src => ENV['GOOGLE_MAP_API_KEY']}
-
-  .phone_number
-    = t('.phone_number')
-    = f.text_field :phone_number, class: 'form-control'
-
-  .actions
-    = f.submit f.object.new_record? ? "#{t '.create'}" : "#{t '.submit'}" 
+  .shopInfo
+    .shopInfo_name
+      .form-group
+        %label{:for => "shop_name"}
+          = t('.shop_name')
+        = f.text_field :shop_name, class: 'form-control',id:'shop_name'
+    .shopInfo_address
+      .form-group
+        %label{:for => "address"}
+          = t('.address')
+        = f.text_field :address, class: 'form-control',id:'address'
+    .shopInfo_map
+      = render partial: 'shared/map' , locals: {map:@map,mapedit:@is_mapedit}
+    .shopInfo_description
+      .form-group
+      %label{:for => "description"}
+        = t('.description')
+      = f.text_area :description, class: 'form-control',id:'description'  
+    .shopInfo_phone
+      .form-group
+        %label{:for => "phone_number"}
+          = t('.phone_number')
+        = f.text_field :phone_number, class: 'form-control',id:'phone_number'    
+    .shopInfo_buttons
+      = f.submit class: 'btn btn-primary'

@@ -18,7 +18,7 @@
     .shopInfo_phone
       = @project.shop_info.phone_number
     .shopInfo_map
-      = render partial: '/shop/shop_informations/map' , locals: {map: @map}
+      = render partial: 'shared/map' , locals: {map: @map,mapedit:false}
 
 
 

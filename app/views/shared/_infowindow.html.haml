@@ -1,0 +1,7 @@
+.placeInfo
+  .placeInfo_title
+    = place.shop_name
+  .placeInfo_content
+    = place.description
+  .placeInfo_link
+    = link_to t('prompt.to_open_map') ,"https://maps.google.co.jp/maps?q=loc:#{place.latitude},#{place.longitude}&iwloc=J",target: "_blank"
