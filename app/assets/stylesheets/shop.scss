@@ -73,3 +73,23 @@
   }
   &_projectDetail{}
 }
+
+a.btn-control{
+  text-align: center;
+  &:hover, &:focus{
+    text-decoration: none;
+  }
+}
+
+.wrapper{
+  display:table;
+}
+
+.wrapper div{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.status{
+  width: 20%;
+}

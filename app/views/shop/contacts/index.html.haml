@@ -1,17 +1,19 @@
-%div.container
+.container
   %h2= t '.title'
-  - @contacts.each do |contact|
-    %div.wrapper
-      %div.resume
+  - @contacts.each.with_index(1) do |contact, i|
+    %br/
+    .wrapper
+      .resume
         %br/
-        = link_to contact.resume.first_name + contact.resume.last_name, shops_contacts_show_path(resume_id:contact.resume.id)
+        = link_to contact.resume.last_name + contact.resume.first_name, shop_contact_path(contact)
         %br/
         - contact.resume.card_game_experiences.each do |cge|
           = cge.card_game.title
           %br/
-      %div.status
-        %select.form-control
-          %option  未対応
-          %option  対応中
-          %option  採用済
-          %option  未済用
+      .status
+        = select_tag :status,
+                      options_for_select({"未対応": "unsupported", "対応中": "in_progress", "採用済み": "adopted", "未採用": "not_adopted"}, selected: contact.status),
+                      class: "form-control form-lg form-block",
+                      id: "status_id_#{i}",
+                      onchange: "select_status(#{i});"
+      %input{name: "contact_id", type: "hidden", value: contact.id, id: "contact_id_#{i}" }

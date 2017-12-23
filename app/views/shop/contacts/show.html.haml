@@ -23,7 +23,7 @@
         = t '.card_game_experiences'
         = ':' + cge.experience_year.to_s + '年' + cge.experience_month.to_s + '月'
         %br/
-  - if @resume.contact_method == 1
-    = link_to "#{t '.contact_mail'}", '', class: "btn btn-info"
+  - if @resume.contact_method.email?
+    = link_to @resume.user.email, "mailto:#{@resume.user.email}", class: "btn btn-info"
   - else
-    = link_to "#{t '.contact_phone'}", '', class: "btn btn-info"
+    = link_to @resume.phone_number, "tel:#{@resume.phone_number}", class: "btn btn-info"

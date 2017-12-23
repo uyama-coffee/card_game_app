@@ -53,18 +53,6 @@ ActiveRecord::Schema.define(version: 20171213055016) do
     t.index ["project_id"], name: "index_handling_card_games_on_project_id"
   end
 
-  create_table "places", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.string "address"
-    t.float "latitude"
-    t.float "longitude"
-    t.bigint "shop_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["shop_id"], name: "index_places_on_shop_id"
-  end
-
   create_table "prefectures", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -121,6 +109,10 @@ ActiveRecord::Schema.define(version: 20171213055016) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "info"
+    t.string "phone_number"
+    t.string "address"
+    t.string "shop_name"
     t.index ["email"], name: "index_shops_on_email", unique: true
     t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true
   end
@@ -150,7 +142,6 @@ ActiveRecord::Schema.define(version: 20171213055016) do
   add_foreign_key "contacts", "users"
   add_foreign_key "handling_card_games", "card_games"
   add_foreign_key "handling_card_games", "projects"
-  add_foreign_key "places", "shops"
   add_foreign_key "projects", "shops"
   add_foreign_key "shop_informations", "shops"
 end
