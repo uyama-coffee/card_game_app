@@ -10,7 +10,9 @@ class Shop::ContactsController < ApplicationController
 
   def update
     @contact = Contact.find(params[:contact][:contact_id])
-    @contact.update(contact_params)
+    if current_shop.id == @contact.project.shop_id
+      @contact.update(contact_params)
+    end
   end
 
   private
