@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   namespace :shop do
     resources :top, only: [:index]
     resources :projects
-    resources :contacts
+    resources :contacts, only:[:index,:show,:update]
     resources :shops, only: [:edit, :update]
     resources :shop_informations
   end

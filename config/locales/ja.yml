@@ -91,6 +91,19 @@ ja:
         form_title: タイトル
         form_content: 詳細
         form_games: 取扱ゲーム
+    contacts:
+      index:
+        title: 応募一覧
+      show:
+        title: 応募者詳細
+        name: 性名
+        phonetic: よみがな
+        phone_number: 電話番号
+        card_game_experience: カードゲーム経験
+        card_game_name: カードゲーム名
+        card_game_experiences: 経験年数
+        contact_mail: メールで連絡する
+        contact_phone: 電話で連絡する
     shop_informations:
       map:
         updateing_map: 位置情報の修正
@@ -347,19 +360,6 @@ ja:
       new:
         resend_confirmation_instructions: もう一度送る
   shops:
-    contacts:
-      index:
-        title: 応募一覧
-      show:
-        title: 応募者詳細
-        name: 性名
-        phonetic: よみがな
-        phone_number: 電話番号
-        card_game_experience: カードゲーム経験
-        card_game_name: カードゲーム名
-        card_game_experiences: 経験年数
-        contact_mail: メールで連絡する
-        contact_phone: 電話で連絡する
     registrations:
       edit:
         title: アカウント設定
