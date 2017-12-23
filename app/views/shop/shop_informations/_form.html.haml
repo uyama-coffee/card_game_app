@@ -1,3 +1,4 @@
+= render 'shared/errors', object: @shop_information
 = form_for [:shop, @shop_information] do |f|
   .shopInfo
     .shopInfo_name
@@ -11,7 +12,7 @@
           = t('.address')
         = f.text_field :address, class: 'form-control',id:'address'
     .shopInfo_map
-      = render partial: 'shared/map' , locals: {map:@map,mapedit:true}
+      = render partial: 'shared/map' , locals: {map:@map,mapedit:@is_mapedit}
     .shopInfo_description
       .form-group
       %label{:for => "description"}

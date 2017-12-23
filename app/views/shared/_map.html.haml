@@ -1,6 +1,6 @@
 #map
 - if mapedit
-  = form_for @shop_information,url:shop_shop_information_path do |map|
+  = form_for @shop_information,url:new_shop_shop_information_path do |map|
     = map.hidden_field :latitude, class: 'form-control',id:'lat'
     = map.hidden_field :longitude, class: 'form-control',id:'lng'
     = map.submit t('.updateing_map'),:class=>"btn btn-primary movePoint",id:'update',disabled: true,data: {title:t('.confirm_title'),confirm:t('.confirm_message'),"commit" => t('.confirm_resolve'),"cancel" => t('.confirm_cancel') }
