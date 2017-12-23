@@ -4,6 +4,7 @@ class Shop::ContactsController < ApplicationController
   end
 
   def show
-    @resume = Resume.find(params[:resume_id])
+    @contact = Contact.find(params[:id])
+    @resume = @contact.resume
   end
 end
