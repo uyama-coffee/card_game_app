@@ -1,6 +1,6 @@
 class Shop::ContactsController < ApplicationController
   def index
-    @contacts = current_shop.contacts.order(:id)
+    @contacts = current_shop.contacts.order(:id).decorate
   end
 
   def show
