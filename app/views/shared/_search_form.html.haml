@@ -1,8 +1,7 @@
 .searchForm_slectBox
     %label
         =t('search.region')
-    -# = f.select :shop_info_address_cont, Prefecture.all.map{|pr| [pr.name]}, {prompt:t('search.select_default')}, { autofocus: 'true', class: 'form-control'}
-    = f.text_field :shop_info_address_cont, class: 'form-control'
+    = f.select :shop_info_address_cont, JpPrefecture::Prefecture.all.map{|pr| [pr.name]}, {prompt:t('search.select_default')}, { autofocus: 'true', class: 'form-control', id:'item_todoufuken'}
 .searchForm_slectBox
     %label
         =t('search.game')

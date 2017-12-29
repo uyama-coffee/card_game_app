@@ -67,3 +67,4 @@ gem 'gmaps4rails'
 gem "geocoder"
 
 gem 'rails_12factor', group: :production
+gem 'jp_prefecture'
