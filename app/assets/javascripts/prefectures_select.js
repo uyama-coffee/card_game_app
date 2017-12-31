@@ -3,29 +3,28 @@ var geoapi_url = "http://geoapi.heartrails.com/api/json?jsonp=?";
 var selected_prefecture;
 var selected_city;
 
-$("body").ready(geoApiInitialize);
-function geoApiInitialize() {
-    if ($("#geoapi-prefectures").length > 0) {
-        geoApiInitializePrefectures();
+$("body").ready(initializer);
+function initializer() {
+    if ($("#prefectures").length > 0) {
+        initializePrefectures();
     }
-    geoApiInitializeCities();
-    $("#geoapi-prefectures").change(geoApiChangePrefecture);
-    $("#geoapi-cities").change(geoApiChangeCity);
+    $("#prefectures").change(geoApiChangePrefecture);
+    $("#cities").change(geoApiChangeCity);
 }
+
 function geoApiSetPrefectures (json) {
     var prefectures = json.response.prefecture;
     for (var index = 0; index < prefectures.length; index++) {
         var option = $(document.createElement('option'));
         option.text(prefectures[index]);
         option.val(prefectures[index]);
-        $('#geoapi-prefectures').append(option);
+        $('#prefectures').append(option);
     }
 }
 
 function geoApiChangePrefecture () {
-  selected_prefecture = $("#geoapi-prefectures option:selected");
-    geoApiInitializeCities();
-    $.getJSON(geoapi_url, { "method": "getCities", "prefecture": selected_prefecture.text() }, setCities);
+  selected_prefecture = $("#prefectures option:selected");
+  $.getJSON(geoapi_url, { "method": "getCities", "prefecture": selected_prefecture.text() }, setCities);
 }
 
 function setCities (json) {
@@ -34,18 +33,14 @@ function setCities (json) {
         var option = $(document.createElement('option'));
         option.text(cities[index].city);
         option.val(cities[index].city);
-        $('#geoapi-cities').append(option);
+        $('#cities').append(option);
     }
 }
 
 function geoApiChangeCity () {
-  selected_city = $("#geoapi-cities option:selected");
+  selected_city = $("#cities option:selected");
 }
 
-function geoApiInitializePrefectures() {
+function initializePrefectures() {
     $.getJSON(geoapi_url, { "method": "getPrefectures" }, geoApiSetPrefectures);
-}
-
-function geoApiInitializeCities() {
-    $("#geoapi-cities").html('<option value="">すべて</option>');
 }
