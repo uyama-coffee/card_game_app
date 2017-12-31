@@ -53,12 +53,6 @@ ActiveRecord::Schema.define(version: 20171213055016) do
     t.index ["project_id"], name: "index_handling_card_games_on_project_id"
   end
 
-  create_table "prefectures", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "projects", force: :cascade do |t|
     t.string "image"
     t.string "title", null: false
