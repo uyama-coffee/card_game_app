@@ -5,9 +5,6 @@ var selected_city;
 
 $("body").ready(initializer);
 function initializer() {
-    if ($("#prefectures").length > 0) {
-        initializePrefectures();
-    }
     $("#prefectures").change(geoApiChangePrefecture);
     $("#cities").change(geoApiChangeCity);
 }
@@ -39,8 +36,4 @@ function setCities (json) {
 
 function geoApiChangeCity () {
   selected_city = $("#cities option:selected");
-}
-
-function initializePrefectures() {
-    $.getJSON(geoapi_url, { "method": "getPrefectures" }, geoApiSetPrefectures);
 }

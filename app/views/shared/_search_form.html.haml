@@ -1,8 +1,8 @@
 = search_form_for @search, url: root_path do |f|
   .searchForm_slectBox
     %label
-      =t('search.prefecture')
-    = f.select :shop_info_address_cont_all,'', {include_blank: t('prompt.select')}, {class: 'form-control',id:'prefectures',name:'q[shop_info_address_cont_all][]'}
+      = t('search.prefecture')
+    = render 'shared/prefectures_select_list'
   .searchForm_slectBox
     %label
       =t('search.city')
