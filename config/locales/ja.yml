@@ -109,6 +109,7 @@ ja:
         name: 性名
         phonetic: よみがな
         phone_number: 電話番号
+        email: メールアドレス
         card_game_experience: カードゲーム経験
         card_game_name: カードゲーム名
         card_game_experiences: 経験年数

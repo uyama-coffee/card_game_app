@@ -9,6 +9,10 @@
     = ':' + @resume.first_name_kana + @resume.last_name_kana
     %br/
   %div.field
+  - if @resume.contact_method.email?
+    = t '.email'
+    = ':' + @resume.user.email
+  - else
     = t '.phone_number'
     = ':' + @resume.phone_number
     %br/
