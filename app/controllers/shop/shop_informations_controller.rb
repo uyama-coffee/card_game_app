@@ -11,7 +11,7 @@ class Shop::ShopInformationsController < ApplicationController
   end
 
   def create
-    
+
     @shop_information = current_shop.build_shop_information(shop_information_params)
     if @shop_information.save
       redirect_to edit_shop_shop_information_path(@shop_information), notice: '登録しました'
@@ -37,7 +37,7 @@ class Shop::ShopInformationsController < ApplicationController
   end
 
   def edit
-    @shop_information = current_shop.shop_information   
+    @shop_information = current_shop.shop_information
   end
 
   def update
