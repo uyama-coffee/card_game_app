@@ -57,6 +57,7 @@ ja:
       project:
         title: タイトル
         content: 詳細
+        handling_card_games: 取り扱いカードゲーム
       resume: &resume
         first_name: 名
         first_name_kana: 名よみ
