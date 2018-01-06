@@ -154,6 +154,8 @@ ja:
         応募しました。
         ショップから連絡が行きますので、しばらくお待ち下さい。
       confirmed: 確認しました
+      unregistered_resume: 応募するためには履歴書の登録が必要です。
+      create_resume: 履歴書を登録する
   shared:
     map:
       updateing_map: 位置情報のみ修正
