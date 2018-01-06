@@ -95,15 +95,22 @@ ja:
         logout: ログアウト
     projects:
       index:
-        title: 募集一覧
+        title: 募集一覧 
       new:
         title: 新規募集
+        no_shop_information: ショップ情報を登録してください     
       edit:
         title: 募集編集
       form:
         form_title: タイトル
         form_content: 詳細
         form_games: 取扱ゲーム
+      create:
+        successfully_created: 新しい募集を登録しました！
+      update:
+        successfully_updated: 募集を更新しました！
+      destroy:
+        successfully_deleted: 募集を削除しました！          
     contacts:
       index:
         title: 応募一覧
