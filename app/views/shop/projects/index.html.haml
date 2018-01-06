@@ -14,5 +14,6 @@
         .projectList_projectDetail
           = pjt.content
       .projectList_editBtn
-        = link_to t('btn.edit'), edit_shop_project_path(pjt.id), class: "btn btn-outline-primary"
+        - unless pjt.shop_info.blank?
+          = link_to t('btn.edit'), edit_shop_project_path(pjt.id), class: "btn btn-outline-primary" if pjt.shop_info.shop_id == current_shop.id
 
