@@ -24,8 +24,10 @@
         = t '.card_game_name'
         = ':' + cge.card_game.title
         %br/
+      %div.field
         = t '.card_game_experiences'
-        = ':' + cge.experience_year.to_s + '年' + cge.experience_month.to_s + '月'
+        = ':' + cge.experience_year.to_s + t('datetime.prompts.year')
+        = cge.experience_month.to_s + t('datetime.prompts.months')
         %br/
   - if @resume.contact_method.email?
     = link_to t('.contact_mail'), "mailto:#{@resume.user.email}", class: "btn btn-info"
