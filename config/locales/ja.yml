@@ -132,7 +132,12 @@ ja:
       form:
         <<: *shopinfo
         create: 新規登録
-        submit: 保存        
+        submit: 保存
+      create:
+        successfully_created: ショップ情報を登録しました！
+        illegal_address: 入力した住所が不正です。もう一度ご確認ください。
+      update:
+        successfully_updated: ショップ情報を更新しました！
   resumes:
     form:
       <<: *resume
