@@ -57,6 +57,7 @@ ja:
       project:
         title: タイトル
         content: 詳細
+        handling_card_games: 取り扱いカードゲーム
       resume: &resume
         first_name: 名
         first_name_kana: 名よみ
@@ -94,15 +95,22 @@ ja:
         logout: ログアウト
     projects:
       index:
-        title: 募集一覧
+        title: 募集一覧 
       new:
         title: 新規募集
+        no_shop_information: ショップ情報を登録してください     
       edit:
         title: 募集編集
       form:
         form_title: タイトル
         form_content: 詳細
         form_games: 取扱ゲーム
+      create:
+        successfully_created: 新しい募集を登録しました！
+      update:
+        successfully_updated: 募集を更新しました！
+      destroy:
+        successfully_deleted: 募集を削除しました！          
     contacts:
       index:
         title: 応募一覧
@@ -126,6 +134,11 @@ ja:
         <<: *shopinfo
         create: 新規登録
         submit: 保存
+      create:
+        successfully_created: ショップ情報を登録しました！
+        illegal_address: 入力した住所が不正です。もう一度ご確認ください。
+      update:
+        successfully_updated: ショップ情報を更新しました！
   resumes:
     form:
       <<: *resume
@@ -147,6 +160,8 @@ ja:
         応募しました。
         ショップから連絡が行きますので、しばらくお待ち下さい。
       confirmed: 確認しました
+      unregistered_resume: 応募するためには履歴書の登録が必要です。
+      create_resume: 履歴書を登録する
   shared:
     map:
       updateing_map: 位置情報のみ修正

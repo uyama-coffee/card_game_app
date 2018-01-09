@@ -5,7 +5,6 @@ class Shop::ProjectsController < ApplicationController
     @shop_projects = Project.all
   end
 
-
   def show
     #地図情報の作成
     @map = Place.new.build_map(@project.shop_info)
@@ -14,6 +13,7 @@ class Shop::ProjectsController < ApplicationController
   end
 
   def new
+    redirect_to new_shop_shop_information_path, alert: t('.no_shop_information') if current_shop.shop_information.blank?
     @shop_project = Project.new
     @shop_project.handling_card_games.build
   end
@@ -25,7 +25,7 @@ class Shop::ProjectsController < ApplicationController
     @shop_project = current_shop.projects.build(shop_project_params)
     respond_to do |format|
       if @shop_project.save
-        format.html { redirect_to root_path, notice: 'Project was successfully created.' }
+        format.html { redirect_to root_path, notice: t('.successfully_created')}
       else
         format.html { render :new }
       end
@@ -35,7 +35,7 @@ class Shop::ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @shop_project.update(shop_project_params)
-        format.html { redirect_to shop_projects_path, notice: 'Project was successfully updated.' }
+        format.html { redirect_to shop_projects_path, notice: t('.successfully_updated')}
       else
         format.html { render :edit }
       end
@@ -46,7 +46,7 @@ class Shop::ProjectsController < ApplicationController
   def destroy
     @shop_project.destroy
     respond_to do |format|
-      format.html { redirect_to shop_projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to shop_projects_url, notice: t('.successfully_updated')}
       format.json { head :no_content }
     end
   end

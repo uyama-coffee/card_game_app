@@ -1,11 +1,12 @@
 - if current_user.already_contacted?(project)
-  /取り消す機能
-  /= button_to project_contact_path(project,project.contacts),class:" btn btn-danger" ,method: :delete do
-  /  %i.fa.fa-ban{"aria-hidden" => "true"}
-  /  応募を取り消す
   %button.btn.btn-info.disabled
     %i.fa.fa-check{"aria-hidden" => "true"}
     = t('.applied')
+- elsif current_user.resume.blank?
+  .alert.alert-warning{:role => "alert",:style =>"text-align:left"}
+    %i.fa.fa-exclamation-circle{"aria-hidden" => "true"}
+    = t('.unregistered_resume')
+    = link_to t('.create_resume'),new_resume_path
 - else
   = form_for [project,contact] do |f|
     = f.submit class: 'btn btn-primary','data-toggle': "modal", 'data-target': "#apply"
