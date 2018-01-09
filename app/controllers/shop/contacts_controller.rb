@@ -1,16 +1,18 @@
 class Shop::ContactsController < ApplicationController
   def index
-    @contacts = current_shop.contacts.order(:id)
+    @contacts = current_shop.contacts.order(:id).decorate
   end
 
   def show
-    contact = Contact.find(params[:id])
-    @resume = Resume.find(contact.resume.id)
+    @contact = Contact.find(params[:id])
+    @resume = @contact.resume
   end
 
   def update
     @contact = Contact.find(params[:contact][:contact_id])
-    @contact.update(contact_params)
+    if current_shop.id == @contact.project.shop_id
+      @contact.update(contact_params)
+    end
   end
 
   private
