@@ -2,11 +2,11 @@
   %h2= t '.title'
   %div.field
     = t '.name'
-    = ':' + @resume.first_name + @resume.last_name
+    = ':' + @resume.full_name
     %br/
   %div.field
     = t '.phonetic'
-    = ':' + @resume.first_name_kana + @resume.last_name_kana
+    = ':' + @resume.full_name_kana
     %br/
   %div.field
   - if @resume.contact_method.email?
@@ -19,7 +19,7 @@
   %div.field
     = t '.card_game_experience'
     %br/
-    - @resume.card_game_experiences.each do |cge|
+    - @card_game_experiences.each do |cge|
       %div.space
         = t '.card_game_name'
         = ':' + cge.card_game.title

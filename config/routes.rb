@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   }
 
   devise_for :shops, path: 'shops', controllers: {
-  sessions:      'shops/sessions',
-  passwords:     'shops/passwords',
-  registrations: 'shops/registrations'
+    sessions:      'shops/sessions',
+    passwords:     'shops/passwords',
+    registrations: 'shops/registrations'
   }
 
   resources :mypage, only: [:index]

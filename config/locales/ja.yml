@@ -25,9 +25,11 @@ ja:
     no_search_result: 検索結果は0件です。別の条件をお試しください。
   search:
     region: 地域
+    prefecture: 都道府県
+    city: 市区町村
     game: 対応ゲーム
     button: 検索する
-    select_default: 選択してください
+    all: すべて
   activerecord:
     errors:
       messages:

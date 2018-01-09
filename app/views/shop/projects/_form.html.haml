@@ -1,9 +1,5 @@
+= render 'shared/errors', object: @shop_project
 = form_for [:shop, @shop_project]  do |f|
-  - if @shop_project.errors.any?
-    #error_explanation
-      %ul
-        - @shop_project.errors.full_messages.each do |message|
-          %li= message
   .projectForm
     .projectForm_imageUpload
       .preview
@@ -11,7 +7,7 @@
     .projectForm_uploadBtn
       = f.label :image, class: "btn btn-primary " do
         %i.fa.fa-camera{"aria-hidden" => "true"}
-          新しい写真を登録
+          =t('btn.add_new_picture')
         = f.file_field :image,style: "display:none;"
         = f.hidden_field :image_cache
     .projectForm_inputForm
