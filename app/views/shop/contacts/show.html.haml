@@ -9,6 +9,10 @@
     = ':' + @resume.full_name_kana
     %br/
   %div.field
+  - if @resume.contact_method.email?
+    = t '.email'
+    = ':' + @resume.user.email
+  - else
     = t '.phone_number'
     = ':' + @resume.phone_number
     %br/
@@ -20,10 +24,12 @@
         = t '.card_game_name'
         = ':' + cge.card_game.title
         %br/
+      %div.field
         = t '.card_game_experiences'
-        = ':' + cge.experience_year_month
+        = ':' + cge.experience_year.to_s + t('datetime.prompts.year')
+        = cge.experience_month.to_s + t('datetime.prompts.months')
         %br/
   - if @resume.contact_method.email?
-    = link_to @resume.user.email, "mailto:#{@resume.user.email}", class: "btn btn-info"
+    = link_to t('.contact_mail'), "mailto:#{@resume.user.email}", class: "btn btn-info"
   - else
-    = link_to @resume.phone_number, "tel:#{@resume.phone_number}", class: "btn btn-info"
+    = link_to t('.contact_phone'), "tel:#{@resume.phone_number}", class: "btn btn-info"
