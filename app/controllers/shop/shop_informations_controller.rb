@@ -1,5 +1,6 @@
 class Shop::ShopInformationsController < ApplicationController
   include Common
+  before_action :authenticate_shop!
   before_action :create_instance, only: [:new, :create]
   before_action :set_shop_information, only: [:edit, :update]
   before_action -> {

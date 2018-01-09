@@ -1,8 +1,9 @@
 class Shop::ProjectsController < ApplicationController
+  before_action :authenticate_shop!
   before_action :set_shop_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @shop_projects = Project.all
+    @shop_projects = current_shop.projects
   end
 
   def show

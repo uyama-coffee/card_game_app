@@ -95,10 +95,10 @@ ja:
         logout: ログアウト
     projects:
       index:
-        title: 募集一覧 
+        title: 募集一覧
       new:
         title: 新規募集
-        no_shop_information: ショップ情報を登録してください     
+        no_shop_information: ショップ情報を登録してください
       edit:
         title: 募集編集
       form:
@@ -110,7 +110,7 @@ ja:
       update:
         successfully_updated: 募集を更新しました！
       destroy:
-        successfully_deleted: 募集を削除しました！          
+        successfully_deleted: 募集を削除しました！
     contacts:
       index:
         title: 応募一覧
@@ -397,6 +397,10 @@ ja:
       new:
         resend_confirmation_instructions: もう一度送る
   shops:
+    sessions:
+      new:
+        employment_signin_title: 採用ショップの方
+        employment_login_title: ログインはこちら
     registrations:
       edit:
         title: アカウント設定

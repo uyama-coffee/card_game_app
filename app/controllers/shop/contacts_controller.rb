@@ -1,4 +1,6 @@
 class Shop::ContactsController < ApplicationController
+  before_action :authenticate_shop!
+  
   def index
     @contacts = current_shop.contacts.order(:id).decorate
   end
