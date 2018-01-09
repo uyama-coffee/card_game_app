@@ -7,6 +7,7 @@ class Shop::ShopInformationsController < ApplicationController
   }
 
   def new
+    @shop_information = ShopInformation.new(shop_id: current_shop.id)
   end
   def create
     @shop_information = current_shop.build_shop_information(shop_information_params)
@@ -22,6 +23,7 @@ class Shop::ShopInformationsController < ApplicationController
   end
 
   def edit
+    @shop_information = current_shop.shop_information
   end
 
   def update
