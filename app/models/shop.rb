@@ -6,7 +6,4 @@ class Shop < ApplicationRecord
   has_many :contacts, through: :projects
   has_one :shop_information
 
-  def self.contacts
-    Contact.where(project_id: shop_id)
-  end
 end
