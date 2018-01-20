@@ -9,13 +9,17 @@
     %h2
       =t('.employment_login_title')
     .form-group
-      %label{:for => "emailAddress"}
-        = t('email')
-      %input#emailAddress.form-control{"aria-describedby" => "emailHelp", :placeholder => "Enter email", :type => "email"}/
+      /%label{:for => "emailAddress"}
+      /  = t('email')
+      /%input#emailAddress.form-control{"aria-describedby" => "emailHelp", :placeholder => "Enter email", :type => "email"}/
+      = f.label :email
+      = f.email_field :email, id: "emailAddress", class: "form-control"
     .form-group
-      %label{:for => "exampleInputPassword1"}
-        = t('password')
-      %input#exampleInputPassword1.form-control{:placeholder => "Password", :type => "password"}/
+      /%label{:for => "exampleInputPassword1"}
+      /= t('password')
+      /%input#exampleInputPassword1.form-control{:placeholder => "Password", :type => "password"}/
+      = f.label :password
+      = f.password_field :password, id: "exampleInputPassword1", class: "form-control"
     .loginForm_btn
       %button.btn.btn-primary{:type => "submit"}
         =t('login')
