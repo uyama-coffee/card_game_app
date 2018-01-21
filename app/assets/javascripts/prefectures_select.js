@@ -1,5 +1,5 @@
 //GEO Apiを使って都道府県と市区町村を取得し、セレクトボックスを連動させる
-var geoapi_url = "http://geoapi.heartrails.com/api/json?jsonp=?";
+var geoapi_url = "https://geoapi.heartrails.com/api/json?jsonp=?";
 var selected_prefecture;
 var selected_city;
 
