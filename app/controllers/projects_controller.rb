@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   include Common
-  before_action :authenticate_user!, only: [:show]
+  
   def index
     @projects = Project.all
   end

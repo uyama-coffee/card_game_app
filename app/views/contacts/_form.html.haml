@@ -1,4 +1,7 @@
-- if current_user.already_contacted?(project)
+- if current_user.nil?
+  %button.btn.btn-outline-primary
+    = link_to t('.require_login'), new_resume_path
+- elsif current_user.already_contacted?(project)
   %button.btn.btn-info.disabled
     %i.fa.fa-check{"aria-hidden" => "true"}
     = t('.applied')
