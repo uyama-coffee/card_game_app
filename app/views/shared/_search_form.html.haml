@@ -10,7 +10,13 @@
   .searchForm_slectBox
     %label
       =t('search.game')
-    = f.select :card_games_id_eq_all, CardGame.all.map{|cg| [cg.title, cg.id]}, {include_blank:t('search.all')}, {class: 'form-control',id:'card-games'}
+    %button.btn-default.form-control{"data-target" => "#card_games", "data-toggle" => "collapse", :type => "button"}
+      =t('prompt.select')
+    #card_games.collapse
+      .panel.panel-default
+        .panel-body
+          = f.collection_check_boxes :card_games_id_in, CardGame.all, :id, :title, {checked: @search.card_games_id_in} do |b|
+            = b.label{ b.check_box + b.text }
   .searchForm_btn
     = button_tag type: 'submit', class: 'btn btn-light searchForm_btn' do
       %i.fa.fa-search{"aria-hidden" => "true"}
