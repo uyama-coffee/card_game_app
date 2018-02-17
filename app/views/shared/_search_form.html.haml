@@ -1,23 +1,24 @@
-= search_form_for @search, url: root_path do |f|
-  .searchForm_slectBox
+= search_form_for @search, :html => {:class => 'project_search row top-form'}, url: root_path do |f|
+  .searchForm_slectBox.col-md-3
     %label
       = t('search.prefecture')
     = render 'shared/prefectures_select_list'
-  .searchForm_slectBox
+  .searchForm_slectBox.col-md-3
     %label
       =t('search.city')
-    = f.select :shop_info_address_cont_all,'', {include_blank:t('search.all')}, {class: 'form-control',id:'cities',name:'q[shop_info_address_cont_all][]'}
-  .searchForm_slectBox
+    = f.select :shop_info_address_cont_all,'', {include_blank:""}, {class: 'form-control pointer',id:'cities',name:'q[shop_info_address_cont_all][]'}
+  .searchForm_slectBox.col-md-3
     %label
       =t('search.game')
-    %button.btn-default.form-control{"data-target" => "#card_games", "data-toggle" => "collapse", :type => "button"}
+    %button.btn.btn-blue.form-control.collapsed.waves-effect.waves-light{"data-target" => "#card_games", "data-toggle" => "collapse", :type => "button", "aria-expanded" => "false"}
       =t('prompt.select')
     #card_games.collapse
       .panel.panel-default
         .panel-body
           = f.collection_check_boxes :card_games_id_in, CardGame.all, :id, :title, {checked: @search.card_games_id_in} do |b|
             = b.label{ b.check_box + b.text }
-  .searchForm_btn
-    = button_tag type: 'submit', class: 'btn btn-light searchForm_btn' do
+  .searchForm_btn.col-md-3
+    %label.hide-label ""
+    = button_tag type: 'submit', class: 'btn btn-light searchForm_btn form-control' do
       %i.fa.fa-search{"aria-hidden" => "true"}
         = t('search.button')

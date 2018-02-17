@@ -1,23 +1,26 @@
-.recruitmentDetail
-  .recruitmentDetail_title
-    = @project.title
-  .recruitmentDetail_shopName
-    = @project.shop_info.shop_name
-  .recruitmentDetail_image
-    = set_image(@project.image,"","shop_image")
-  .recruitmentDetail_content
-    = @project.content
-  .recruitmentDetail_entryBtn
-    = render partial: '/contacts/form' , locals: {project: @project, contact: @contact}
-  .recruitmentDetail_shopInfo
-    .shopInfo_name
-      = @project.shop_info.shop_name
-    .shopInfo_address
-      = @project.shop_info.address
-    .shopInfo_phone
-      = @project.shop_info.phone_number
-    .shopInfo_map
-      = render partial: 'shared/map' , locals: {map: @map,mapedit:false}
-
-
-
+.container.mt-5.mb-5
+  .row
+    .col-md-2
+    .col-md-8
+      %h3
+        = @project.title
+      %h5.text-muted.mb-4
+        = @project.shop_info.shop_name
+      .text-center.mb-4.view.overlay.hm-white-slight
+        = set_image(@project.image,"img-fluid margin-0-auto z-depth-1","shop_image")
+        .mask.waves-effect.waves-light
+      .text-justify
+        %p
+          = @project.content
+      .text-center.mb-4
+        = render partial: '/contacts/form' , locals: {project: @project, contact: @contact}
+      .text-justify.mb-4
+        %p
+          = @project.shop_info.shop_name
+        %p
+          = @project.shop_info.address
+        %p
+          = @project.shop_info.phone_number
+      #map-container.z-depth-1
+        = render partial: 'shared/map' , locals: {map: @map,mapedit:false}
+    .col-md-2

@@ -20,15 +20,13 @@
             %span.navbar-toggler-icon
           .collapse.navbar-collapse#navbarSupportedContent
             -if user_signed_in?
-              %ul.navbar-nav.ml-auto
-                %li.nav-item
-                  = link_to mypage_index_path, class: "nav-link" do
-                    %i.fa.fa-user{"aria-hidden" => "true"}
-                    =t('header_mypage')
+              = link_to mypage_index_path, class: "nav-link" do
+                %i.fa.fa-user{"aria-hidden" => "true"}
+                =t('header_mypage')
             -else
               %ul.navbar-nav.ml-auto
                 %li.nav-item
-                  = link_to t('login'), new_user_session_path, class: "nav-link"
+                  = link_to t('login'), "#", class: "nav-link", "data-toggle" => "modal", "data-target" => "#modalLogin"
                 %li.nav-item
                   = link_to t('signin'), new_user_registration_path, class: "nav-link"
     = render 'shared/flash'
@@ -53,8 +51,28 @@
         .col-md-3
           %h4.title 見出し
           %p テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-    .footer-copyright
-      .container
-        %p © 2018 Copyright: <a href="#"> サイト名 </a>
+  .footer-copyright
+    .container
+      %p © 2018 Copyright: <a href="#"> サイト名 </a>
+  .modal.fade#modalLogin{"tabindex" => "-1", "row" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
+    .modal-dialog.cascading-modal{"role" => "document"}
+      .modal-content
+        .modal-header.light-blue.darken-3.white-text
+          %h4.title= t '.title'
+          %button.close.waves-effect.waves-light{"type" => "button", "data-dismiss" => "modal", "aria-label" => "Close"}
+            %span{"aria-hidden" => "true"} &times;
+        .modal-body
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .md-form.form-sm
+              %i.fa.fa-envelope.prefix
+              = f.label :email
+              = f.email_field :email, autofocus: true, class:"form-control"
+            .md-form.form-sm
+              %i.fa.fa-lock.prefix
+              = f.label :password
+              = f.password_field :password, autocomplete: "off", class:"form-control"
+            .text-center.mt-2
+              = f.submit "#{t '.title'}", class: "btn btn-primary" do
+                %i.fa.fa-sign-in.ml-1
   %script{:src => "//unpkg.com/popper.js/dist/umd/popper.min.js"}
   %script{:src => "//cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/js/mdb.min.js"}

@@ -1,6 +1,13 @@
-.recruitment
+.row
   - projects.each do |pjt|
-    = link_to project_path(pjt) do
-      .recruitment_frame
-        = pjt.title
-        = pjt.content
+    .col-sm-6.col-lg-4.mb-4
+      = link_to project_path(pjt) do
+        .card.h-100
+          .card-img-cont.view.overlay.hm-white-slight
+            / = set_image(@pjt.image,"card-img-top","shop_image")
+            .mask
+          .card-body
+            %h4.card-title
+              = pjt.title
+            %p.card-text
+              = pjt.content

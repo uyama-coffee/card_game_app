@@ -1,19 +1,21 @@
-.container
-  %h2= t '.title'
-  - @contacts.each.with_index(1) do |contact, i|
-    %br/
-    .wrapper
-      .resume
-        %br/
-        = link_to contact.resume.full_name, shop_contact_path(contact)
-        %br/
-        - contact.resume.card_game_experiences.each do |cge|
-          = cge.card_game.title
-          %br/
-      .status
-        = select_tag :status,
-                      options_for_select({"未対応": "unsupported", "対応中": "in_progress", "採用済み": "adopted", "未採用": "not_adopted"}, selected: contact.status),
-                      class: "form-control form-lg form-block",
-                      id: "status_id_#{i}",
-                      onchange: "select_status(#{i});"
-      %input{name: "contact_id", type: "hidden", value: contact.id, id: "contact_id_#{i}" }
+.container.mt-5.mb-5
+  .row
+    .col-md-2
+    .col-md-8
+      %h3.mb-3= t('.title')
+      - @contacts.each.with_index(1) do |contact, i|
+        .row.mb-4.py-4.per-row
+          .col-md-8
+            %p
+              = link_to contact.resume.full_name, shop_contact_path(contact)
+            - contact.resume.card_game_experiences.each do |cge|
+              %p
+                = cge.card_game.title
+          .col-md-4
+            = select_tag :status,
+                        options_for_select({"未対応": "unsupported", "対応中": "in_progress", "採用済み": "adopted", "未採用": "not_adopted"}, selected: contact.status),
+                        class: "form-control form-lg form-block",
+                        id: "status_id_#{i}",
+                        onchange: "select_status(#{i});"
+            %input{name: "contact_id", type: "hidden", value: contact.id, id: "contact_id_#{i}" }
+    .col-md-2

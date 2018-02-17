@@ -10,7 +10,7 @@
           .col-md-3
           .col-md-6
             .text-center
-              = set_image(@resume.profile_image,'imageSize_resume z-depth-1 img-fluid')
+              = set_image(@resume.profile_image,'imageSize_resume')
           .col-md-3
         .text-center.mb-4
           = f.label :profile_image, class: "btn btn-primary " do
@@ -42,7 +42,7 @@
         .mb-4
           .custom-control.custom-radio.custom-control-inline
             = f.radio_button :contact_method, :email, class: 'custom-control-input', id: 'email-radio'
-            %label.custom-control-label{"for" => "email-radio"}
+            %label.custom-control-label{"for" => "email-radiox"}
               = t('.contact_method.email')
           .custom-control.custom-radio.custom-control-inline
             = f.radio_button :contact_method, :phone, class: 'custom-control-input', id: 'phone-radio'
@@ -52,39 +52,29 @@
         .text-justify.mb-4
           %h5
             = t('.card_game_experience.title')
-        = f.nested_fields_for :card_game_experiences, wrapper_tag: :tr do |q|
-          .row.card-exp
-            .col-md-3
-              %p
-                = t('.card_game_experience.card_game')
-              .select-wrapper.input-group.md-form.mdbselect
-                %span.caret ▼
-                %input.card-name.form-control.select-dropdown{"type" => "text", "readonly" => "true"}
-                  %ul.dropdown-content.select-dropdown#card-name-choices{"tabindex" => "7"}
-                    - CardGame.all.each do |b|
-                      %li{:value => (b.id)}
-                        %span.filtrable
-                          = b.title
-            .col-md-3.col-4
-              %p
-                = t('.card_game_experience.years')
-              .md-form.input-group.number-input
-                = q.number_field :experience_year,min:0, max: 99,:class => 'form-control'
-                .input-group-append
-                  %span.input-group-text
-                    = t('datetime.prompts.year')
-            .col-md-3.col-4
-              %p.hide-label.display-block.opacity-0 a
-              .md-form.input-group.number-input
-                = q.number_field :experience_month,min:0, max: 11,:class => 'form-control'
-                .input-group-append
-                  %span.input-group-text
-                    = t('datetime.prompts.months')
-            .col-md-3.col-4
-              %p.hide-label.display-block.opacity-0 a
-              = q.remove_nested_fields_link t('btn.delete'), class: 'btn btn-danger removeCareer', role: 'button'
-        .row.mb-4
+          %table.table.table-sm.table-hover.cardgameExpForm
+            %thead
+              %tr{class:'table-info'}
+                %th
+                  = t('.card_game_experience.card_game')
+                %th{:colspan => "5"}
+                  = t('.card_game_experience.years')
+            %tbody
+              = f.nested_fields_for :card_game_experiences, wrapper_tag: :tr do |q|
+                %td
+                  = q.collection_select(:card_game_id, CardGame.all, :id, :title,{prompt:t('prompt.select')}, {class: "form-control"}) do |b|
+                  = b.label{ b.text }
+                %td.cardgameExpForm_period
+                  = q.number_field :experience_year,min:0, max: 99,:class => 'form-control'
+                %td.cardgameExpForm_unit
+                  = t('datetime.prompts.year')
+                %td.cardgameExpForm_period
+                  = q.number_field :experience_month,min:0, max: 11,:class => 'form-control'
+                %td.cardgameExpForm_unit
+                  = t('datetime.prompts.months')
+                %td
+                  = q.remove_nested_fields_link t('btn.delete'), class: 'btn btn-danger removeCareer', role: 'button'
           = f.add_nested_fields_link :card_game_experiences, t('btn.add_new_career'), class: 'btn btn-primary addCareer', role: 'button',onClick: 'is_AddCareer()'
-        .text-center.mb-4
+        .resume_footer
           = f.submit :class=>"btn btn-primary"
     .col-md-2

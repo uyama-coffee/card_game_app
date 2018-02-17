@@ -1,28 +1,53 @@
 = render 'shared/errors', object: @shop_project
 = form_for [:shop, @shop_project]  do |f|
-  .projectForm
-    .projectForm_imageUpload
-      .preview
-        = set_image(@shop_project.image)
-    .projectForm_uploadBtn
-      = f.label :image, class: "btn btn-primary " do
+  .md-form
+    .text-center
+      = set_image(@shop_project.image,'imageSize_resume z-depth-1 img-fluid')
+    .text-center
+      = f.label :image, class: "btn btn-primary position-relative" do
         %i.fa.fa-camera{"aria-hidden" => "true"}
           =t('btn.add_new_picture')
         = f.file_field :image,style: "display:none;"
         = f.hidden_field :image_cache
-    .projectForm_inputForm
-      .form-group
-        %label{:for => "title"}
-          = t('.form_title')
-        = f.text_field :title, class: 'form-control projectForm_inputForm-text',id:'title'
-      .form-group
-        %label{:for => "content"}
-          = t('.form_content')
-        = f.text_area :content, class: 'form-control projectForm_inputForm-textarea',id:'content', rows: "5"
-    .projectForm_selectGames
-      %p
-        = t('.form_games')
-      = f.collection_check_boxes(:card_game_ids, CardGame.all, :id, :title) do |b|
-        = b.label{ b.check_box + b.text }
-    .projectForm_buttons
-      = f.submit class: 'btn btn-primary'
+  .md-form
+    %label{:for => "title"}
+      = t('.form_title')
+    = f.text_field :title, class: 'form-control',id:'title'
+  .md-form
+    %label{:for => "content"}
+      = t('.form_content')
+    = f.text_area :content, class: 'form-control md-textarea', id: 'content', type: "text", rows: "5"
+  %p= t('.form_games')
+  - CardGame.all.each do |b|
+    .custom-control.custom-checkbox
+      = f.check_box :card_game_ids, :class => 'custom-control-input', :id => 'game(b.id)'
+      %label.custom-control-label{:for => "game#{b.id}"}
+        = b.title
+  .text-center
+    = f.submit class: "btn btn-primary"
+  / .projectForm
+  /   .projectForm_imageUpload
+  /     .preview
+  /       = set_image(@shop_project.image)
+  /   .projectForm_uploadBtn
+  /     = f.label :image, class: "btn btn-primary " do
+  /       %i.fa.fa-camera{"aria-hidden" => "true"}
+  /         =t('btn.add_new_picture')
+  /       = f.file_field :image,style: "display:none;"
+  /       = f.hidden_field :image_cache
+  /   .projectForm_inputForm
+  /     .form-group
+  /       %label{:for => "title"}
+  /         = t('.form_title')
+  /       = f.text_field :title, class: 'form-control projectForm_inputForm-text',id:'title'
+  /     .form-group
+  /       %label{:for => "content"}
+  /         = t('.form_content')
+  /       = f.text_area :content, class: 'form-control projectForm_inputForm-textarea',id:'content', rows: "5"
+  /   .projectForm_selectGames
+  /     %p
+  /       = t('.form_games')
+  /     = f.collection_check_boxes(:card_game_ids, CardGame.all, :id, :title) do |b|
+  /       = b.label{ b.check_box + b.text }
+  /   .projectForm_buttons
+  /     = f.submit class: 'btn btn-primary'
