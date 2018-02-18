@@ -54,7 +54,7 @@
             = t('.card_game_experience.title')
         = f.nested_fields_for :card_game_experiences, wrapper_tag: :tr do |q|
           .row.card-exp
-            .col-md-3
+            .col-md-4
               %p
                 = t('.card_game_experience.card_game')
               .select-wrapper.input-group.md-form.mdbselect
@@ -80,7 +80,7 @@
                 .input-group-append
                   %span.input-group-text
                     = t('datetime.prompts.months')
-            .col-md-3.col-4
+            .col-md-2.col-4
               %p.hide-label.display-block.opacity-0 a
               = q.remove_nested_fields_link t('btn.delete'), class: 'btn btn-danger removeCareer', role: 'button'
         .row.mb-4

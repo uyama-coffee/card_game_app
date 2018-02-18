@@ -111,7 +111,12 @@
 	    position: absolute;
 	    right: 0;
 	    top: 16px;
-	    font-size: 10px;
+	    font-size: .8rem;
+	}
+	@media (min-width: 768px) and (max-width: 991px){
+		span.caret{
+			font-size: .65rem;
+		}
 	}
 	input.select-dropdown{
 		position: relative;
@@ -130,6 +135,7 @@
 	    padding: 0;
 	    display: block;
 	    padding-top: 6px;
+	    color: transparent;
 	}
 	.select-dropdown{
 		-webkit-user-select: none;
