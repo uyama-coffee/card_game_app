@@ -52,19 +52,19 @@
         .text-justify.mb-4
           %h5
             = t('.card_game_experience.title')
-        = f.nested_fields_for :card_game_experiences, wrapper_tag: :tr do |q|
+        = f.nested_fields_for :card_game_experiences, wrapper_tag: :div do |q|
           .row.card-exp
             .col-md-4
               %p
                 = t('.card_game_experience.card_game')
               .select-wrapper.input-group.md-form.mdbselect
                 %span.caret ▼
-                %input.card-name.form-control.select-dropdown{"type" => "text", "readonly" => "true"}
-                  %ul.dropdown-content.select-dropdown#card-name-choices{"tabindex" => "7"}
-                    - CardGame.all.each do |b|
-                      %li{:value => (b.id)}
-                        %span.filtrable
-                          = b.title
+                = q.text_field :card_game_id, :class => "card-name form-control select-dropdown", :type => "text", :readonly => "true"
+                %ul.dropdown-content.select-dropdown#card-name-choices{"tabindex" => "7"}
+                  - CardGame.all.each do |b|
+                    %li{:value => (b.id)}
+                      %span.filtrable
+                        = b.title
             .col-md-3.col-4
               %p
                 = t('.card_game_experience.years')
@@ -84,7 +84,7 @@
               %p.hide-label.display-block.opacity-0 a
               = q.remove_nested_fields_link t('btn.delete'), class: 'btn btn-danger removeCareer', role: 'button'
         .row.mb-4
-          = f.add_nested_fields_link :card_game_experiences, t('btn.add_new_career'), class: 'btn btn-primary addCareer', role: 'button',onClick: 'is_AddCareer()'
+          = f.add_nested_fields_link :card_game_experiences, t('btn.add_new_career'), class: 'btn btn-primary addCareer', role: 'button'
         .text-center.mb-4
           = f.submit :class=>"btn btn-primary"
     .col-md-2
