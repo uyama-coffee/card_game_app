@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
   def check_resume_exist
     redirect_to new_resume_path unless current_user.resume?
   end
+
+  def shops_controller?
+    !devise_controller? and request.path =~ /^\/shops/
+  end
+  helper_method :shops_controller?
 end

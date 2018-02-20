@@ -22,4 +22,16 @@ module ApplicationHelper
  def devise_mapping
    @devise_mapping ||= Devise.mappings[:shop]
  end
+
+ def resource_name_u
+    :user
+  end
+
+  def resource_u
+    @resource_u ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
 end
