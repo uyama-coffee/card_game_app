@@ -13,7 +13,19 @@ $(document).ready(function(){
     is_AddCareer();
   });
   displayNameOfGame();
+  inputFileImg();
 });
+  function inputFileImg(){
+    $("input[type='file']").on('change', function(){
+      if(this.files && this.files[0]){
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#resumeid').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(this.files[0]);
+      }
+    });
+  }
   function checkContactMethod(){
     if($('input[checked="checked"]').val() == "phone"){
       $('.input_contact').show();

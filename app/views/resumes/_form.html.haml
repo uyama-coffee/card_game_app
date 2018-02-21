@@ -10,7 +10,7 @@
           .col-md-3
           .col-md-6
             .text-center
-              = set_image(@resume.profile_image,'imageSize_resume z-depth-1 img-fluid')
+              = image_tag @resume.profile_image, class: 'imageSize_resume z-depth-1 img-fluid', id: 'resumeid'
           .col-md-3
         .text-center.mb-4
           = f.label :profile_image, class: "btn btn-primary " do

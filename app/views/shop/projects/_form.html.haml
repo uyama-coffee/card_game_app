@@ -2,7 +2,7 @@
 = form_for [:shop, @shop_project]  do |f|
   .md-form
     .text-center
-      = set_image(@shop_project.image,'imageSize_resume z-depth-1 img-fluid')
+      = image_tag @shop_project.image, class: 'imageSize_resume z-depth-1 img-fluid', id: 'projectID'
     .text-center
       = f.label :image, class: "btn btn-primary position-relative" do
         %i.fa.fa-camera{"aria-hidden" => "true"}
