@@ -1,38 +1,71 @@
-%div.container
-  %div.col-md-6.col-sm-6
-    %h2= t '.title'
-    - if resource.errors.any?
-      %div#error_explanation.alert.alert-danger
-        %h2= resource.errors.count.to_s + "件のメッセージがあります。"
-        %ul
-        - resource.errors.full_messages.each do |msg|
-          %li= msg
-    /= devise_error_messages!
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-      .field
-        = f.label :email
-        %br/
-        = f.email_field :email, autofocus: true, class: "form-control"
-        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-          %div
-          Currently waiting confirmation for: #{resource.unconfirmed_email}
-      .field
-        = f.label :password
-        - if @minimum_password_length
-          %em
-          (#{@minimum_password_length}文字以上:
-        %i #{t ".leave_blank_if_you_don't_want_to_change_it"})
-        %br/
-        = f.password_field :password, autocomplete: "off", class: "form-control"
-      .field
-        = f.label :password_confirmation
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
-      .field
-        = f.label :current_password
-        %i (#{t '.we_need_your_current_password_to_confirm_your_changes'})
-        %br/
-        = f.password_field :current_password, autocomplete: "off", class: "form-control"
-      .actions
-        %br/
-        = f.submit "#{t '.title'}", class: "btn btn-outline-primary btn-block btn-lg"
+.container.mt-5.mb-5
+  .row
+    .col-md-2
+    .col-md-8
+      %h4.mb3= t '.title'
+      - if resource.errors.any?
+        %div#error_explanation.alert.alert-danger
+          %h2= resource.errors.count.to_s + "件のメッセージがあります。"
+          %ul
+          - resource.errors.full_messages.each do |msg|
+            %li= msg
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        .md-form
+          = f.label :email
+          = f.email_field :email, autofocus: true, class: "form-control"
+          - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+            %div
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        .md-form
+          = f.label :password
+          - if @minimum_password_length
+            = f.label :password, "パスワード(#{@minimum_password_length}文字以上: #{t ".leave_blank_if_you_don't_want_to_change_it"})"
+          = f.password_field :password, autocomplete: "off", class: "form-control"
+        .md-form
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
+        .md-form
+          = f.label :current_password, "現在のパスワード(#{t '.we_need_your_current_password_to_confirm_your_changes'})"
+          = f.password_field :current_password, autocomplete: "off", class: "form-control"
+        .text-center
+          = f.submit "#{t '.title'}", class: "btn btn-primary btn-block btn-lg"
+    .col-md-2
+
+/ %div.container
+/   %div.col-md-6.col-sm-6
+/     %h2= t '.title'
+/     - if resource.errors.any?
+/       %div#error_explanation.alert.alert-danger
+/         %h2= resource.errors.count.to_s + "件のメッセージがあります。"
+/         %ul
+/         - resource.errors.full_messages.each do |msg|
+/           %li= msg
+/     /= devise_error_messages!
+/     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+/       .field
+/         = f.label :email
+/         %br/
+/         = f.email_field :email, autofocus: true, class: "form-control"
+/         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+/           %div
+/           Currently waiting confirmation for: #{resource.unconfirmed_email}
+/       .field
+/         = f.label :password
+/         - if @minimum_password_length
+/           %em
+/           (#{@minimum_password_length}文字以上:
+/         %i #{t ".leave_blank_if_you_don't_want_to_change_it"})
+/         %br/
+/         = f.password_field :password, autocomplete: "off", class: "form-control"
+/       .field
+/         = f.label :password_confirmation
+/         %br/
+/         = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
+/       .field
+/         = f.label :current_password
+/         %i (#{t '.we_need_your_current_password_to_confirm_your_changes'})
+/         %br/
+/         = f.password_field :current_password, autocomplete: "off", class: "form-control"
+/       .actions
+/         %br/
+/         = f.submit "#{t '.title'}", class: "btn btn-outline-primary btn-block btn-lg"

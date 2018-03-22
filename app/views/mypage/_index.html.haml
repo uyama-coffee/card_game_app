@@ -1,0 +1,14 @@
+.modal.fade#modalMypage{"tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
+  .modal-dialog.cascading-modal{"role" => "document"}
+    .modal-content
+      .modal-header.light-blue.darken-3.white-text
+        %h4.title
+          %i.fa.fa-id-badge
+          #{t '.title'}
+        %button.close.waves-effect.waves-light{"type" => "button", "data-dismiss" => "modal", "aria-label" => "Close"}
+          %span{"aria-hidden" => "true"}
+            &times;
+      .modal-body
+        = link_to "#{t '.myresume'}", new_or_edit_resume_path, class: "btn btn-primary btn-block btn-lg"
+        = link_to "#{t '.account_setting'}", edit_user_registration_path, class: "btn btn-primary btn-block btn-lg"
+        = link_to "#{t '.logout'}", destroy_user_session_path, class: "btn btn-primary btn-block btn-lg"
