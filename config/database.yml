@@ -87,3 +87,5 @@ production:
 staging:
   <<: *default
   database: my_card_game_app_staging
+  password: <%= ENV['MY_PRESET_DATABASE_PASSWORD'] %>
+
