@@ -1,35 +1,37 @@
-%div.container
-  %h2= t '.title'
-  %div.field
-    = t '.name'
-    = ':' + @resume.full_name
-    %br/
-  %div.field
-    = t '.phonetic'
-    = ':' + @resume.full_name_kana
-    %br/
-  %div.field
-  - if @resume.contact_method.email?
-    = t '.email'
-    = ':' + @resume.user.email
-  - else
-    = t '.phone_number'
-    = ':' + @resume.phone_number
-    %br/
-  %div.field
-    = t '.card_game_experience'
-    %br/
-    - @card_game_experiences.each do |cge|
-      %div.space
-        = t '.card_game_name'
-        = ':' + cge.card_game.title
-        %br/
-      %div.field
-        = t '.card_game_experiences'
-        = ':' + cge.experience_year.to_s + t('datetime.prompts.year')
-        = cge.experience_month.to_s + t('datetime.prompts.months')
-        %br/
-  - if @resume.contact_method.email?
-    = link_to t('.contact_mail'), "mailto:#{@resume.user.email}", class: "btn btn-info"
-  - else
-    = link_to t('.contact_phone'), "tel:#{@resume.phone_number}", class: "btn btn-info"
+.container.mt-5.mb-5
+  .row
+    .col-md-2
+    .col-md-8
+      / %h3= t '.title'
+      .card
+        .card-body.contacts-card-body
+          %h3.card-title.mb-4= t '.title'
+          %p
+            = t '.name'
+            = ': ' + @resume.full_name
+          %p
+            = t '.phonetic'
+            = ': ' + @resume.full_name_kana
+          %p.mb-4
+            - if @resume.contact_method.email?
+              = t '.email'
+              = ': ' + @resume.user.email
+            - else
+              = t '.phone_number'
+              = ': ' + @resume.phone_number
+          %h5.card-title.font-weight-bold.mb-4= t '.card_game_experience'
+          - @card_game_experiences.each do |cge|
+            .mb-3
+              %p
+                = t '.card_game_name'
+                = ': ' + cge.card_game.title
+              %p
+                = t '.card_game_experiences'
+                = ': ' + cge.experience_year.to_s + t('datetime.prompts.year')
+                = cge.experience_month.to_s + t('datetime.prompts.months')
+          .text-center
+            - if @resume.contact_method.email?
+              = link_to t('.contact_mail'), "mailto:#{@resume.user.email}", class: "btn btn-info"
+            - else
+              = link_to t('.contact_phone'), "tel:#{@resume.phone_number}", class: "btn btn-info"
+    .col-md-2
