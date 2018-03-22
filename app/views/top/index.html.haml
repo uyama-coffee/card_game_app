@@ -1,10 +1,12 @@
-.d-flex.flex-row-reverse.topPage_btn-adopt
+.d-flex.flex-row-reverse.container-fluid
   - if current_shop
-    = link_to t('links.to_shop_index'), shop_top_index_path, class: "btn btn-outline-primary"
+    = link_to t('links.to_shop_index'), shop_top_index_path, class: "btn btn-outline-blue rounded"
   - else
-    = link_to t('links.to_shop_login'), new_shop_session_path, class: "btn btn-outline-primary"
-
-.d-flex.align-items-end.justify-content-center.searchForm
-  = render 'shared/search_form'
-%p 新着募集
-= render 'shared/projects_list', projects: @projects
+    = link_to t('links.to_shop_login'), new_shop_session_path, class: "btn btn-outline-blue rounded"
+.container.mt-5
+  .d-flex.align-items-end.justify-content-center.searchForm
+    = render 'shared/search_form'
+  %section.mt-3
+    .container
+      %h3.mb-4 新着募集
+      = render 'shared/projects_list', projects: @projects

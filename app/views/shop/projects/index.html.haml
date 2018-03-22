@@ -1,19 +1,18 @@
-.projectList
-  .projectList_title
-    %h2
-      = t('.title')
-  .projectList_btn
-    = link_to t('signin'), new_shop_project_path, class: "btn btn-outline-primary projectList_addNewBtn"
-  -@shop_projects.each do |pjt|
-    .projectList_project
-      .projectList_projectImage
-        = set_image(pjt.image,"imageSize_shopImage-list","shop_image")
-      .projectList_projectContent
-        .projectList_projectTitle
-          = pjt.title
-        .projectList_projectDetail
-          = pjt.content
-      .projectList_editBtn
-        - unless pjt.shop_info.blank?
-          = link_to t('btn.edit'), edit_shop_project_path(pjt.id), class: "btn btn-outline-primary" if pjt.shop_info.shop_id == current_shop.id
-
+.container.mt-5.mb-5
+  .row
+    .col-md-1
+    .col-md-10
+      %h3.mb-3= t('.title')
+      .text-center.mb-5
+        = link_to t('signin'), new_shop_project_path, class: "btn btn-primary projectList_addNewBtn"
+      -@shop_projects.each do |pjt|
+        .row.mb-4.per-row.py-4
+          .col-3
+            = set_image(pjt.image,"z-depth-1 img-fluid rounded","shop_image")
+          .col-6
+            %h5= pjt.title
+            %p= pjt.content
+          .col-3
+            - unless pjt.shop_info.blank?
+              = link_to t('btn.edit'), edit_shop_project_path(pjt.id), class: "btn btn-info" if pjt.shop_info.shop_id == current_shop.id
+    .col-md-1

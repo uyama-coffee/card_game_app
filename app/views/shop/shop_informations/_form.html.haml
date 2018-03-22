@@ -1,27 +1,22 @@
 = render 'shared/errors', object: @shop_information
 = form_for [:shop, @shop_information] do |f|
-  .shopInfo
-    .shopInfo_name
-      .form-group
-        %label{:for => "shop_name"}
-          = t('.shop_name')
-        = f.text_field :shop_name, class: 'form-control',id:'shop_name'
-    .shopInfo_address
-      .form-group
-        %label{:for => "address"}
-          = t('.address')
-        = f.text_field :address, class: 'form-control',id:'address'
-    .shopInfo_map
-      = render partial: 'shared/map' , locals: {map:@map,mapedit:@is_mapedit}
-    .shopInfo_description
-      .form-group
-      %label{:for => "description"}
-        = t('.description')
-      = f.text_area :description, class: 'form-control',id:'description'  
-    .shopInfo_phone
-      .form-group
-        %label{:for => "phone_number"}
-          = t('.phone_number')
-        = f.text_field :phone_number, class: 'form-control',id:'phone_number'    
-    .shopInfo_buttons
-      = f.submit class: 'btn btn-primary'
+  .md-form
+    %label{:for => "shop_name"}
+      = t('.shop_name')
+    = f.text_field :shop_name, class: 'form-control',id:'shop_name'
+  .md-form
+    %label{:for => "address"}
+      = t('.address')
+    = f.text_field :address, class: 'form-control', id: 'address'
+  #map-container.z-depth-1.mb-4
+    = render partial: 'shared/map' , locals: {map: @map,mapedit:false}
+  .md-form
+    %label{:for => "description"}
+      = t('t.description')
+    = f.text_area :description, class: 'form-control md-textarea', id: 'description', type: "text"
+  .md-form
+    %label{:for => "phone_number"}
+      = t('.phone_number')
+    = f.text_field :phone_number, class: 'form-control', id: 'phone_number'
+  .text-center
+    = f.submit class: 'btn btn-primary'

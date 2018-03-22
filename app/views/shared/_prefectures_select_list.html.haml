@@ -1,6 +1,5 @@
-%select#prefectures.form-control{:name => "q[shop_info_address_cont_all][]"}
-  %option{:value => ""} 
-    = t('prompt.select')
+%select#prefectures.form-control.pointer{:name => "q[shop_info_address_cont_all][]"}
+  %option{:value => "", :disabled => true, :selected => true}
   %optgroup{:label => "北海道・東北"}
     %option{:value => "北海道"} 北海道
     %option{:value => "青森県"} 青森県
